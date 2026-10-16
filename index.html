@@ -1,0 +1,1429 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+
+<title>Ngora Studio</title>
+<meta property="og:title" content="Ngora Studio · Une image digitale qui attire et qui fait vendre">
+<meta property="og:description" content="Vidéos, montage, gestion de réseaux, vignettes, branding et sites web. 5M+ vues et 15K+ abonnés générés pour mes clients.">
+<meta property="og:image" content="assets/og.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0E0F10">
+<link rel="icon" href="assets/logo-mark.png">
+<meta name="description" content="Ngora Studio : vidéos, montage, gestion de réseaux, vignettes, branding et sites web pour les marques. Preuves à l'appui.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme:dark;
+    --bg:#0E0F10;
+    --panel:#16181A;
+    --cream:#EDEBE6;
+    --teal:#B4B7BA;        /* gris nardo clair (accent) */
+    --teal-dim:#4A4D50;    /* gris nardo foncé */
+    --teal-bright:#CDD0D2; /* gris nardo lumineux (texte sur fond noir) */
+    --nardo:#7C7F82;
+    /* chrome plus réaliste : reflets clairs / zones sombres comme une vraie pièce métal */
+    --metal:linear-gradient(135deg,#F4F5F6 0%,#BFC2C5 20%,#7E8185 44%,#E3E5E7 58%,#9A9DA0 78%,#C9CCCE 100%);
+    /* accent "étrier" : gris Nardo + orange, le duo des voitures de sport */
+    --accent:#FF6B2C;
+    --accent-soft:rgba(255,107,44,.14);
+    --accent-glow:rgba(255,107,44,.35);
+    --amber:var(--accent);
+    --muted:#8C8F92;
+    --line:rgba(237,235,230,.11);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Jost',system-ui,sans-serif;font-weight:300;background:var(--bg);color:var(--cream);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  .display{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.01em;line-height:.95}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 26px}
+  ::selection{background:var(--teal);color:var(--bg)}
+  img,video{display:block;max-width:100%}
+  .track{letter-spacing:.26em;text-transform:uppercase}
+
+  /* animated aurora bg */
+  .aurora{position:fixed;inset:0;z-index:-2;background:var(--bg);overflow:hidden}
+  .aurora::before{content:"";position:absolute;inset:-10%;background:url(assets/texture-dark.jpg) center/cover;opacity:.22;animation:texdrift 30s ease-in-out infinite alternate}
+  
+  .aurora::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 45% at 85% 8%,rgba(255,107,44,.13),transparent 70%),radial-gradient(ellipse 50% 40% at 5% 60%,rgba(120,140,170,.08),transparent 70%),radial-gradient(ellipse at 50% 0%,transparent 0%,var(--bg) 78%)}
+  
+  
+
+  @keyframes texpan{from{background-position:0% 50%}to{background-position:100% 50%}}
+  @keyframes texdrift{from{transform:translateX(-3%) scale(1.05)}to{transform:translateX(3%) scale(1.12)}}
+  .scroll-prog{position:fixed;top:0;left:0;height:3px;width:0;background:var(--metal);z-index:200}
+
+  /* nav */
+  nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:80;background:rgba(13,15,14,.72);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand img{height:28px;transition:transform .5s}
+  .brand:hover img{transform:rotate(-8deg) scale(1.1)}
+  .brand b{font-family:'Anton';font-size:1.2rem;text-transform:uppercase;letter-spacing:.04em}
+  .brand b span{color:var(--teal)}
+  .nav-links{display:flex;gap:30px;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase}
+  .nav-links a{color:var(--muted);position:relative;transition:color .3s}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:-5px;width:0;height:1px;background:var(--teal);transition:width .3s}
+  .nav-links a:hover{color:var(--cream)}.nav-links a:hover::after{width:100%}
+  .btn{display:inline-flex;align-items:center;gap:9px;background:var(--metal);color:#0E0F10;padding:13px 24px;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;border:none;cursor:pointer;transition:transform .3s,background .3s,box-shadow .3s;border-radius:8px}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(180,183,186,.25);filter:brightness(1.08)}
+  .btn.small{padding:11px 20px}
+  .btn.ghost{background:transparent;color:var(--cream);border:1px solid var(--line)}
+  .btn.ghost:hover{border-color:var(--cream);box-shadow:none}
+  .btn.amber,.btn.hot{background:var(--accent);color:#170A04;box-shadow:0 10px 28px rgba(255,107,44,.28)}
+  .btn.hot:hover{box-shadow:0 14px 36px var(--accent-glow)}
+  .btn .arr{transition:transform .3s}
+  .btn:hover .arr{transform:translateX(4px)}
+  .acc{color:var(--accent)}
+  :focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+
+  /* hero */
+  .hero{padding:70px 0 60px;perspective:1400px}
+  .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:44px;align-items:center}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);margin-bottom:26px;opacity:0;animation:fade .8s .1s forwards}
+  .eyebrow .pulse{width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 0 rgba(180,183,186,.6);animation:ping 2s infinite}
+  @keyframes ping{70%,100%{box-shadow:0 0 0 9px rgba(180,183,186,0)}}
+  .hero h1{font-size:clamp(3rem,7.6vw,5.8rem);margin-bottom:26px}
+  .hero h1 .l{display:block;overflow:hidden}
+  .hero h1 .l>span{display:inline-block;transform:translateY(110%);animation:slideUp .9s cubic-bezier(.16,1,.3,1) forwards}
+  .hero h1 .l:nth-child(2)>span{animation-delay:.12s}
+  .hero h1 .l:nth-child(3)>span{animation-delay:.24s}
+  .hero h1 .grad{background:linear-gradient(rgba(255,255,255,.34),rgba(255,255,255,.34)),url(assets/texture.jpg) center/cover;-webkit-background-clip:text;background-clip:text;color:transparent;animation:texpan 14s ease-in-out infinite alternate}
+  @keyframes slideUp{to{transform:translateY(0)}}
+  @keyframes fade{to{opacity:1}}
+  .hero p{font-size:1.1rem;color:var(--muted);max-width:46ch;margin-bottom:32px;opacity:0;animation:fade .9s .55s forwards}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:fade .9s .7s forwards}
+  .hero-stats{margin-top:40px;display:flex;gap:28px;flex-wrap:wrap;opacity:0;animation:fade .9s .85s forwards}
+  .hstat b{font-family:'Anton';font-size:1.8rem;display:block;line-height:1}
+  .hstat span{font-size:.78rem;color:var(--muted)}
+
+  /* hero 3D phone */
+  .hero-3d{display:flex;justify-content:center;transform-style:preserve-3d}
+  .phone3d{width:268px;aspect-ratio:9/18.5;border-radius:36px;background:#000;border:7px solid #1E2022;position:relative;overflow:hidden;box-shadow:0 50px 90px rgba(0,0,0,.5),0 0 0 1px rgba(180,183,186,.2) inset;transform-style:preserve-3d;transition:transform .1s linear}
+  .phone3d video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .phone3d .notch{position:absolute;top:12px;left:50%;transform:translateX(-50%);width:88px;height:22px;background:#000;border-radius:99px;z-index:4}
+  .fb{position:absolute;background:var(--panel);border:1px solid var(--line);padding:13px 18px;border-radius:14px;z-index:10;transform:translateZ(60px);box-shadow:0 20px 44px rgba(0,0,0,.4)}
+  .fb b{font-family:'Anton';font-size:1.4rem;display:block;line-height:1;color:var(--teal)}
+  .fb span{font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .fb.f1{top:30px;right:-26px;animation:bob 6s ease-in-out infinite}
+  .fb.f2{bottom:46px;left:-24px;animation:bob 7s 1s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translateZ(60px) translateY(0)}50%{transform:translateZ(60px) translateY(-12px)}}
+
+  /* marquee */
+  .mq-band{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:16px 0;background:var(--panel)}
+  .mq{display:inline-flex;white-space:nowrap;animation:scroll 28s linear infinite}
+  .mq span{display:inline-flex;align-items:center;font-family:'Anton';text-transform:uppercase;font-size:1.1rem;letter-spacing:.03em}
+  .mq span::after{content:"◆";margin:0 28px;color:var(--teal);font-size:.6rem}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+
+  /* trust clients */
+  .trust-band{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:64px 0 54px;background:rgba(22,24,26,.72);backdrop-filter:blur(6px)}
+  .trust-title{text-align:center;font-family:'Anton';font-size:clamp(1.5rem,3vw,2.1rem);text-transform:uppercase;letter-spacing:.02em;margin-bottom:8px}
+  .trust-sub{text-align:center;color:var(--muted);font-size:.95rem;margin-bottom:40px}
+  .feat-clients{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:46px}
+  .fc{display:flex;align-items:center;gap:18px;padding:20px 22px;border:1px solid var(--line);border-radius:18px;background:var(--panel);transition:border-color .3s,transform .3s}
+  .fc:hover{border-color:var(--teal);transform:translateY(-3px)}
+  .fc .lg{width:68px;height:68px;border-radius:50%;flex:0 0 auto;padding:3px;background:var(--metal)}
+  .fc .lg img{width:100%;height:100%;border-radius:50%;display:block;object-fit:cover;background:#000}
+  .fc .nm{font-weight:500;font-size:1.02rem;line-height:1.2}
+  .fc .rs{font-family:'Anton';font-size:1.35rem;line-height:1.1;margin-top:4px}
+  .fc .rs small{font-family:'Jost';font-size:.75rem;color:var(--muted);font-weight:300;margin-left:4px}
+  .logo-strip{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+  .logo-track{display:inline-flex;align-items:center;gap:34px;padding:6px 0;animation:logoscroll 40s linear infinite}
+  .logo-strip:hover .logo-track{animation-play-state:paused}
+  .logo-track .lg{width:84px;height:84px;border-radius:50%;flex:0 0 auto;padding:2px;background:linear-gradient(135deg,rgba(237,235,230,.28),rgba(237,235,230,.06))}
+  .logo-track .lg img{width:100%;height:100%;border-radius:50%;display:block;object-fit:cover;filter:grayscale(1) contrast(1.05) brightness(.9);transition:filter .4s,transform .4s}
+  .logo-track .lg:hover img{filter:none;transform:scale(1.06)}
+  @keyframes logoscroll{to{transform:translateX(-50%)}}
+  @media (max-width:940px){.feat-clients{grid-template-columns:1fr}}
+
+  section{padding:88px 0;position:relative}
+  .head{max-width:660px;margin-bottom:50px}
+  .head .kick{font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;color:var(--teal);margin-bottom:14px}
+  .head h2{font-size:clamp(2.1rem,5vw,3.5rem)}
+  .head h2 .grad{background:linear-gradient(rgba(255,255,255,.34),rgba(255,255,255,.34)),url(assets/texture.jpg) center/cover;-webkit-background-clip:text;background-clip:text;color:transparent;animation:texpan 14s ease-in-out infinite alternate}
+  .head p{margin-top:16px;color:var(--muted);font-size:1.04rem}
+
+  /* services tilt */
+  .svc{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;perspective:1000px}
+  .s{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:28px 24px;transform-style:preserve-3d;transition:transform .18s ease,border-color .3s;will-change:transform}
+  .s:hover{border-color:var(--teal)}
+  .s .ic{width:44px;height:44px;border-radius:11px;background:rgba(180,183,186,.14);color:var(--teal);display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:16px;transform:translateZ(30px)}
+  .s h3{font-size:1.1rem;font-weight:500;margin-bottom:8px;transform:translateZ(20px)}
+  .s p{color:var(--muted);font-size:.9rem;transform:translateZ(12px)}
+  .s.span2{grid-column:span 2}
+
+
+  .fmt-group{margin-bottom:46px}
+  .fmt-head{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+  .fmt-head h3{font-family:'Anton';font-size:1.45rem;text-transform:uppercase;letter-spacing:.02em}
+  .fmt-head span{color:var(--muted);font-size:.9rem}
+  /* vignettes vidéo : image fixe, lecture au survol / toucher */
+  .gi,.cv{cursor:pointer}
+  .gi::before,.cv::before{content:"";position:absolute;z-index:3;left:50%;top:50%;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;background:rgba(14,15,16,.55) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 7l9 5-9 5z' fill='%23EDEBE6'/%3E%3C/svg%3E") center/22px no-repeat;border:1px solid rgba(237,235,230,.35);backdrop-filter:blur(4px);transition:opacity .3s,transform .3s;pointer-events:none}
+  .gi:has(img)::before{display:none}
+  .gi.playing::before,.cv.playing::before{opacity:0;transform:scale(.8)}
+  /* bandes horizontales (glisser) */
+  .strip-wrap{position:relative}
+  .strip{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px;scrollbar-width:thin;scrollbar-color:var(--teal-dim) transparent}
+  .strip>*{flex:0 0 clamp(150px,19%,220px);scroll-snap-align:start}
+  .strip-nav{display:flex;gap:10px;justify-content:flex-end;margin-top:14px}
+  .gi.land{aspect-ratio:16/9}
+  .grid-land{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:14px}
+  .grid-land .more-tile{aspect-ratio:16/9}
+  @media (max-width:700px){
+    .grid-auto{display:flex!important;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding-bottom:10px}
+    .pane:not(.on){display:none!important}
+    .grid-auto>*{flex:0 0 40%;scroll-snap-align:start}
+    .strip>*{flex-basis:40%}
+    .grid-land{display:flex;overflow-x:auto;scroll-snap-type:x mandatory}
+    .grid-land>*{flex:0 0 82%;scroll-snap-align:start}
+    .strip-nav{display:none}
+  }
+  /* "+" reveal tiles */
+  .is-hidden{display:none!important}
+  .more-tile{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;cursor:pointer;border:1px dashed rgba(237,235,230,.28);border-radius:14px;background:rgba(237,235,230,.03);aspect-ratio:9/16;transition:border-color .3s,background .3s,transform .3s;color:var(--cream);font-family:'Jost';padding:0}
+  .more-tile:hover{border-color:var(--teal);background:rgba(237,235,230,.07);transform:translateY(-4px)}
+  .more-tile .n{font-family:'Anton';font-size:2.6rem;line-height:1;background:linear-gradient(rgba(255,255,255,.34),rgba(255,255,255,.34)),url(assets/texture.jpg) center/cover;-webkit-background-clip:text;background-clip:text;color:transparent}
+  .more-tile .l{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .case-vids .more-tile{flex:0 0 150px;border-radius:12px}
+  .reveal-in{animation:revealIn .5s ease both}
+  @keyframes revealIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  /* transformation (avant / après) */
+  .for-who{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:44px}
+  .fw{border:1px solid var(--line);border-radius:14px;padding:18px 20px;background:var(--panel);display:flex;flex-direction:column;gap:6px;min-width:0}
+  .fw b{font-weight:500;font-size:1rem}
+  .fw span{color:var(--muted);font-size:.88rem}
+  .transfo-ba{grid-template-columns:minmax(0,320px) minmax(0,1fr);gap:56px}
+  .ba-client{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+  .ba-text h3{font-family:'Anton',Impact,sans-serif;font-weight:400;font-size:2rem;text-transform:uppercase;margin-bottom:12px;text-wrap:balance}
+  .chain{list-style:none;counter-reset:c;display:flex;flex-direction:column;gap:0;margin-top:22px;border-left:1px solid var(--line)}
+  .chain li{counter-increment:c;position:relative;padding:0 0 18px 26px;display:flex;flex-direction:column;gap:3px}
+  .chain li::before{content:counter(c);position:absolute;left:-12px;top:0;width:24px;height:24px;border-radius:50%;background:var(--metal);color:#0E0F10;font-size:.72rem;font-weight:600;display:flex;align-items:center;justify-content:center}
+  .chain li b{font-weight:500}
+  .chain li span{color:var(--muted);font-size:.9rem}
+  @media (max-width:940px){.for-who{grid-template-columns:1fr}.transfo-ba{grid-template-columns:1fr;gap:30px}}
+  /* client case study block */
+  .case{border:1px solid var(--line);border-radius:24px;overflow:hidden;margin-bottom:28px;background:var(--panel)}
+  .sub-t{padding:0 36px 12px;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .story{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin:22px 36px 4px;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .story:has(.st-step:nth-child(2):last-child){grid-template-columns:repeat(2,minmax(0,1fr))}
+  .st-step{padding:16px 18px;display:flex;flex-direction:column;gap:6px;min-width:0;background:rgba(237,235,230,.02)}
+  .st-step+.st-step{border-left:1px solid var(--line)}
+  .st-step:last-child{background:rgba(237,235,230,.05)}
+  .st-k{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .st-step p{font-size:.92rem;line-height:1.5;color:var(--cream)}
+  .st-step p b{font-weight:600}
+  @media (max-width:760px){.story{grid-template-columns:1fr!important;margin:20px 20px 4px}.st-step+.st-step{border-left:none;border-top:1px solid var(--line)}}
+  .case-text{padding:18px 36px 22px;color:var(--muted);max-width:70ch}
+  .case-head{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap;padding:36px 36px 0}
+  .case-id h3{font-family:'Anton';font-size:2rem;text-transform:uppercase;line-height:1}
+  .case-id .role{color:var(--muted);font-size:.9rem;margin-top:8px}
+  .case-badge{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;padding:8px 15px;border-radius:99px;white-space:nowrap}
+  .case-badge.phare{background:linear-gradient(rgba(255,255,255,.25),rgba(255,255,255,.25)),url(assets/texture.jpg) center/cover;color:#0E0F10}
+  .case-badge.result{background:transparent;color:var(--teal-bright);border:1px solid var(--teal)}
+  .case-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:28px 36px}
+  .case-kpi b{font-family:'Anton';font-size:clamp(1.8rem,3.2vw,2.5rem);line-height:1;color:var(--teal);display:block}
+  .case-kpi span{font-size:.76rem;color:var(--muted);margin-top:6px;display:block}
+  .case-kpi .up{color:#CDD0D2;font-size:.72rem;margin-top:4px;display:block}
+  .case-vids{display:flex;gap:14px;padding:0 36px 36px;overflow-x:auto;scrollbar-width:thin;scrollbar-color:var(--teal) transparent}
+  .case-vids::-webkit-scrollbar{height:6px}
+  .case-vids::-webkit-scrollbar-thumb{background:var(--teal-dim);border-radius:99px}
+  .case-vids .cv{flex:0 0 150px;aspect-ratio:9/16;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#000;position:relative}
+  .case-vids .cv video{width:100%;height:100%;object-fit:cover}
+  .case-vids .cv .views{position:absolute;top:8px;right:8px;background:rgba(0,0,0,.6);color:#fff;font-size:.64rem;font-weight:600;padding:3px 7px;border-radius:99px;z-index:2}
+  .case-dash{display:flex;align-items:center;gap:14px;padding:0 36px 30px;flex-wrap:wrap}
+  .case-dash .dl{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-right:6px;display:flex;align-items:center;gap:8px}
+  .case-dash .dl::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--teal)}
+  .case-dash .dash{width:150px;height:96px;border-radius:10px;overflow:hidden;border:1px solid var(--line);cursor:zoom-in;position:relative;transition:border-color .3s,transform .3s}
+  .case-dash .dash img{width:100%;height:100%;object-fit:cover;object-position:top;filter:grayscale(1) brightness(.85);transition:filter .4s}
+  .case-dash .dash:hover{border-color:var(--teal);transform:translateY(-2px)}
+  .case-dash .dash:hover img{filter:none}
+  .case-dash .dash span{position:absolute;left:0;right:0;bottom:0;padding:14px 8px 5px;font-size:.62rem;background:linear-gradient(transparent,rgba(0,0,0,.8));color:#fff}
+  .lightbox{position:fixed;inset:0;z-index:300;background:rgba(8,9,10,.88);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:30px;cursor:zoom-out}
+  .lightbox.on{display:flex}
+  .lightbox img{max-width:min(560px,92vw);max-height:86vh;border-radius:14px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+
+  /* 3D coverflow Tutoria */
+  .showreel-wrap{position:relative;height:540px;perspective:1600px;margin-top:10px}
+  .coverflow{position:absolute;inset:0;transform-style:preserve-3d;display:flex;align-items:center;justify-content:center}
+  .cf-item{position:absolute;width:258px;aspect-ratio:9/16;border-radius:22px;overflow:hidden;border:5px solid #1E2022;background:#000;box-shadow:0 30px 60px rgba(0,0,0,.5);transition:transform .7s cubic-bezier(.3,.8,.3,1),opacity .7s,filter .7s;cursor:pointer}
+  .cf-item video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(.35) brightness(.85);transition:filter .6s}
+  .cf-item.active video{filter:none}
+  .cf-grad{position:absolute;inset:0;background:linear-gradient(transparent 60%,rgba(0,0,0,.6));pointer-events:none;z-index:1}
+  .cf-cap{position:absolute;bottom:18px;left:18px;right:18px;z-index:2}
+  .cf-cap .t{font-family:'Anton';font-size:1rem;text-transform:uppercase;text-shadow:0 2px 8px rgba(0,0,0,.6)}
+  .cf-cap .st{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--teal)}
+  .cf-nav{display:flex;gap:14px;justify-content:center;margin-top:26px}
+  .cf-btn{width:50px;height:50px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--cream);cursor:pointer;font-size:1.1rem;transition:all .3s}
+  .cf-btn:hover{background:var(--teal);color:var(--bg);border-color:var(--teal);transform:scale(1.08)}
+  .cf-dots{display:flex;gap:8px;justify-content:center;margin-top:16px}
+  .cf-dot{width:8px;height:8px;border-radius:50%;background:var(--line);cursor:pointer;transition:all .3s}
+  .cf-dot.on{background:var(--teal);transform:scale(1.4)}
+
+  /* tutoria stat strip */
+  .tstats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:50px}
+  .ts{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:26px 22px;text-align:center}
+  .ts b{font-family:'Anton';font-size:2.2rem;display:block;line-height:1;color:var(--teal)}
+  .ts span{font-size:.78rem;color:var(--muted)}
+
+  /* gallery grids */
+  .grid-auto{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:14px}
+  .gi{border-radius:14px;overflow:hidden;background:#000;aspect-ratio:9/16;position:relative;border:1px solid var(--line);transition:transform .4s}
+  .gi:hover{transform:translateY(-6px) scale(1.02)}
+  .gi video,.gi img{width:100%;height:100%;object-fit:cover}
+  .gi .cap{position:absolute;bottom:0;left:0;right:0;padding:16px 12px 10px;background:linear-gradient(transparent,rgba(0,0,0,.75));z-index:2}
+  .gi .cap .t{font-family:'Anton';font-size:.82rem;text-transform:uppercase;line-height:1}
+  .gi .cap .st{font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--teal)}
+
+  .tabs{display:flex;gap:10px;margin-bottom:26px;flex-wrap:wrap}
+  .tab{padding:10px 18px;border-radius:9px;border:1px solid var(--line);background:transparent;color:var(--muted);font-family:'Jost';font-weight:500;font-size:.88rem;cursor:pointer;transition:all .2s}
+  .tab.on{background:var(--teal);color:var(--bg);border-color:var(--teal)}
+  .pane{display:none}.pane.on{display:grid}
+
+  /* before/after */
+  .ba-wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+  .ba{position:relative;width:100%;max-width:300px;aspect-ratio:1080/2340;overflow:hidden;border-radius:18px;border:1px solid var(--line);user-select:none;cursor:ew-resize;margin:0 auto}
+  .ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+  .ba .after{clip-path:inset(0 0 0 var(--split,50%))}
+  .ba .lbl{position:absolute;top:12px;font-size:.66rem;font-weight:600;color:#fff;background:rgba(0,0,0,.6);padding:5px 10px;border-radius:99px;z-index:3;letter-spacing:.08em;text-transform:uppercase}
+  .ba .lbl.l{left:12px}.ba .lbl.r{right:12px}
+  .ba .hd{position:absolute;top:0;bottom:0;left:var(--split,50%);width:2px;background:var(--cream);z-index:4}
+  .ba.auto .hd::after{animation:hdpulse 1.6s ease-in-out infinite}
+  @keyframes hdpulse{50%{box-shadow:0 0 0 8px rgba(237,235,230,.18)}}
+  .ba .hd::after{content:"⇄";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:36px;height:36px;background:var(--cream);color:var(--bg);border-radius:50%;display:flex;align-items:center;justify-content:center}
+  .ba-text h3{font-size:1.8rem;font-weight:500;margin-bottom:14px}
+  .ba-text p{color:var(--muted);margin-bottom:20px}
+  .ba-text .st{display:flex;gap:26px}
+  .ba-text .st b{font-family:'Anton';font-size:1.7rem;color:var(--teal);display:block;line-height:1}
+  .ba-text .st span{font-size:.78rem;color:var(--muted)}
+
+  /* packs */
+  .packs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;perspective:1200px}
+  .pk{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:34px 28px;display:flex;flex-direction:column;transition:transform .4s cubic-bezier(.3,.8,.3,1)}
+  .pk:hover{transform:translateY(-8px)}
+  .pk.hot{border-color:var(--teal);background:linear-gradient(170deg,var(--panel),rgba(180,183,186,.08))}
+  .pk .tag{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);margin-bottom:14px}
+  .pk h3{font-family:'Anton';font-size:1.7rem;text-transform:uppercase;margin-bottom:8px}
+  .pk .for{font-size:.86rem;color:var(--muted);min-height:44px;margin-bottom:20px}
+  .pk .promo{display:flex;align-items:center;gap:10px;margin-bottom:4px}
+  .pk .promo .old{font-family:'Anton';font-size:1.3rem;color:var(--muted);text-decoration:line-through;opacity:.7}
+  .pk .promo .save{background:var(--amber);color:var(--bg);font-weight:600;font-size:.72rem;padding:3px 9px;border-radius:99px;letter-spacing:.04em}
+  .pk .price{font-family:'Anton';font-size:2.3rem;line-height:1}
+  .pk .price small{font-family:'Jost';font-size:.8rem;font-weight:300;color:var(--muted)}
+  .pk .per{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:8px 0 22px}
+  .pk ul{list-style:none;margin-bottom:26px;font-size:.9rem}
+  .pk li{padding:9px 0;border-top:1px solid var(--line);display:flex;gap:10px}
+  .pk li::before{content:"→";color:var(--teal)}
+  .pk .btn{width:100%;justify-content:center}
+  .unit{margin-top:26px;border:1px solid var(--line);border-radius:18px;padding:22px 26px;display:flex;gap:24px;align-items:center;flex-wrap:wrap;background:var(--panel)}
+  .unit-t{font-family:'Anton';font-size:1.2rem;text-transform:uppercase;letter-spacing:.02em}
+  .unit-list{display:flex;flex-wrap:wrap;gap:10px 26px;flex:1}
+  .unit-list span{display:flex;align-items:baseline;gap:8px;font-size:.9rem;color:var(--muted)}
+  .unit-list b{font-family:'Anton';font-weight:400;font-size:1.15rem;color:var(--cream)}
+  .packs-note{text-align:center;margin-top:24px;color:var(--muted);font-size:.9rem}
+
+  /* contact */
+  .contact{text-align:center;padding:120px 0}
+  .contact .mark{height:60px;margin:0 auto 32px;animation:spin3d 12s linear infinite;transform-style:preserve-3d}
+  @keyframes spin3d{to{transform:rotateY(360deg)}}
+  .contact h2{font-size:clamp(2.4rem,6.4vw,4.6rem);margin-bottom:22px}
+  .contact h2 .grad{background:linear-gradient(rgba(255,255,255,.34),rgba(255,255,255,.34)),url(assets/texture.jpg) center/cover;-webkit-background-clip:text;background-clip:text;color:transparent;animation:texpan 14s ease-in-out infinite alternate}
+  .contact p{color:var(--muted);max-width:52ch;margin:0 auto 36px;font-size:1.06rem}
+  .ct-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;max-width:960px;margin:0 auto 40px;text-align:left}
+  .ct{display:flex;flex-direction:column;gap:6px;padding:22px;border:1px solid var(--line);border-radius:16px;background:var(--panel);transition:border-color .3s,transform .3s;min-width:0}
+  a.ct:hover{border-color:var(--teal);transform:translateY(-3px)}
+  .ct[hidden]{display:none!important}
+  .ct-k{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .ct b{font-weight:500;font-size:1.08rem;overflow-wrap:anywhere}
+  .ct-d{color:var(--muted);font-size:.88rem}
+  .ct-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:6px}
+  .ct-copy{font:inherit;font-size:.8rem;padding:8px 14px;border-radius:8px;border:none;cursor:pointer;background:var(--metal);color:#0E0F10;font-weight:600}
+  .ct-link{font-size:.8rem;color:var(--muted);text-decoration:underline;text-underline-offset:3px}
+  .next-steps{list-style:none;counter-reset:n;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;max-width:960px;margin:0 auto 34px;text-align:left}
+  .next-steps li{counter-increment:n;display:flex;flex-direction:column;gap:4px;padding-top:16px;border-top:1px solid var(--line);position:relative}
+  .next-steps li::before{content:counter(n);font-family:'Anton',Impact,sans-serif;font-size:1.4rem;color:var(--teal-bright);margin-bottom:4px}
+  .next-steps b{font-weight:500}
+  .next-steps span{color:var(--muted);font-size:.88rem}
+  .ct-insta{color:var(--muted);font-size:.85rem;text-decoration:underline;text-underline-offset:3px}
+  .m-cta{display:none}
+  @media (max-width:760px){
+    .ct-grid,.next-steps{grid-template-columns:1fr}
+    .m-cta{display:block;position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:120;text-align:center;padding:15px;border-radius:12px;background:var(--metal);color:#0E0F10;font-weight:600;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;box-shadow:0 12px 30px rgba(0,0,0,.45);transform:translateY(160%);transition:transform .35s ease}
+    .m-cta.on{transform:none}
+  }
+  .contact-ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+  footer{border-top:1px solid var(--line);padding:34px 0}
+  .foot-in{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .foot-in a:hover{color:var(--cream)}
+
+  .reveal{transition:transform .8s ease}
+  .reveal.in{transform:none}
+
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal,.hero h1 .l>span,.eyebrow,.hero p,.hero-ctas,.hero-stats{opacity:1;transform:none}}
+  @media (max-width:940px){
+    .nav-links{display:none}
+    .hero-grid{grid-template-columns:1fr;gap:46px}.hero-3d{order:-1}
+    .svc{grid-template-columns:1fr 1fr}.s.span2{grid-column:span 2}
+    .tstats{grid-template-columns:1fr 1fr}
+    .packs{grid-template-columns:1fr}
+    .ba-wrap{grid-template-columns:1fr;gap:30px}
+    .showreel-wrap{height:460px}
+  }
+  @media (max-width:560px){.svc{grid-template-columns:1fr}.s.span2{grid-column:span 1}.tstats{grid-template-columns:1fr 1fr}}
+  /* ajustements téléphone pour les fiches clients (en dernier pour primer) */
+  @media (max-width:760px){
+    .case .case-head{padding:24px 20px 0}
+    .case .case-kpis{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 14px;padding:22px 20px}
+    .case-vids{padding:0 20px 26px}
+    .sub-t{padding:0 20px 12px}
+    .case-dash{padding:0 20px 24px}
+    .case-id h3{font-size:1.7rem}
+  }
+
+  /* ---------- menu & vues ---------- */
+  .nav-links a.on{color:var(--cream)}
+  .nav-links a.on::after{width:100%}
+  .menu-btn{display:none;width:44px;height:44px;border:1px solid var(--line);border-radius:12px;background:transparent;color:var(--cream);cursor:pointer;align-items:center;justify-content:center}
+  .menu-btn span,.menu-btn span::before,.menu-btn span::after{display:block;width:18px;height:1.5px;background:currentColor;position:relative;transition:transform .3s,background .3s}
+  .menu-btn span::before,.menu-btn span::after{content:"";position:absolute;left:0}
+  .menu-btn span::before{top:-6px}.menu-btn span::after{top:6px}
+  .menu-open .menu-btn span{background:transparent}
+  .menu-open .menu-btn span::before{transform:translateY(6px) rotate(45deg)}
+  .menu-open .menu-btn span::after{transform:translateY(-6px) rotate(-45deg)}
+  .m-menu{display:none}
+  @media (max-width:940px){
+    .menu-btn{display:inline-flex}
+    .nav-in .btn.small{display:none}
+    .m-menu{display:block;position:fixed;left:0;right:0;top:calc(74px + env(safe-area-inset-top,0px));z-index:79;background:rgba(14,15,16,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);padding:10px 26px 26px;transform:translateY(-8px);opacity:0;pointer-events:none;transition:opacity .25s,transform .25s}
+    .menu-open .m-menu{opacity:1;transform:none;pointer-events:auto}
+    .m-menu a{display:flex;justify-content:space-between;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--line);font-family:'Anton';font-size:1.5rem;text-transform:uppercase;letter-spacing:.02em}
+    .m-menu a small{font-family:'Jost';font-size:.8rem;color:var(--muted);text-transform:none;letter-spacing:0}
+    .m-menu a.on{color:var(--teal-bright)}
+    .m-menu .btn{margin-top:20px;width:100%;justify-content:center;font-family:'Jost';font-size:.76rem;border:none;padding:15px}
+  }
+  .view{display:none}
+  .view.on{display:block}
+  .page-head{padding:70px 0 10px}
+  .page-head h1{font-size:clamp(2.6rem,7vw,5rem)}
+  .page-head p{color:var(--muted);max-width:60ch;margin-top:18px;font-size:1.05rem}
+  .chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+  .chips a{display:inline-flex;align-items:center;gap:10px;padding:7px 16px 7px 7px;border:1px solid var(--line);border-radius:99px;font-size:.88rem;transition:border-color .3s}
+  .chips a:hover{border-color:var(--teal)}
+  .chips img{width:30px;height:30px;border-radius:50%;object-fit:cover;background:#000}
+  .chips a.txt{padding:9px 16px}
+
+  /* ---------- services illustrés ---------- */
+  .skills{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+  .sk{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:26px 26px 22px;display:flex;flex-direction:column;gap:16px;min-width:0}
+  .sk.wide{grid-column:span 2}
+  .sk-t{display:flex;justify-content:space-between;align-items:baseline;gap:14px;flex-wrap:wrap}
+  .sk h3{font-family:'Anton';font-weight:400;font-size:1.45rem;text-transform:uppercase;letter-spacing:.01em;line-height:1.05}
+  .sk p{color:var(--muted);font-size:.92rem;max-width:52ch}
+  .sk .proof{font-size:.78rem;color:var(--teal-bright);white-space:nowrap}
+  .mini{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin-top:auto}
+  .mini::-webkit-scrollbar{display:none}
+  .mini>*{flex:0 0 104px;scroll-snap-align:start;border-radius:11px}
+  .mini .gi:hover{transform:translateY(-3px)}
+  .mini .gi.land{flex-basis:230px}
+  .mini .gi .cap{padding:12px 8px 7px}
+  .mini .gi .cap .t{font-size:.66rem}
+  .mini .gi::before{width:34px;height:34px;margin:-17px 0 0 -17px;background-size:12px}
+  .ba-mini{display:flex;align-items:center;gap:10px;margin-top:auto}
+  .ba-mini figure{flex:0 0 104px;position:relative}
+  .ba-mini figure img{width:100%;aspect-ratio:9/16;object-fit:cover;object-position:top;border-radius:11px;border:1px solid var(--line);display:block}
+  .ba-mini figcaption{position:absolute;top:7px;left:7px;font-size:.58rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;background:rgba(0,0,0,.65);color:#fff;padding:3px 8px;border-radius:99px}
+  .ba-mini .arrow{font-family:'Anton';font-size:1.1rem;color:var(--muted)}
+  .ba-mini .gain{margin-left:8px}
+  .ba-mini .gain b{font-family:'Anton';font-size:2rem;line-height:1;display:block;color:var(--teal-bright)}
+  .ba-mini .gain span{font-size:.78rem;color:var(--muted)}
+  .logos-row{display:flex;gap:14px;align-items:center;margin-top:auto;flex-wrap:wrap}
+  .logos-row img{width:104px;height:104px;border-radius:50%;object-fit:cover;background:#000;border:1px solid var(--line)}
+  .logos-row .ng{object-fit:cover;background:#F7F5F0}
+  .site-shot{margin-top:auto;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#000}
+  .site-shot .bar{display:flex;gap:5px;padding:8px 10px;background:#1E2023}
+  .site-shot .bar i{width:7px;height:7px;border-radius:50%;background:#45484B}
+  .site-shot img{display:block;width:100%;aspect-ratio:16/7;object-fit:cover;object-position:top}
+  @media (max-width:760px){
+    .skills{grid-template-columns:minmax(0,1fr)}
+    .sk.wide{grid-column:auto}
+    .sk{padding:22px 18px 18px}
+    .mini>*{flex-basis:96px}
+    .ba-mini{flex-wrap:wrap}
+    .ba-mini figure{flex-basis:96px}
+    .ba-mini .gain{flex:1 1 100%;margin:4px 0 0}
+    .logos-row img{width:84px;height:84px}
+  }
+
+
+  /* services texte seul */
+  .skills{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .sk{gap:10px;padding:26px 24px}
+  .sk-web{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:28px;align-items:center}
+  .sk-web .site-shot{margin-top:0}
+  .sk-web p{margin-top:10px}
+  @media (max-width:940px){.skills{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media (max-width:760px){.skills{grid-template-columns:minmax(0,1fr)}.sk-web{grid-template-columns:minmax(0,1fr);gap:18px}}
+
+
+  /* ---------- hero : vidéo + avant/après ---------- */
+  .hero-duo{position:relative;display:flex;align-items:flex-start;justify-content:center;gap:22px}
+  .duo-item{display:flex;flex-direction:column;align-items:center;gap:12px}
+  .hero-duo .phone3d{width:232px}
+  .duo-ba{margin-top:96px}
+  .ba.ba-hero{width:274px;max-width:none;aspect-ratio:700/928;border-radius:18px;box-shadow:0 40px 80px rgba(0,0,0,.5);border:1px solid rgba(180,183,186,.25)}
+  .duo-cap{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .hero-duo .fb.f1{top:14px;right:-10px}
+  .hero-duo .fb.f2{bottom:30px;left:-14px}
+  @media (max-width:940px){.hero-duo{justify-content:center}}
+  @media (max-width:560px){
+    .hero-duo{gap:12px}
+    .hero-duo .phone3d{width:42vw;border-width:5px;border-radius:26px}
+    .hero-duo .phone3d .notch{width:56px;height:16px;top:9px}
+    .ba.ba-hero{width:46vw;border-radius:14px}
+    .duo-ba{margin-top:44px}
+    .hero-duo .fb{padding:9px 12px}
+    .hero-duo .fb b{font-size:1.1rem}
+    .hero-duo .fb.f1{top:-8px;right:-4px}
+    .hero-duo .fb.f2{bottom:34px;left:-4px}
+  }
+
+  /* ---------- résultats compacts ---------- */
+  .rgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+  .rc{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:16px;min-width:0}
+  .rc.wide{grid-column:span 2}
+  .rc-h{display:flex;align-items:center;gap:14px}
+  .rc-h img{width:52px;height:52px;border-radius:50%;object-fit:cover;background:#000;padding:2px;background:var(--metal);flex:0 0 auto}
+  .rc-h h3{font-family:'Anton';font-weight:400;font-size:1.4rem;text-transform:uppercase;line-height:1}
+  .rc-h .role{font-size:.82rem;color:var(--muted);margin-top:4px}
+  .rc-did{font-size:.92rem;color:var(--muted);max-width:70ch}
+  .rc-did b{color:var(--cream);font-weight:500}
+  .rc-k{display:flex;gap:26px;flex-wrap:wrap}
+  .rc-k div b{font-family:'Anton';font-size:1.7rem;line-height:1;display:block;color:var(--teal-bright)}
+  .rc-k div span{font-size:.74rem;color:var(--muted)}
+  .rc .mini>*{flex-basis:92px}
+  .rc-more{align-self:flex-start;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--cream);border-bottom:1px solid var(--teal);padding-bottom:3px;transition:color .3s}
+  .rc-more:hover{color:var(--teal-bright)}
+  .mini .views{position:absolute;top:6px;right:6px;background:rgba(0,0,0,.65);color:#fff;font-size:.58rem;font-weight:600;padding:2px 6px;border-radius:99px;z-index:2}
+  .mini .tagv{position:absolute;bottom:6px;left:6px;font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;background:rgba(0,0,0,.65);color:#fff;padding:2px 6px;border-radius:99px;z-index:2}
+  .all-real{display:flex;justify-content:center;margin-top:30px}
+  @media (max-width:760px){
+    .rgrid{grid-template-columns:minmax(0,1fr)}
+    .rc.wide{grid-column:auto}
+    .rc{padding:20px 18px}
+  }
+
+  /* ---------- cas complets : images dans les rangées ---------- */
+  .case-vids .cv img{width:100%;height:100%;object-fit:cover;display:block}
+  .cv:has(img)::before{display:none}
+  .case-vids .cv:has(img){cursor:zoom-in}
+
+  /* ---------- à propos ---------- */
+  .about{padding:40px 0 10px}
+  .about-in{display:flex;align-items:center;gap:22px;max-width:720px;margin:0 auto;padding:22px 24px;border:1px solid var(--line);border-radius:20px;background:var(--panel)}
+  .about-ph{width:84px;height:84px;border-radius:50%;flex:0 0 auto;padding:2px;background:var(--metal)}
+  .about-ph img{width:100%;height:100%;border-radius:50%;object-fit:contain;background:#0E0F10;padding:18px 12px}
+  .about-ph img.photo{object-fit:cover;padding:0}
+  .about p{color:var(--muted);font-size:.95rem}
+  .about p b{color:var(--cream);font-weight:500}
+  @media (max-width:560px){.about-in{flex-direction:column;text-align:center}}
+
+  .ct-grid{display:flex;flex-wrap:wrap;justify-content:center}
+  .ct-grid>.ct{flex:1 1 260px;max-width:330px}
+  @media (max-width:760px){.ct-grid>.ct{max-width:none}}
+
+  /* ---------- collabs ---------- */
+  .pitch{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding:22px 24px;margin:6px 0 20px;border:1px solid var(--line);border-radius:18px;background:var(--panel)}
+  .pitch p{color:var(--muted);max-width:60ch;font-size:.95rem}
+  .pitch p b{color:var(--cream);font-weight:500}
+
+  /* ================= v2 : accent orange, preuve sociale, motion design ================= */
+  .eyebrow{color:var(--teal-bright)}
+  .eyebrow .pulse{background:var(--accent);box-shadow:0 0 0 0 var(--accent-glow)}
+  @keyframes ping{70%,100%{box-shadow:0 0 0 9px rgba(255,107,44,0)}}
+  .head .kick,.pk .tag{color:var(--accent)}
+  .scroll-prog{background:linear-gradient(90deg,#9A9DA0,var(--accent))}
+  .pk.hot{border-color:rgba(255,107,44,.55);background:linear-gradient(170deg,var(--panel),rgba(255,107,44,.07))}
+  .pk li::before{color:var(--accent)}
+  .fb b{color:var(--cream)}
+  .fb.f1 b{color:var(--accent)}
+  .case-badge.phare{background:var(--metal)}
+  .rc-more{border-bottom-color:var(--accent)}
+  .next-steps li::before{color:var(--accent)}
+  .hero h1 .grad{animation:texpan 14s ease-in-out infinite alternate}
+
+  /* mot qui change dans le titre */
+  .rot{display:inline-grid;vertical-align:top}
+  .rot>i{grid-area:1/1;font-style:normal;transition:transform .6s cubic-bezier(.16,1,.3,1),opacity .4s}
+  .rot>i:not(.on){transform:translateY(60%);opacity:0}
+  .rot>i.out{transform:translateY(-60%);opacity:0}
+
+  /* réassurance + preuve sociale du hero */
+  .checks{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:20px;font-size:.86rem;color:var(--teal-bright);opacity:0;animation:fade .9s .8s forwards}
+  .checks span{display:inline-flex;align-items:center;gap:8px}
+  .checks span::before{content:"";width:16px;height:16px;border-radius:50%;background:var(--accent-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2l2.2 2.2 4.8-4.8' fill='none' stroke='%23FF6B2C' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat}
+  .proof-row{display:flex;align-items:center;gap:14px;margin-bottom:22px;opacity:0;animation:fade .8s .2s forwards}
+  .avs{display:flex}
+  .avs img{width:34px;height:34px;border-radius:50%;object-fit:cover;background:#000;border:2px solid var(--bg);margin-left:-10px}
+  .avs img:first-child{margin-left:0}
+  .proof-row span{font-size:.86rem;color:var(--muted)}
+  .proof-row b{color:var(--cream);font-weight:500}
+  .hstat b{font-variant-numeric:tabular-nums}
+
+  /* pour qui */
+  .pains{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+  .pain{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:10px;min-width:0}
+  .pain h3{font-weight:500;font-size:1.08rem;line-height:1.3}
+  .pain p{color:var(--muted);font-size:.92rem}
+  .pain .fix{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);font-size:.9rem;color:var(--cream)}
+  .pain .fix b{color:var(--accent);font-weight:500}
+  @media (max-width:860px){.pains{grid-template-columns:minmax(0,1fr)}}
+
+  /* méthode */
+  .steps{list-style:none;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;counter-reset:s;position:relative}
+  .steps li{counter-increment:s;padding:0 18px 0 0;display:flex;flex-direction:column;gap:6px;min-width:0;position:relative}
+  .steps li::before{content:counter(s,decimal-leading-zero);font-family:'Anton';font-size:2.4rem;line-height:1;background:var(--metal);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:6px}
+  .steps li::after{content:"";position:absolute;top:1.2rem;left:3.2rem;right:18px;height:1px;background:linear-gradient(90deg,var(--accent),transparent)}
+  .steps li:last-child::after{display:none}
+  .steps b{font-weight:500}
+  .steps span{color:var(--muted);font-size:.88rem}
+  @media (max-width:900px){.steps{grid-template-columns:minmax(0,1fr);gap:22px}.steps li::after{display:none}.steps li{padding:0 0 0 64px}.steps li::before{position:absolute;left:0;top:0}}
+
+  /* ---------- motion design : scènes réutilisables (tailles en cqw = % de la largeur de l'écran) ---------- */
+  .stage{position:relative;container-type:inline-size;width:100%;max-width:300px;aspect-ratio:9/16;border-radius:22px;overflow:hidden;background:#0A0B0C;border:5px solid #1E2022;box-shadow:0 40px 80px rgba(0,0,0,.5);isolation:isolate}
+  .hero-stage{width:232px;max-width:none;border-radius:30px;border-width:7px;box-shadow:0 50px 90px rgba(0,0,0,.5),0 0 70px rgba(255,107,44,.14)}
+  .scene{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:9cqw;text-align:center;opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s;background:radial-gradient(ellipse at 50% 30%,rgba(255,107,44,.16),transparent 62%),#0A0B0C}
+  .scene.on{opacity:1;visibility:visible}
+  .sc-brand{position:absolute;top:7cqw;left:0;right:0;display:flex;align-items:center;justify-content:center;gap:2.6cqw;font-size:4.2cqw;font-weight:500;letter-spacing:.04em}
+  .sc-brand img{width:9cqw;height:9cqw;border-radius:50%;object-fit:cover;background:#000}
+  .sc-ex{position:absolute;bottom:8.5cqw;left:0;right:0;font-size:3.6cqw;letter-spacing:.16em;text-transform:uppercase;color:rgba(237,235,230,.55)}
+  .stage-bar{position:absolute;left:6cqw;right:6cqw;bottom:4cqw;display:flex;gap:2cqw;z-index:3}
+  .stage-bar i{flex:1;height:3px;border-radius:2px;background:rgba(237,235,230,.18);overflow:hidden}
+  .stage-bar i b{display:block;height:100%;width:0;background:var(--cream)}
+  .stage-bar i.done b{width:100%}
+  .stage-bar i.on b{animation:fill var(--dur,3.2s) linear forwards}
+  @keyframes fill{to{width:100%}}
+
+  /* A : typo cinétique (Le Continent Store) */
+  .kt{font-family:'Anton',Impact,sans-serif;text-transform:uppercase;line-height:.95}
+  .kt span{display:block;font-size:15cqw;transform:scale(2.2);opacity:0}
+  .scene.on .kt span{animation:slam .45s cubic-bezier(.2,1.4,.4,1) forwards}
+  .scene.on .kt span:nth-child(2){animation-delay:.4s}
+  .scene.on .kt span:nth-child(3){animation-delay:.8s;color:var(--accent)}
+  @keyframes slam{to{transform:scale(1);opacity:1}}
+  .kt-line{width:0;height:1.2cqw;background:var(--accent);margin-top:5cqw}
+  .scene.on .kt-line{animation:grow .5s 1.3s ease forwards}
+  @keyframes grow{to{width:40cqw}}
+
+  /* B : sous-titres animés (Tutoria, à ses couleurs) */
+  .sc-tuto{background:radial-gradient(ellipse at 30% 20%,#1C7C80,transparent 65%),linear-gradient(170deg,#0F5E63,#08393C)}
+  .caps{font-family:'Jost',sans-serif;font-weight:600;font-size:8.6cqw;line-height:1.25;max-width:80cqw}
+  .caps span{display:inline-block;opacity:0;transform:translateY(2cqw) scale(.9);margin:0 .1em}
+  .scene.on .caps span{animation:word .28s var(--d,0s) cubic-bezier(.2,1.3,.4,1) forwards}
+  @keyframes word{to{opacity:1;transform:none}}
+  .caps span.k{padding:0 .2em;border-radius:1.6cqw}
+  .scene.on .caps span.k{animation:word .28s var(--d,0s) cubic-bezier(.2,1.3,.4,1) forwards,hlbg .25s calc(var(--d,0s) + .12s) ease forwards}
+  @keyframes hlbg{to{background:#F39200;color:#0B2B2D;transform:rotate(-2deg) scale(1.06)}}
+
+  /* C : chiffres animés (Market Factory) */
+  .num{font-family:'Anton',Impact,sans-serif;font-size:21cqw;line-height:1;font-variant-numeric:tabular-nums}
+  .num-l{font-size:3.8cqw;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:2.5cqw}
+  .bars{display:flex;align-items:flex-end;gap:2.6cqw;height:30cqw;margin-top:7cqw}
+  .bars i{width:5.4cqw;border-radius:1.2cqw 1.2cqw 0 0;background:linear-gradient(var(--accent),rgba(255,107,44,.2));height:6%;transition:height .9s cubic-bezier(.2,.9,.3,1)}
+
+  /* D : logo animé (Ngora) */
+  .lg-rev{position:relative;width:42cqw;height:42cqw;display:flex;align-items:center;justify-content:center}
+  .lg-rev img{width:34cqw;transform:scale(.4) rotate(-90deg);opacity:0}
+  .scene.on .lg-rev img{animation:logoIn .9s cubic-bezier(.2,1.2,.3,1) forwards}
+  @keyframes logoIn{to{transform:none;opacity:1}}
+  .lg-rev::before{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid var(--accent);transform:scale(.2);opacity:0}
+  .scene.on .lg-rev::before{animation:ring 1.2s .3s ease-out forwards}
+  @keyframes ring{40%{opacity:1}to{transform:scale(1.5);opacity:0}}
+  .lg-name{font-family:'Anton',Impact,sans-serif;font-size:13cqw;text-transform:uppercase;letter-spacing:.06em;margin-top:4cqw;background:var(--metal);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;clip-path:inset(0 100% 0 0)}
+  .scene.on .lg-name{animation:wipe .7s .7s cubic-bezier(.6,0,.2,1) forwards,shine 2.4s 1.2s ease-in-out}
+  @keyframes wipe{to{clip-path:inset(0 0 0 0)}}
+  @keyframes shine{from{background-position:100% 0}to{background-position:0 0}}
+  .lg-sub{font-size:3.8cqw;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);opacity:0}
+  .scene.on .lg-sub{animation:fade .5s 1.3s forwards}
+
+  /* section motion */
+  .motion-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:34px}
+  .motion-head .head{margin-bottom:0}
+  .mgal{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+  .mcard{display:flex;flex-direction:column;gap:12px;min-width:0}
+  .mcard .stage{max-width:100%;border-width:4px;border-radius:18px;cursor:pointer}
+  .mcard b{font-weight:500;font-size:.98rem;display:block}
+  .mcard span{color:var(--muted);font-size:.84rem}
+  .motion-vids{margin-top:44px}
+  .motion-vids[hidden]{display:none!important}
+  @media (max-width:900px){.mgal{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px}.mcard{flex:0 0 46%;scroll-snap-align:start}}
+  @media (max-width:560px){.hero-stage{width:42vw;border-width:5px;border-radius:24px}.mcard{flex-basis:62%}}
+  @media (prefers-reduced-motion:reduce){.kt span,.lg-rev img,.lg-name,.lg-sub,.caps span{opacity:1!important;transform:none!important;clip-path:none!important}.kt-line{width:40cqw}}
+
+  /* avant/après dans la carte Tutoria */
+  .rc-ba{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+  .rc-ba .ba{width:220px;max-width:100%;aspect-ratio:700/928;margin:0}
+  .rc-ba>span{font-size:.84rem;color:var(--muted)}
+
+
+  /* ---------- hero : avant/après + montage + motion, en éventail ---------- */
+  .hero-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);gap:36px}
+  .hero h1{font-size:clamp(2.8rem,6.2vw,5.1rem)}
+  .hero-duo{gap:0;align-items:flex-start}
+  .hero-duo .duo-item{position:relative}
+  .hero-duo .phone3d{width:216px;z-index:2}
+  .d-ba,.d-mo{margin-top:70px}
+  .d-ba{margin-right:-14px;z-index:1}
+  .d-mo{margin-left:-14px;z-index:1}
+  .ba.ba-hero{width:196px;aspect-ratio:700/928}
+  .hero-duo .hero-stage{width:196px;border-radius:24px;border-width:5px}
+  .hero-duo .fb.f1{top:0;right:-6px}
+  .hero-duo .fb.f2{bottom:40px;left:-10px}
+  @media (max-width:560px){
+    .hero-duo .phone3d{width:31vw;border-width:4px;border-radius:20px}
+    .hero-duo .phone3d .notch{width:12vw;height:3.4vw;top:2.4vw}
+    .ba.ba-hero,.hero-duo .hero-stage{width:28vw;border-radius:14px}
+    .hero-duo .hero-stage{border-width:3px}
+    .d-ba,.d-mo{margin-top:12vw}
+    .d-ba{margin-right:-2vw}.d-mo{margin-left:-2vw}
+    .hero-duo .fb{display:none}
+    .duo-cap{font-size:.56rem;letter-spacing:.1em;text-align:center}
+    .ba .lbl{font-size:.5rem;padding:3px 6px;top:6px}.ba .lbl.l{left:6px}.ba .lbl.r{right:6px}
+    .ba .hd::after{width:24px;height:24px;font-size:.7rem}
+  }
+
+  /* ---------- exemples motion plus poussés ---------- */
+  /* A : Continent Store, rayures en mouvement, gros numéro en contour, flash et secousse */
+  .sc-cont{background:#0B0C0D}
+  .stripes{position:absolute;inset:-20%;background:repeating-linear-gradient(-55deg,rgba(255,107,44,.07) 0 6cqw,transparent 6cqw 14cqw);opacity:0}
+  .scene.on .stripes{animation:fade .4s .8s forwards,slide 4s linear infinite}
+  @keyframes slide{to{transform:translateX(14cqw)}}
+  .big10{position:absolute;font-family:'Anton',Impact,sans-serif;font-size:110cqw;line-height:1;color:transparent;-webkit-text-stroke:2px rgba(255,107,44,.55);opacity:0;transform:scale(2.6)}
+  .scene.on .big10{animation:bigIn .7s .8s cubic-bezier(.2,1,.3,1) forwards,drift 3s 1.5s ease-in-out infinite alternate}
+  @keyframes bigIn{to{opacity:.85;transform:scale(1)}}
+  @keyframes drift{from{transform:scale(1) rotate(0)}to{transform:scale(1.06) rotate(-3deg)}}
+  .sc-cont .kt{position:relative;z-index:2}
+  .scene.on.sc-cont .kt{animation:shake .3s .82s}
+  @keyframes shake{20%{transform:translate(-1.5cqw,1cqw)}40%{transform:translate(1.5cqw,-1cqw)}60%{transform:translate(-1cqw,0)}80%{transform:translate(1cqw,.5cqw)}}
+  .flash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none;z-index:4}
+  .scene.on .flash{animation:flash .35s .8s ease-out}
+  @keyframes flash{0%{opacity:.75}to{opacity:0}}
+  .sc-cont .kt-line{position:relative;z-index:2}
+
+  /* B : Tutoria, formes qui flottent et bandeau nom (lower third) */
+  .blob{position:absolute;border-radius:50%;filter:blur(2px);opacity:.5}
+  .b1{width:60cqw;height:60cqw;background:radial-gradient(circle,#27A3A6,transparent 70%);top:-12cqw;right:-18cqw}
+  .b2{width:46cqw;height:46cqw;background:radial-gradient(circle,rgba(243,146,0,.55),transparent 70%);bottom:8cqw;left:-16cqw}
+  .scene.on .b1{animation:float 4s ease-in-out infinite alternate}
+  .scene.on .b2{animation:float 3.4s ease-in-out infinite alternate-reverse}
+  @keyframes float{to{transform:translate(-6cqw,8cqw) scale(1.12)}}
+  .sc-tuto .caps{position:relative;z-index:2}
+  .l3{position:absolute;left:7cqw;bottom:19cqw;display:flex;flex-direction:column;align-items:flex-start;padding:2.4cqw 4cqw 2.4cqw 4.6cqw;background:#F7F5F0;color:#0B2B2D;border-radius:1.6cqw;clip-path:inset(0 100% 0 0);text-align:left;z-index:3}
+  .l3::before{content:"";position:absolute;left:0;top:0;bottom:0;width:1.6cqw;background:#F39200;border-radius:1.6cqw 0 0 1.6cqw}
+  .l3 b{font-size:4.6cqw;font-weight:600;line-height:1.1}
+  .l3 span{font-size:3.4cqw;color:#2E5F61}
+  .scene.on .l3{animation:wipe .55s 2.4s cubic-bezier(.6,0,.2,1) forwards}
+
+  /* D : logo Ngora, double onde, éclats, lettres en cascade */
+  .sc-logo .lg-rev i{position:absolute;left:50%;top:50%}
+  .ring2{width:100%;height:100%;margin:-50% 0 0 -50%;border-radius:50%;border:1px solid rgba(237,235,230,.6);transform:scale(.2);opacity:0}
+  .scene.on .ring2{animation:ring 1.3s .55s ease-out forwards}
+  .pt{width:1.8cqw;height:1.8cqw;margin:-.9cqw 0 0 -.9cqw;border-radius:50%;background:var(--accent);opacity:0}
+  .scene.on .pt{animation:burst .9s .45s cubic-bezier(.1,.8,.3,1) forwards}
+  @keyframes burst{0%{opacity:1;transform:rotate(var(--a)) translateX(0) scale(1)}to{opacity:0;transform:rotate(var(--a)) translateX(34cqw) scale(.3)}}
+  .sc-logo .lg-name{clip-path:none;background:none;color:inherit;-webkit-background-clip:border-box;background-clip:border-box;display:flex;gap:.04em}
+  .sc-logo .lg-name span{display:inline-block;background:var(--metal);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;opacity:0;transform:translateY(-8cqw) rotate(-12deg)}
+  .scene.on.sc-logo .lg-name{animation:none}
+  .scene.on.sc-logo .lg-name span{animation:drop .5s var(--d) cubic-bezier(.2,1.5,.4,1) forwards,shine 1.8s 1.4s ease-in-out}
+  @keyframes drop{to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){.big10,.stripes{opacity:.6!important;transform:none!important}.l3{clip-path:none!important}.sc-logo .lg-name span{opacity:1!important;transform:none!important}}
+
+  /* vidéos motion réelles */
+  .stage video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+  .mvid{grid-template-columns:repeat(3,minmax(0,1fr));max-width:900px}
+  @media (max-width:900px){.mvid .mcard{flex-basis:58%}}
+  /* avis */
+  .testis{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px}
+  .testi{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:16px;min-width:0}
+  .testi q{quotes:none;font-size:1rem;line-height:1.55}
+  .testi .who{display:flex;align-items:center;gap:12px;margin-top:auto}
+  .testi .who img{width:40px;height:40px;border-radius:50%;object-fit:cover;background:#000}
+  .testi .who b{display:block;font-weight:500;font-size:.92rem}
+  .testi .who span{font-size:.8rem;color:var(--muted)}
+  .testi .res{font-family:'Anton';font-size:1.3rem;color:var(--accent);line-height:1}
+
+  /* FAQ */
+  .faq{max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+  .faq details{border:1px solid var(--line);border-radius:14px;background:var(--panel);overflow:hidden}
+  .faq summary{list-style:none;cursor:pointer;padding:18px 22px;display:flex;justify-content:space-between;align-items:center;gap:16px;font-weight:500;font-size:1rem}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";font-family:'Anton';font-size:1.4rem;color:var(--accent);transition:transform .3s;flex:0 0 auto}
+  .faq details[open] summary::after{transform:rotate(45deg)}
+  .faq details p{padding:0 22px 20px;color:var(--muted);font-size:.94rem;max-width:68ch}
+</style>
+
+<div class="aurora" aria-hidden="true"></div>
+<div class="scroll-prog" id="prog"></div>
+<div class="lightbox" id="lb"><img alt=""></div>
+
+<nav>
+  <div class="wrap nav-in">
+    <a href="#accueil" class="brand"><img src="assets/logo-mark.png" alt=""><b>Ngora<span>.</span></b></a>
+    <div class="nav-links">
+      <a href="#accueil" data-nav="accueil">Accueil</a>
+      <a href="#realisations" data-nav="realisations">Réalisations</a>
+      <a href="#motion" data-nav="motion">Motion design</a>
+      <a href="#formats" data-nav="formats">Collabs &amp; formats</a>
+      <a href="#formules" data-nav="formules">Formules</a>
+    </div>
+    <a href="#contact" class="btn small hot">Audit gratuit</a>
+    <button type="button" class="menu-btn" id="menuBtn" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mMenu"><span></span></button>
+  </div>
+</nav>
+<div class="m-menu" id="mMenu">
+  <a href="#accueil" data-nav="accueil">Accueil</a>
+  <a href="#realisations" data-nav="realisations">Réalisations <small>marque par marque</small></a>
+  <a href="#motion" data-nav="motion">Motion design <small>titres, sous-titres, logos animés</small></a>
+  <a href="#formats" data-nav="formats">Collabs &amp; formats <small>restos, teasers, vlogs</small></a>
+  <a href="#formules" data-nav="formules">Formules</a>
+  <a href="#contact" class="btn hot">Demander un audit gratuit</a>
+</div>
+
+<!-- =============================== ACCUEIL =============================== -->
+<main class="view" id="accueil" data-view="accueil">
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="proof-row">
+        <div class="avs"><img src="assets/logos/continent.png" alt=""><img src="assets/logos/mf.png" alt=""><img src="assets/logos/tutoria.png" alt=""><img src="assets/logos/battlekart.png" alt=""><img src="assets/logos/wonderland.png" alt=""></div>
+        <span><b>30+ marques</b> accompagnées en Île-de-France</span>
+      </div>
+      <h1 class="display">
+        <span class="l"><span>Une image digitale</span></span>
+        <span class="l"><span class="rot" id="rot"><i class="grad on">qui attire</i><i class="grad">qui engage</i><i class="grad">qui marque</i></span></span>
+        <span class="l"><span>et qui fait <span class="acc">vendre.</span></span></span>
+      </h1>
+      <p>Votre entreprise est absente des réseaux, ou votre feed ne reflète pas la qualité de ce que vous faites ? Je refais votre direction artistique, votre contenu et vos comptes, pour gagner des abonnés et les transformer en clients.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn hot">Demander un audit gratuit <span class="arr">→</span></a>
+        <a href="#resultats" class="btn ghost">Voir les résultats</a>
+      </div>
+      <div class="checks"><span>Audit offert, réponse sous 48h</span><span>Tournage, montage et motion</span><span>Un seul interlocuteur</span></div>
+      <div class="hero-stats">
+        <div class="hstat"><b data-count="5" data-suf="M+">5M+</b><span>vues générées</span></div>
+        <div class="hstat"><b data-count="30" data-suf="+">30+</b><span>marques</span></div>
+        <div class="hstat"><b data-count="15" data-suf="K+">15K+</b><span>abonnés générés</span></div>
+      </div>
+    </div>
+    <div class="hero-3d hero-duo">
+      <div class="duo-item d-ba">
+        <div class="ba ba-hero" id="baHero">
+          <img class="before" src="assets/insta/feed-avant-crop.jpg" alt="Feed Instagram avant la refonte">
+          <img class="after" src="assets/insta/feed-apres-crop.jpg" alt="Feed Instagram après la refonte">
+          <span class="lbl l">Avant</span><span class="lbl r">Après</span>
+          <div class="hd"></div>
+        </div>
+        <div class="duo-cap">Refonte du feed</div>
+      </div>
+      <div class="duo-item">
+        <div class="phone3d" id="phone3d">
+          <div class="notch"></div>
+          <video src="assets/videos/tutoria-4erreurs.mp4" poster="assets/posters/tutoria-4erreurs.jpg" autoplay muted loop playsinline></video>
+        </div>
+        <div class="duo-cap">Vidéo &amp; montage</div>
+      </div>
+      <div class="duo-item d-mo">
+        <div class="stage hero-stage"><video id="heroMo" src="assets/motion/continent.mp4" poster="assets/motion/continent.jpg" autoplay muted playsinline aria-label="Motion designs réalisés par Ngora Studio"></video></div>
+        <div class="duo-cap">Motion design</div>
+      </div>
+      <div class="fb f1"><b>15K+</b><span>abonnés générés</span></div>
+      <div class="fb f2"><b>5M+</b><span>vues générées</span></div>
+    </div>
+  </div>
+</header>
+<div class="mq-band" aria-hidden="true">
+  <div class="mq">
+    <span>Vidéos</span><span>Montage</span><span>Gestion de réseaux</span><span>Vignettes</span><span>Stories</span><span>Branding</span><span>Site web</span>
+    <span>Vidéos</span><span>Montage</span><span>Gestion de réseaux</span><span>Vignettes</span><span>Stories</span><span>Branding</span><span>Site web</span>
+  </div>
+</div>
+
+
+<div class="trust-band">
+  <div class="wrap">
+    <div class="trust-title">Ils m'ont fait confiance</div>
+    <div class="trust-sub">Plus de 30 marques accompagnées — commerces, restaurants, organismes, boutiques.</div>
+    <div class="feat-clients">
+      <div class="fc"><div class="lg"><img src="assets/logos/continent.png" alt="Le Continent Store"></div><div><div class="nm">Le Continent Store</div><div class="rs">10K+<small>abonnés générés</small></div></div></div>
+      <div class="fc"><div class="lg"><img src="assets/logos/mf.png" alt="Market Factory"></div><div><div class="nm">Market Factory</div><div class="rs">95K+<small>vues en 1 an</small></div></div></div>
+      <div class="fc"><div class="lg"><img src="assets/logos/tutoria.png" alt="Tutoria Cergy"></div><div><div class="nm">Tutoria Cergy</div><div class="rs">63<small>contenus produits</small></div></div></div>
+    </div>
+  </div>
+  <div class="logo-strip"><div class="logo-track"><div class="lg"><img src="assets/logos/continent.png" alt="Le Continent Store"></div><div class="lg"><img src="assets/logos/mf.png" alt="Market Factory"></div><div class="lg"><img src="assets/logos/tutoria.png" alt="Tutoria Cergy"></div><div class="lg"><img src="assets/logos/battlekart.png" alt="BattleKart"></div><div class="lg"><img src="assets/logos/bomaye.png" alt="Bomaye"></div><div class="lg"><img src="assets/logos/smile.png" alt="Smile World"></div><div class="lg"><img src="assets/logos/237store.png" alt="237 Store"></div><div class="lg"><img src="assets/logos/plugtoi.png" alt="Plug Toi"></div><div class="lg"><img src="assets/logos/therapy.png" alt="Therapy"></div><div class="lg"><img src="assets/logos/wonderland.png" alt="Wonderland Brunchy"></div><div class="lg"><img src="assets/logos/shoost.png" alt="23Shoost"></div><div class="lg"><img src="assets/logos/sonjys.png" alt="Sonjy's Shoot"></div><div class="lg"><img src="assets/logos/bangou.png" alt="Bangou Lunch"></div><div class="lg" aria-hidden="true"><img src="assets/logos/continent.png" alt=""></div><div class="lg" aria-hidden="true"><img src="assets/logos/mf.png" alt=""></div><div class="lg" aria-hidden="true"><img src="assets/logos/tutoria.png" alt=""></div><div class="lg" aria-hidden="true"><img src="assets/logos/battlekart.png" alt=""></div><div class="lg" aria-hidden="true"><img src="assets/logos/bomaye.png" alt=""></div><div class="lg" aria-hidden="true"><img src="assets/logos/smile.png" alt=""></div><div class="lg" aria-hidden="true"><img src="assets/logos/237store.png" alt=""></div><div class="lg" aria-hidden="true"><img src="assets/logos/plugtoi.png" alt=""></div><div class="lg" aria-hidden="true"><img src="assets/logos/therapy.png" alt=""></div><div class="lg" aria-hidden="true"><img src="assets/logos/wonderland.png" alt=""></div><div class="lg" aria-hidden="true"><img src="assets/logos/shoost.png" alt=""></div><div class="lg" aria-hidden="true"><img src="assets/logos/sonjys.png" alt=""></div><div class="lg" aria-hidden="true"><img src="assets/logos/bangou.png" alt=""></div></div></div>
+</div>
+
+
+<section id="motion">
+  <div class="wrap">
+    <div class="motion-head">
+      <div class="head reveal">
+        <div class="kick">Motion design pour les marques</div>
+        <h2 class="display">Le montage qui<br><span class="grad">retient le pouce</span></h2>
+        <p>Sur TikTok et Reels, tout se joue en 2 secondes. J'ajoute à vos vidéos l'habillage animé qui arrête le scroll et rend votre marque reconnaissable d'une vidéo à l'autre. Exemples ci-dessous, créés à partir de marques que j'accompagne.</p>
+      </div>
+      <a href="#contact" class="btn hot reveal">Ajouter du motion à mes vidéos <span class="arr">→</span></a>
+    </div>
+    <div class="mgal mvid">
+      <div class="mcard reveal"><div class="stage"><video data-auto src="assets/motion/continent.mp4" poster="assets/motion/continent.jpg" muted loop playsinline preload="metadata"></video></div><div><b>Le Continent Store</b><span>Teaser boutique · typo cinétique, cartes 3D</span></div></div>
+      <div class="mcard reveal"><div class="stage"><video data-auto src="assets/motion/tutoria.mp4" poster="assets/motion/tutoria.jpg" muted loop playsinline preload="metadata"></video></div><div><b>Tutoria Cergy</b><span>L'offre expliquée en 13 secondes</span></div></div>
+      <div class="mcard reveal"><div class="stage"><video data-auto src="assets/motion/ngora-logo.mp4" poster="assets/motion/ngora-logo.jpg" muted loop playsinline preload="metadata"></video></div><div><b>Ngora Studio</b><span>Logo animé</span></div></div>
+    </div>
+    <div class="motion-vids" id="motionVids" hidden>
+      <div class="fmt-head"><h3>Réalisations motion</h3><span>Vidéos réalisées pour des marques</span></div>
+      <div class="grid-auto" id="motionGrid"></div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="kick">Ce que je sais faire</div>
+      <h2 class="display">Tout votre contenu,<br><span class="grad">au même endroit</span></h2>
+    </div>
+    <div class="skills">
+      <article class="sk reveal"><h3>Contenu, montage &amp; ads</h3><p>Vidéos pour vos réseaux et vidéos publicitaires : accroche, script, tournage et montage. Rythme, sous-titres animés, habillage aux couleurs de la marque. Je tourne, ou je monte vos propres rushs.</p></article>
+      <article class="sk reveal"><h3>Motion design</h3><p>Titres qui claquent, sous-titres animés, chiffres et logos en mouvement : l'habillage qui retient l'attention et rend votre marque reconnaissable. <a class="rc-more" href="#motion">Voir la démo</a></p></article>
+      <article class="sk reveal"><h3>Gestion de compte</h3><p>Je m'occupe de tout : publications, stories, réponses, suivi des chiffres, et un profil optimisé (bio, highlights, feed rangé). Vous vous concentrez sur votre métier.</p></article>
+      <article class="sk reveal"><h3>Vignettes</h3><p>Des couvertures cohérentes qui donnent envie de cliquer et rendent votre feed lisible d'un coup d'œil.</p></article>
+      <article class="sk reveal"><h3>Stories &amp; visuels</h3><p>Sondages, FAQ, coulisses, carrousels : des stories qui font réagir votre audience et la gardent proche de vous.</p></article>
+      <article class="sk reveal"><h3>Branding</h3><p>Logo et identité visuelle : couleurs, typographies et règles simples pour que tout votre contenu se ressemble.</p></article>
+      <article class="sk sk-web reveal">
+        <div><h3>Site web</h3><p>Un site vitrine moderne, rapide et lisible sur mobile, pour être trouvé sur Google et transformer les visites en demandes. Ce site en est un exemple.</p></div>
+        <div class="site-shot"><div class="bar"><i></i><i></i><i></i></div><img src="assets/site-shot.jpg" alt="Aperçu du site Ngora Studio" loading="lazy"></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="resultats">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="kick">Les résultats, compte par compte</div>
+      <h2 class="display">Des chiffres,<br><span class="grad">pas des promesses</span></h2>
+    </div>
+    <div class="rgrid">
+      
+      <article class="rc wide reveal">
+        <div class="rc-h"><img src="assets/logos/tutoria.png" alt=""><div><h3>Tutoria Cergy</h3><div class="role">Soutien scolaire · Cergy &amp; Île-de-France</div></div></div>
+        <p class="rc-did"><b>Ce que j'ai fait :</b> refonte complète de la charte, vidéos éditoriales et publicitaires, vignettes, stories interactives et gestion de 5 réseaux.</p>
+        <div class="rc-k"><div><b>902</b><span>abonnés Instagram</span></div><div><b>63</b><span>contenus produits</span></div><div><b>5+</b><span>réseaux gérés</span></div></div>
+        <div class="mini"><div class="gi"><video data-src="assets/videos/tutoria-4erreurs.mp4" poster="assets/posters/tutoria-4erreurs.jpg" muted loop playsinline preload="none"></video></div><div class="gi"><video data-src="assets/videos/tutoria-dates.mp4" poster="assets/posters/tutoria-dates.jpg" muted loop playsinline preload="none"></video></div><div class="gi"><video data-src="assets/videos/tutoria-promo.mp4" poster="assets/posters/tutoria-promo.jpg" muted loop playsinline preload="none"></video></div><div class="gi"><video data-src="assets/videos/tutoria-greve.mp4" poster="assets/posters/tutoria-greve.jpg" muted loop playsinline preload="none"></video></div><div class="gi"><span class="tagv">Vignette</span><img src="assets/vignettes/vig-evaluations.jpg" alt="Vignette : évaluations nationales" loading="lazy"></div><div class="gi"><span class="tagv">Vignette</span><img src="assets/vignettes/vig-4erreurs.jpg" alt="Vignette : 4 erreurs de rentrée" loading="lazy"></div><div class="gi"><span class="tagv">Story</span><img src="assets/stories/story-faq-groupe.jpg" alt="Story : FAQ" loading="lazy"></div><div class="gi"><span class="tagv">Story</span><img src="assets/stories/story-sondage-impot.jpg" alt="Story : sondage" loading="lazy"></div></div>
+        <a class="rc-more" href="#cas-tutoria">Voir le cas complet</a>
+      </article>
+      
+      <article class="rc reveal">
+        <div class="rc-h"><img src="assets/logos/continent.png" alt=""><div><h3>Le Continent Store</h3><div class="role">Maillots &amp; flocage · Paris</div></div></div>
+        <p class="rc-did"><b>Ce que j'ai fait :</b> logo, ouverture des comptes TikTok et Instagram, vidéos unboxing, gestion au quotidien.</p>
+        <div class="rc-k"><div><b>13,2K</b><span>abonnés</span></div><div><b>4,6M</b><span>vues en 12 mois</span></div></div>
+        <div class="mini"><div class="gi"><span class="views">▶ 279,9K</span><video data-src="assets/videos/continent-1.mp4" poster="assets/posters/continent-1.jpg" muted loop playsinline preload="none"></video></div><div class="gi"><span class="views">▶ 84,5K</span><video data-src="assets/videos/continent-2.mp4" poster="assets/posters/continent-2.jpg" muted loop playsinline preload="none"></video></div><div class="gi"><span class="views">▶ 76,2K</span><video data-src="assets/videos/continent-3.mp4" poster="assets/posters/continent-3.jpg" muted loop playsinline preload="none"></video></div><div class="gi"><video data-src="assets/videos/continent-prez.mp4" poster="assets/posters/continent-prez.jpg" muted loop playsinline preload="none"></video></div></div>
+        <a class="rc-more" href="#cas-continent">Voir le cas complet</a>
+      </article>
+      
+      <article class="rc reveal">
+        <div class="rc-h"><img src="assets/logos/mf.png" alt=""><div><h3>Market Factory</h3><div class="role">Flocage &amp; broderie · Val-d'Oise</div></div></div>
+        <p class="rc-did"><b>Ce que j'ai fait :</b> nouveau logo, refonte du feed, lancement de TikTok, réels d'atelier et stories.</p>
+        <div class="rc-k"><div><b>95K+</b><span>vues · 1re année</span></div><div><b>84,8K</b><span>vidéo phare</span></div></div>
+        <div class="mini"><div class="gi"><span class="views">▶ 84,8K</span><video data-src="assets/videos/market-1.mp4" poster="assets/posters/market-1.jpg" muted loop playsinline preload="none"></video></div><div class="gi"><video data-src="assets/videos/market-2.mp4" poster="assets/posters/market-2.jpg" muted loop playsinline preload="none"></video></div><div class="gi"><span class="tagv">Story</span><video data-src="assets/videos/mf-story-2.mp4" poster="assets/posters/mf-story-2.jpg" muted loop playsinline preload="none"></video></div><div class="gi"><span class="tagv">Story</span><video data-src="assets/videos/mf-story-4.mp4" poster="assets/posters/mf-story-4.jpg" muted loop playsinline preload="none"></video></div></div>
+        <a class="rc-more" href="#cas-market">Voir le cas complet</a>
+      </article>
+    </div>
+    <div class="all-real reveal"><a href="#realisations" class="btn ghost">Voir toutes les réalisations</a></div>
+  </div>
+</section>
+
+<section id="formules">
+  <div class="wrap">
+    <div class="head reveal" style="text-align:center;margin:0 auto 50px">
+      <div class="kick">Les formules</div>
+      <h2 class="display">Choisissez votre niveau</h2>
+    </div>
+    <div class="packs">
+      <div class="pk reveal"><div class="tag">Formule I</div><h3>Présence</h3><div class="for">Du contenu pro et régulier pour exister sur vos réseaux.</div><div class="promo"><span class="old">450€</span><span class="save">-35%</span></div><div class="price">290€<small> /mois</small></div><div class="per">Tarif de lancement · 3 premiers mois, puis 450€</div><ul><li>4 vidéos montées par mois</li><li>Vignettes assorties</li><li>Optimisation du profil (bio, highlights, feed)</li><li>1 à 2 réseaux</li><li>Livraison sous 72h</li></ul><a href="#contact" class="btn ghost">Choisir Présence</a></div>
+      <div class="pk hot reveal"><div class="tag">Formule II · La plus choisie</div><h3>Croissance</h3><div class="for">Je gère vos réseaux de A à Z. Vous vous concentrez sur votre métier.</div><div class="promo"><span class="old">890€</span><span class="save">-33%</span></div><div class="price">590€<small> /mois</small></div><div class="per">Tarif de lancement · 3 premiers mois, puis 890€</div><ul><li>Gestion complète de 3 réseaux</li><li>12 contenus par mois dont 6 vidéos</li><li>Vignettes &amp; stories interactives</li><li>Community management</li><li>Calendrier éditorial &amp; reporting mensuel</li></ul><a href="#contact" class="btn hot">Profiter du lancement</a></div>
+      <div class="pk reveal"><div class="tag">Formule III</div><h3>Signature</h3><div class="for">La gestion marketing complète : contenu, publicité, branding et site.</div><div class="price"><small style="font-size:.9rem;color:var(--muted)">à partir de </small>1 290€<small> /mois</small></div><div class="per">Sur devis · projet sur mesure</div><ul><li>5 réseaux et plus (YouTube, LinkedIn…)</li><li>Vidéos publicitaires (ads)</li><li>Création ou refonte de site web</li><li>Logo &amp; identité visuelle</li><li>Accompagnement stratégique</li></ul><a href="#contact" class="btn ghost">Demander un devis</a></div>
+    </div>
+    <div class="unit reveal">
+      <div class="unit-t">À l'unité</div>
+      <div class="unit-list">
+        <span><b>150€</b>Vidéo tournée &amp; montée</span>
+        <span><b>70€</b>Montage seul (vos rushs)</span>
+        <span><b>80€</b>Pack 5 vignettes</span>
+        <span><b>250€</b>Teaser vlog</span>
+        <span><b>250€</b>Logo, dès</span>
+        <span><b>790€</b>Site vitrine, dès</span>
+      </div>
+    </div>
+    <p class="packs-note reveal">Engagement de 3 mois conseillé pour voir des résultats. Chaque devis est adapté à vos objectifs et à votre volume.</p>
+  </div>
+</section>
+
+<section id="methode">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="kick">La méthode</div>
+      <h2 class="display">De l'audit<br><span class="grad">aux résultats</span></h2>
+    </div>
+    <ol class="steps reveal">
+      <li><b>Audit</b><span>J'analyse vos comptes, vos concurrents et ce qui bloque.</span></li>
+      <li><b>Stratégie &amp; idées</b><span>Les angles, les formats et un calendrier de publication.</span></li>
+      <li><b>Tournage</b><span>Je viens sur place, ou je pars de vos propres rushs.</span></li>
+      <li><b>Montage &amp; motion</b><span>Rythme, sous-titres animés, habillage à vos couleurs.</span></li>
+      <li><b>Publication &amp; suivi</b><span>Je publie, je réponds et je vous montre les chiffres chaque mois.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section id="avis" hidden>
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="kick">Avis clients</div>
+      <h2 class="display">Ils en parlent<br><span class="grad">mieux que moi</span></h2>
+    </div>
+    <div class="testis" id="testis"></div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="head reveal" style="text-align:center;margin:0 auto 40px">
+      <div class="kick">Questions fréquentes</div>
+      <h2 class="display">Avant de se lancer</h2>
+    </div>
+    <div class="faq reveal">
+      <details><summary>En combien de temps je vois des résultats ?</summary><p>Comptez 3 mois pour voir une vraie différence : le temps de trouver les formats qui marchent pour votre marque et de publier avec régularité. C'est pour ça que je conseille un engagement de 3 mois.</p></details>
+      <details><summary>Je dois tourner les vidéos moi-même ?</summary><p>Non. Je viens tourner sur place, ou je monte vos propres rushs si vous préférez filmer vous-même (70 € la vidéo).</p></details>
+      <details><summary>Quels réseaux vous gérez ?</summary><p>Instagram, TikTok, YouTube, Facebook et LinkedIn. La formule Présence couvre 1 à 2 réseaux, Croissance 3 réseaux, Signature 5 et plus.</p></details>
+      <details><summary>Vous ajoutez du motion design dans les vidéos ?</summary><p>Oui : titres animés, sous-titres mot par mot, chiffres et logo en mouvement, aux couleurs de votre marque. Je l'intègre directement au montage.</p></details>
+      <details><summary>Vous travaillez où ?</summary><p>Je suis basé dans le Val-d'Oise et je me déplace en Île-de-France pour les tournages. Le montage et la gestion des comptes se font à distance.</p></details>
+      <details><summary>Comment se passe l'audit gratuit ?</summary><p>Un appel de 15 minutes pour comprendre votre activité, puis je vous envoie sous 48h ce qui bloque sur vos comptes et ce qu'on peut viser. Sans engagement.</p></details>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="about">
+  <div class="wrap">
+    <div class="about-in reveal">
+      <div class="about-ph"><img src="assets/logo-mark.png" alt="" id="aboutPhoto"></div>
+      <p><b>Derrière Ngora Studio, il y a Rayan.</b> Créateur de contenu et community manager dans le Val-d'Oise, je tourne, je monte et je gère moi-même chaque compte. Un seul interlocuteur, du premier appel à la publication.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<main class="view" id="realisations" data-view="realisations">
+  <section class="page-head">
+    <div class="wrap">
+      <h1 class="display">Réalisations</h1>
+      <p>Le détail du travail, marque par marque : le point de départ, ce que j'ai fait, les résultats et tout le contenu produit.</p>
+      <div class="chips">
+        <a href="#cas-tutoria"><img src="assets/logos/tutoria.png" alt="">Tutoria Cergy</a>
+        <a href="#cas-continent"><img src="assets/logos/continent.png" alt="">Le Continent Store</a>
+        <a href="#cas-market"><img src="assets/logos/mf.png" alt="">Market Factory</a>
+        <a class="txt" href="#cas-ohmydtf">Oh My DTF</a>
+      </div>
+    </div>
+  </section>
+  <section style="padding-top:40px">
+    <div class="wrap">
+
+    <div class="case reveal" id="cas-tutoria">
+      <div class="case-head">
+        <div class="case-id">
+          <h3>Tutoria Cergy</h3>
+          <div class="role">Soutien scolaire — Cergy &amp; Île-de-France · Communication repensée de A à Z</div>
+        </div>
+        <span class="case-badge phare">Réalisation phare</span>
+      </div>
+      <div class="story"><div class="st-step"><span class="st-k">Le point de départ</span><p>Des visuels sans ligne directrice et des vidéos qui ne reflétaient pas le sérieux de l'organisme.</p></div><div class="st-step"><span class="st-k">Ce que j'ai fait</span><p>Nouvelle charte, vidéos éditoriales et publicitaires, séries (FAQ, actu éducation), vignettes, stories interactives et gestion de 5 réseaux.</p></div><div class="st-step"><span class="st-k">Le résultat</span><p>Un compte cohérent et actif : <b>902 abonnés</b> et <b>63 contenus</b> publiés, sur YouTube, Instagram, TikTok, Facebook et LinkedIn.</p></div></div>
+      <div class="case-kpis">
+        <div class="case-kpi"><b>902</b><span>abonnés Instagram</span></div>
+        <div class="case-kpi"><b>63</b><span>contenus produits</span></div>
+        <div class="case-kpi"><b>5+</b><span>réseaux gérés</span></div>
+        <div class="case-kpi"><b>100%</b><span>charte respectée</span></div>
+      </div>
+      <div class="sub-t">Vidéos éditoriales &amp; campagnes</div>
+      <div class="case-vids" data-more="4"><div class="cv"><video data-src="assets/videos/tutoria-4erreurs.mp4" poster="assets/posters/tutoria-4erreurs.jpg" muted loop playsinline preload="none"></video></div><div class="cv"><video data-src="assets/videos/tutoria-evaluation.mp4" poster="assets/posters/tutoria-evaluation.jpg" muted loop playsinline preload="none"></video></div><div class="cv"><video data-src="assets/videos/tutoria-dates.mp4" poster="assets/posters/tutoria-dates.jpg" muted loop playsinline preload="none"></video></div><div class="cv"><video data-src="assets/videos/tutoria-greve.mp4" poster="assets/posters/tutoria-greve.jpg" muted loop playsinline preload="none"></video></div><div class="cv"><video data-src="assets/videos/tutoria-promo.mp4" poster="assets/posters/tutoria-promo.jpg" muted loop playsinline preload="none"></video></div></div>
+      <div class="sub-t">Vignettes</div>
+      <div class="case-vids" data-more="4"><div class="cv"><img src="assets/vignettes/vig-dates-college.jpg" alt="Vignette : dates clés du collège" loading="lazy"></div><div class="cv"><img src="assets/vignettes/vig-faq-ep2.jpg" alt="Vignette : série FAQ" loading="lazy"></div><div class="cv"><img src="assets/vignettes/vig-urssaf.jpg" alt="Vignette : l'avance immédiate" loading="lazy"></div><div class="cv"><img src="assets/vignettes/vig-evaluations.jpg" alt="Vignette : évaluations nationales" loading="lazy"></div><div class="cv"><img src="assets/vignettes/vig-greves-blocus.jpg" alt="Vignette : grèves et blocus" loading="lazy"></div><div class="cv"><img src="assets/vignettes/vig-4erreurs.jpg" alt="Vignette : 4 erreurs de rentrée" loading="lazy"></div></div>
+      <div class="sub-t">Stories &amp; profil</div>
+      <div class="case-vids"><div class="cv"><img src="assets/stories/story-sondage-impot.jpg" alt="Story : sondage" loading="lazy"></div><div class="cv"><img src="assets/stories/story-test-semaine.jpg" alt="Story : test de la semaine" loading="lazy"></div><div class="cv"><img src="assets/stories/story-faq-abonne.jpg" alt="Story : FAQ abonné" loading="lazy"></div><div class="cv"><img src="assets/stories/story-faq-groupe.jpg" alt="Story : FAQ" loading="lazy"></div><div class="cv"><img src="assets/insta/tutoria-profil-apres.jpg" alt="Profil Instagram après refonte" loading="lazy"></div></div>
+    </div>
+
+    <!-- Continent Store -->
+    <div class="case reveal" id="cas-continent">
+      <div class="case-head">
+        <div class="case-id">
+          <h3>Le Continent Store</h3>
+          <div class="role">Boutique de maillots &amp; flocage — Paris · Gestion complète depuis la création</div>
+        </div>
+        <span class="case-badge phare">⭐ Cas phare</span>
+      </div>
+      <div class="story"><div class="st-step"><span class="st-k">Le point de départ</span><p>Une boutique de maillots à Paris, sans logo ni présence sur les réseaux.</p></div><div class="st-step"><span class="st-k">Ce que j'ai fait</span><p>Création du logo et de l'identité, ouverture de 2 comptes TikTok et Instagram, vidéos unboxing régulières, gestion au quotidien.</p></div><div class="st-step"><span class="st-k">Le résultat</span><p><b>13 200 abonnés</b> et <b>4,6 M de vues</b> en moins d'un an, avec des vidéos jusqu'à 279,9 K vues.</p></div></div>
+      <div class="case-kpis">
+        <div class="case-kpi"><b>10K+</b><span>abonnés générés</span><span class="up">▲ 32 → 13,2K</span></div>
+        <div class="case-kpi"><b>4,6M</b><span>vues · 12 mois</span><span class="up">▲ organique</span></div>
+        <div class="case-kpi"><b>211K</b><span>j'aime cumulés</span><span class="up">▲ +56% / 7j</span></div>
+        <div class="case-kpi"><b>30,4K</b><span>partages</span><span class="up">▲ viralité</span></div>
+      </div>
+      <div class="case-vids" data-more="3">
+        <div class="cv"><span class="views">▶ 279,9K</span><video data-src="assets/videos/continent-1.mp4" poster="assets/posters/continent-1.jpg" muted loop playsinline preload="none"></video></div>
+        <div class="cv"><span class="views">▶ 84,5K</span><video data-src="assets/videos/continent-2.mp4" poster="assets/posters/continent-2.jpg" muted loop playsinline preload="none"></video></div>
+        <div class="cv"><span class="views">▶ 76,2K</span><video data-src="assets/videos/continent-3.mp4" poster="assets/posters/continent-3.jpg" muted loop playsinline preload="none"></video></div>
+        <div class="cv"><video data-src="assets/videos/continent-prez.mp4" poster="assets/posters/continent-prez.jpg" muted loop playsinline preload="none"></video></div>
+        <div class="cv"><video data-src="assets/videos/dailyvlog-5.mp4" poster="assets/posters/dailyvlog-5.jpg" muted loop playsinline preload="none"></video></div>
+        <div class="cv"><video data-src="assets/videos/continent-4.mp4" poster="assets/posters/continent-4.jpg" muted loop playsinline preload="none"></video></div>
+        <div class="cv"><video data-src="assets/videos/continent-5.mp4" poster="assets/posters/continent-5.jpg" muted loop playsinline preload="none"></video></div>
+        <div class="cv"><video data-src="assets/videos/continent-6.mp4" poster="assets/posters/continent-6.jpg" muted loop playsinline preload="none"></video></div>
+        <div class="cv"><video data-src="assets/videos/continent-7.mp4" poster="assets/posters/continent-7.jpg" muted loop playsinline preload="none"></video></div>
+        <div class="cv"><video data-src="assets/videos/continent-8.mp4" poster="assets/posters/continent-8.jpg" muted loop playsinline preload="none"></video></div>
+      </div>
+      <div class="case-dash">
+        <span class="dl">Statistiques vérifiées</span>
+        <div class="dash" data-full="assets/dashboards/continent-vues.jpg"><img src="assets/dashboards/continent-vues.jpg" alt="Statistiques TikTok : 4,6 M de vues sur 12 mois"><span>4,6 M vues · 12 mois</span></div>
+        <div class="dash" data-full="assets/dashboards/continent-followers.jpg"><img src="assets/dashboards/continent-followers.jpg" alt="Statistiques TikTok : 13 206 abonnés"><span>13 206 abonnés</span></div>
+      </div>
+    </div>
+
+    <!-- Market Factory -->
+    <div class="case reveal" id="cas-market">
+      <div class="case-head">
+        <div class="case-id">
+          <h3>Market Factory</h3>
+          <div class="role">Flocage, broderie &amp; impression — Val-d'Oise (95) · Refonte complète des réseaux</div>
+        </div>
+        <span class="case-badge result">📈 Résultats</span>
+      </div>
+      <div class="story"><div class="st-step"><span class="st-k">Le point de départ</span><p>Un atelier de flocage et de broderie dans le Val-d'Oise, sans réseaux structurés ni identité cohérente.</p></div><div class="st-step"><span class="st-k">Ce que j'ai fait</span><p>Nouveau logo, refonte du feed Instagram, lancement de TikTok, vidéos d'atelier et stories qui montrent le savoir-faire.</p></div><div class="st-step"><span class="st-k">Le résultat</span><p><b>95 K vues</b> la première année sur un compte parti de zéro, dont une vidéo à <b>84,8 K</b>.</p></div></div>
+      <div class="case-kpis">
+        <div class="case-kpi"><b>95K+</b><span>vues · 1re année</span><span class="up">▲ départ de zéro</span></div>
+        <div class="case-kpi"><b>84,8K</b><span>vidéo phare</span><span class="up">▲ flocage maillot</span></div>
+        <div class="case-kpi"><b>3</b><span>canaux structurés</span><span class="up">▲ TikTok·Insta·Site</span></div>
+        <div class="case-kpi"><b>100%</b><span>identité refaite</span><span class="up">▲ logo + feed</span></div>
+      </div>
+      <div class="sub-t">Réels TikTok &amp; Instagram</div>
+      <div class="case-vids" data-more="3">
+        <div class="cv"><span class="views">▶ 84,8K</span><video data-src="assets/videos/market-1.mp4" poster="assets/posters/market-1.jpg" muted loop playsinline preload="none"></video></div>
+        <div class="cv"><video data-src="assets/videos/market-2.mp4" poster="assets/posters/market-2.jpg" muted loop playsinline preload="none"></video></div>
+        <div class="cv"><video data-src="assets/videos/market-3.mp4" poster="assets/posters/market-3.jpg" muted loop playsinline preload="none"></video></div>
+        <div class="cv"><video data-src="assets/videos/market-4.mp4" poster="assets/posters/market-4.jpg" muted loop playsinline preload="none"></video></div>
+        <div class="cv"><video data-src="assets/videos/market-5.mp4" poster="assets/posters/market-5.jpg" muted loop playsinline preload="none"></video></div>
+      </div>
+      <div class="sub-t">Stories Instagram</div>
+      <div class="case-vids" data-more="3">
+        <div class="cv"><video data-src="assets/videos/mf-story-1.mp4" poster="assets/posters/mf-story-1.jpg" muted loop playsinline preload="none"></video></div>
+        <div class="cv"><video data-src="assets/videos/mf-story-2.mp4" poster="assets/posters/mf-story-2.jpg" muted loop playsinline preload="none"></video></div>
+        <div class="cv"><video data-src="assets/videos/mf-story-3.mp4" poster="assets/posters/mf-story-3.jpg" muted loop playsinline preload="none"></video></div>
+        <div class="cv"><video data-src="assets/videos/mf-story-4.mp4" poster="assets/posters/mf-story-4.jpg" muted loop playsinline preload="none"></video></div>
+        <div class="cv"><video data-src="assets/videos/mf-story-5.mp4" poster="assets/posters/mf-story-5.jpg" muted loop playsinline preload="none"></video></div>
+        <div class="cv"><video data-src="assets/videos/mf-story-6.mp4" poster="assets/posters/mf-story-6.jpg" muted loop playsinline preload="none"></video></div>
+        <div class="cv"><video data-src="assets/videos/mf-story-7.mp4" poster="assets/posters/mf-story-7.jpg" muted loop playsinline preload="none"></video></div>
+        <div class="cv"><video data-src="assets/videos/mf-story-8.mp4" poster="assets/posters/mf-story-8.jpg" muted loop playsinline preload="none"></video></div>
+        <div class="cv"><video data-src="assets/videos/mf-story-9.mp4" poster="assets/posters/mf-story-9.jpg" muted loop playsinline preload="none"></video></div>
+      </div>
+      <div class="case-dash">
+        <span class="dl">Statistiques vérifiées</span>
+        <div class="dash" data-full="assets/dashboards/market-vues.jpg"><img src="assets/dashboards/market-vues.jpg" alt="Statistiques TikTok : 95,2 K vues"><span>95,2 K vues · 1 an</span></div>
+      </div>
+    </div>
+
+    <!-- Oh My DTF -->
+    <div class="case reveal" id="cas-ohmydtf">
+      <div class="case-head">
+        <div class="case-id">
+          <h3>Oh My DTF</h3>
+          <div class="role">Impression DTF &amp; UV sur textile et objets — création de contenu produit</div>
+        </div>
+        <span class="case-badge result">Autre compte accompagné</span>
+      </div>
+      <div class="story"><div class="st-step"><span class="st-k">Le point de départ</span><p>Des produits personnalisés (mugs, gourdes, stickers, stylos) dont le rendu se voit mal en simple photo.</p></div><div class="st-step"><span class="st-k">Ce que j'ai fait</span><p>Des vidéos courtes centrées sur le produit, qui montrent l'impression DTF &amp; UV et le résultat final.</p></div></div>
+      <div class="case-vids" data-more="3">
+        <div class="cv"><video data-src="assets/videos/ohmydtf.mp4" poster="assets/posters/ohmydtf.jpg" muted loop playsinline preload="none"></video></div>
+        <div class="cv"><video data-src="assets/videos/dailyvlog-4.mp4" poster="assets/posters/dailyvlog-4.jpg" muted loop playsinline preload="none"></video></div>
+        <div class="cv"><video data-src="assets/videos/ohmydtf-2.mp4" poster="assets/posters/ohmydtf-2.jpg" muted loop playsinline preload="none"></video></div>
+        <div class="cv"><video data-src="assets/videos/ohmydtf-3.mp4" poster="assets/posters/ohmydtf-3.jpg" muted loop playsinline preload="none"></video></div>
+        <div class="cv"><video data-src="assets/videos/ohmydtf-4.mp4" poster="assets/posters/ohmydtf-4.jpg" muted loop playsinline preload="none"></video></div>
+      </div>
+    </div>
+
+  </div>
+  </section>
+</main>
+
+<main class="view" id="formats" data-view="formats">
+  <section class="page-head">
+    <div class="wrap">
+      <h1 class="display">Collabs &amp; formats</h1>
+      <p>Au-delà de la gestion de comptes : collaborations avec des restaurants, teasers et vlogs. Je m'adapte à chaque lieu et à chaque plateforme.</p>
+    </div>
+  </section>
+  <section style="padding-top:40px">
+    <div class="wrap">
+    <div class="fmt-group reveal">
+      <div class="fmt-head"><h3>Collabs restaurants</h3><span>Ambiance, plats, lieu : des vidéos qui donnent envie de réserver</span></div>
+      <div class="grid-auto" data-more="3">
+        <div class="gi"><video data-src="assets/videos/ugc-resto2.mp4" poster="assets/posters/ugc-resto2.jpg" muted loop playsinline preload="none"></video><div class="cap"><div class="st">UGC</div><div class="t">Assinie · Paris</div></div></div>
+        <div class="gi"><video data-src="assets/videos/resto-assinie.mp4" poster="assets/posters/resto-assinie.jpg" muted loop playsinline preload="none"></video><div class="cap"><div class="st">UGC</div><div class="t">Assinie · façade</div></div></div>
+        <div class="gi"><video data-src="assets/videos/resto-africain.mp4" poster="assets/posters/resto-africain.jpg" muted loop playsinline preload="none"></video><div class="cap"><div class="st">UGC</div><div class="t">Cuisine africaine</div></div></div>
+      </div>
+    </div>
+    <div class="pitch reveal"><p><b>Vous avez un restaurant ?</b> Je viens sur place, je filme l'ambiance et vos plats, et je vous livre des vidéos prêtes à poster sur Instagram et TikTok.</p><a href="#contact" class="btn">Proposer une collab</a></div>
+    <div class="fmt-group reveal">
+      <div class="fmt-head"><h3>Teasers vlog</h3><span>Intros rythmées, effets lumière, montage cinéma</span></div>
+      <div class="grid-land" data-more="3">
+        <div class="gi land"><video data-src="assets/videos/teaser-barca.mp4" poster="assets/posters/teaser-barca.jpg" muted loop playsinline preload="none"></video><div class="cap"><div class="st">Teaser</div><div class="t">NG Vlog</div></div></div>
+        <div class="gi land"><video data-src="assets/videos/teaser-vlog.mp4" poster="assets/posters/teaser-vlog.jpg" muted loop playsinline preload="none"></video><div class="cap"><div class="st">Teaser</div><div class="t">Intro cinéma</div></div></div>
+      </div>
+    </div>
+    <div class="fmt-group reveal">
+      <div class="fmt-head"><h3>Vlogs</h3><span>Daily vlogs, coulisses, format storytelling</span></div>
+      <div class="grid-auto" data-more="3">
+        <div class="gi"><video data-src="assets/videos/dailyvlog-1.mp4" poster="assets/posters/dailyvlog-1.jpg" muted loop playsinline preload="none"></video><div class="cap"><div class="st">Vlog</div><div class="t">Sortie Paris</div></div></div>
+        <div class="gi"><video data-src="assets/videos/dailyvlog-2.mp4" poster="assets/posters/dailyvlog-2.jpg" muted loop playsinline preload="none"></video><div class="cap"><div class="st">Vlog</div><div class="t">Coulisses</div></div></div>
+        <div class="gi"><video data-src="assets/videos/dailyvlog-3.mp4" poster="assets/posters/dailyvlog-3.jpg" muted loop playsinline preload="none"></video><div class="cap"><div class="st">Vlog</div><div class="t">Sur la route</div></div></div>
+      </div>
+    </div>
+    </div>
+  </section>
+</main>
+
+<section id="contact" class="contact">
+  <div class="wrap reveal">
+    <img class="mark" src="assets/logo-mark.png" alt="">
+    <h2 class="display">On met votre marque<br><span class="grad">en mouvement ?</span></h2>
+    <p>Audit gratuit et sans engagement : je regarde vos réseaux et je vous dis concrètement ce qu'on peut viser en 3 mois.</p>
+    <div class="ct-grid">
+      <a class="ct" data-contact="calendly" href="#" target="_blank" rel="noopener">
+        <span class="ct-k">Le plus simple</span><b>Réserver un appel de 15 min</b><span class="ct-d">Choisissez un créneau, je vous appelle.</span>
+      </a>
+      <a class="ct" data-contact="whatsapp" href="#" target="_blank" rel="noopener">
+        <span class="ct-k">Réponse rapide</span><b>Écrire sur WhatsApp</b><span class="ct-d">Un message suffit pour démarrer.</span>
+      </a>
+      <div class="ct ct-mail">
+        <span class="ct-k">Par e-mail</span><b id="mailAddr">nguedjeupatrick@gmail.com</b>
+        <span class="ct-row"><button type="button" class="ct-copy" id="copyMail">Copier l'adresse</button><a class="ct-link" href="mailto:nguedjeupatrick@gmail.com?subject=Audit%20gratuit%20-%20Ngora%20Studio">Ouvrir ma messagerie</a></span>
+      </div>
+    </div>
+    <ol class="next-steps">
+      <li><b>Un appel de 15 min</b><span>Vous me parlez de votre activité et de vos objectifs.</span></li>
+      <li><b>Votre audit sous 48h</b><span>Ce qui bloque sur vos comptes et ce qu'on peut améliorer.</span></li>
+      <li><b>Une proposition sur mesure</b><span>Une formule et un tarif adaptés, sans engagement.</span></li>
+    </ol>
+    <a class="ct-insta" href="https://www.instagram.com/rayaan.ng" target="_blank" rel="noopener">Voir mon Instagram @rayaan.ng</a>
+  </div>
+</section>
+
+<a class="m-cta" id="mCta" href="#contact">Audit gratuit · Réserver un appel</a>
+
+<footer>
+  <div class="wrap foot-in">
+    <span>© 2026 Ngora Studio — Rayan Nguedjeu · Île-de-France</span>
+    <span>Instagram · TikTok · nguedjeupatrick@gmail.com</span>
+  </div>
+</footer>
+
+
+<script>
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const obs=new IntersectionObserver((e)=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');obs.unobserve(x.target);}})},{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+  const prog=document.getElementById('prog');
+  addEventListener('scroll',()=>{const h=document.documentElement;prog.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';},{passive:true});
+
+  if(!reduce){
+    document.querySelectorAll('.tilt').forEach(c=>{
+      c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect();const px=(e.clientX-r.left)/r.width-.5,py=(e.clientY-r.top)/r.height-.5;c.style.transform=`rotateY(${px*9}deg) rotateX(${-py*9}deg) translateY(-3px)`;});
+      c.addEventListener('mouseleave',()=>c.style.transform='');
+    });
+    const ph=document.getElementById('phone3d'),hero=document.querySelector('.hero');
+    hero.addEventListener('mousemove',e=>{const r=hero.getBoundingClientRect();const px=(e.clientX-r.left)/r.width-.5,py=(e.clientY-r.top)/r.height-.5;ph.style.transform=`rotateY(${px*14}deg) rotateX(${-py*10}deg)`;});
+    hero.addEventListener('mouseleave',()=>ph.style.transform='');
+  }
+
+  // dashboards lightbox
+  const lb=document.getElementById('lb'),lbi=lb.querySelector('img');
+  document.querySelectorAll('.dash[data-full]').forEach(d=>d.addEventListener('click',()=>{lbi.src=d.querySelector('img').src;lbi.alt=d.querySelector('img').alt;lb.classList.add('on');}));
+  document.querySelectorAll('.case-vids .cv img').forEach(im=>im.parentElement.addEventListener('click',()=>{lbi.src=im.src;lbi.alt=im.alt;lb.classList.add('on');}));
+  lb.addEventListener('click',()=>lb.classList.remove('on'));
+  addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('on');});
+
+  // "+" tiles : show N items, reveal the rest on click
+  document.querySelectorAll('[data-more]').forEach(g=>{
+    const n=+g.dataset.more, items=[...g.children];
+    const hidden=items.slice(n);
+    hidden.forEach(i=>i.classList.add('is-hidden'));
+    const t=document.createElement(hidden.length?'button':'a');
+    t.className='more-tile';
+    if(hidden.length){t.type='button';t.setAttribute('aria-label','Voir '+hidden.length+' contenus de plus');}
+    else{t.href='https://www.instagram.com/rayaan.ng';t.target='_blank';t.rel='noopener';t.setAttribute('aria-label','Voir plus de contenus sur Instagram');}
+    t.innerHTML='<span class="n">+'+(hidden.length||'')+'</span><span class="l">'+(hidden.length?'Voir plus':'Plus sur Insta')+'</span>';
+    if(hidden.length){t.addEventListener('click',()=>{hidden.forEach(i=>{i.classList.remove('is-hidden');i.classList.add('reveal-in');});t.remove();});}
+    g.appendChild(t);
+  });
+
+  // vidéos : chargées et lues seulement au survol (souris) ou au toucher (mobile)
+  const loadV=v=>{if(v&&!v.getAttribute('src')&&v.dataset.src){v.src=v.dataset.src;}};
+  const tiles=[...document.querySelectorAll('.gi,.cv')].filter(t=>t.querySelector('video'));
+  const stopAll=except=>tiles.forEach(t=>{if(t!==except){const v=t.querySelector('video');v.pause();t.classList.remove('playing');}});
+  const playT=t=>{const v=t.querySelector('video');loadV(v);stopAll(t);v.play().then(()=>t.classList.add('playing')).catch(()=>{});};
+  const pauseT=t=>{t.querySelector('video').pause();t.classList.remove('playing');};
+  const canHover=matchMedia('(hover:hover) and (pointer:fine)').matches;
+  tiles.forEach(t=>{
+    if(canHover){t.addEventListener('mouseenter',()=>playT(t));t.addEventListener('mouseleave',()=>pauseT(t));}
+    else{t.addEventListener('click',()=>t.classList.contains('playing')?pauseT(t):playT(t));}
+  });
+  const vio=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)pauseT(e.target);}));
+  tiles.forEach(t=>vio.observe(t));
+
+  // contact : renseigner ici les liens. Une carte reste masquée tant que son lien est vide.
+  const CONTACT={
+    calendly:'',   // ex : 'https://calendly.com/ngora-studio/15min'
+    whatsapp:''    // numéro au format international sans + ni espaces, ex : '33612345678'
+  };
+  document.querySelectorAll('[data-contact]').forEach(a=>{
+    const k=a.dataset.contact, v=(CONTACT[k]||'').trim();
+    if(!v){a.hidden=true;return;}
+    a.href = k==='whatsapp' ? 'https://wa.me/'+v.replace(/\D/g,'')+'?text='+encodeURIComponent("Bonjour Rayan, j'aimerais un audit gratuit de mes réseaux.") : v;
+  });
+  const cm=document.getElementById('copyMail');
+  cm.addEventListener('click',()=>{
+    const t=document.getElementById('mailAddr').textContent;
+    const done=()=>{cm.textContent='Adresse copiée';setTimeout(()=>cm.textContent="Copier l'adresse",2000);};
+    (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(done).catch(()=>{const r=document.createRange();r.selectNodeContents(document.getElementById('mailAddr'));const sel=getSelection();sel.removeAllRanges();sel.addRange(r);cm.textContent='Adresse sélectionnée';});
+  });
+  // barre mobile : apparaît après le haut de page, disparaît sur la section contact
+  const mc=document.getElementById('mCta'), heroEl=document.querySelector('.hero'), ctEl=document.getElementById('contact');
+  const upd=()=>{const past=!document.getElementById('accueil').classList.contains('on')||heroEl.getBoundingClientRect().bottom<0, atC=ctEl.getBoundingClientRect().top<innerHeight*.8;mc.classList.toggle('on',past&&!atC);};
+  addEventListener('scroll',upd,{passive:true});upd();
+
+
+  // before/after : balayage automatique jusqu'à ce que l'utilisateur prenne la main
+  document.querySelectorAll('.ba').forEach(ba=>{
+    const set=p=>ba.style.setProperty('--split',Math.max(2,Math.min(98,p))+'%');
+    const fromX=x=>{const r=ba.getBoundingClientRect();set(((x-r.left)/r.width)*100);};
+    let d=false,auto=!reduce,t0=null;
+    ba.classList.toggle('auto',auto);
+    const loop=t=>{if(!auto)return;if(t0===null)t0=t;const k=(Math.sin((t-t0)/1100)+1)/2;set(12+k*76);requestAnimationFrame(loop);};
+    const io=new IntersectionObserver(e=>{if(e[0].isIntersecting&&auto){t0=null;requestAnimationFrame(loop);}},{threshold:.3});io.observe(ba);
+    const stop=()=>{auto=false;ba.classList.remove('auto');};
+    ba.addEventListener('pointerdown',e=>{stop();d=true;fromX(e.clientX);});
+    window.addEventListener('pointermove',e=>{if(d)fromX(e.clientX);});
+    window.addEventListener('pointerup',()=>d=false);
+    ba.addEventListener('mouseenter',stop,{once:true});
+  });
+
+
+  // ---------- menu & pages (#accueil, #realisations, #formats) ----------
+  const views=[...document.querySelectorAll('.view')], navEl=document.querySelector('nav');
+  const heroVid=document.querySelector('#phone3d video');
+  const menuBtn=document.getElementById('menuBtn');
+  const closeMenu=()=>{document.body.classList.remove('menu-open');menuBtn.setAttribute('aria-expanded','false');};
+  menuBtn.addEventListener('click',()=>{const o=document.body.classList.toggle('menu-open');menuBtn.setAttribute('aria-expanded',String(o));});
+  document.querySelectorAll('#mMenu a').forEach(a=>a.addEventListener('click',closeMenu));
+  const route=()=>{
+    const id=decodeURIComponent(location.hash.slice(1))||'accueil';
+    let el=document.getElementById(id); if(!el) el=document.getElementById('accueil');
+    const view=el.classList.contains('view')?el:el.closest('.view');
+    if(view){views.forEach(v=>v.classList.toggle('on',v===view));}
+    const cur=(view||document.getElementById('accueil')).dataset.view;
+    const navKey=(id==='formules'||id==='motion')?id:cur;
+    document.querySelectorAll('[data-nav]').forEach(a=>a.classList.toggle('on',a.dataset.nav===navKey));
+    stopAll(null);
+    if(heroVid){cur==='accueil'?heroVid.play().catch(()=>{}):heroVid.pause();}
+    closeMenu();
+    if(el.classList.contains('view')){window.scrollTo({top:0,behavior:'instant'});}
+    else{const y=el.getBoundingClientRect().top+scrollY-navEl.offsetHeight-12;window.scrollTo({top:Math.max(0,y),behavior:'instant'});}
+    upd();
+  };
+  addEventListener('hashchange',route);
+  route();
+
+  // ---------- v2 : à remplir ----------
+  // Vos vidéos motion design : { src:'assets/videos/xxx.mp4', poster:'assets/posters/xxx.jpg', client:'Nom de la marque', type:'Logo animé' }
+  const MOTION_VIDEOS=[];
+  // Vrais avis clients uniquement : { text:'…', name:'Prénom', brand:'Marque', logo:'assets/logos/xxx.png', result:'+10K abonnés' }
+  const TESTIMONIALS=[];
+
+  if(MOTION_VIDEOS.length){
+    const g=document.getElementById('motionGrid');
+    g.innerHTML=MOTION_VIDEOS.map(v=>`<div class="gi"><video data-src="${v.src}" poster="${v.poster||''}" muted loop playsinline preload="none"></video><div class="cap"><div class="st">${v.type||'Motion'}</div><div class="t">${v.client||''}</div></div></div>`).join('');
+    document.getElementById('motionVids').hidden=false;
+    g.querySelectorAll('.gi').forEach(t=>{tiles.push(t);vio.observe(t);
+      if(canHover){t.addEventListener('mouseenter',()=>playT(t));t.addEventListener('mouseleave',()=>pauseT(t));}
+      else{t.addEventListener('click',()=>t.classList.contains('playing')?pauseT(t):playT(t));}});
+  }
+  if(TESTIMONIALS.length){
+    const esc=x=>String(x||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+    document.getElementById('testis').innerHTML=TESTIMONIALS.map(t=>`<figure class="testi">${t.result?`<div class="res">${esc(t.result)}</div>`:''}<q>${esc(t.text)}</q><figcaption class="who">${t.logo?`<img src="${esc(t.logo)}" alt="">`:''}<span><b>${esc(t.name)}</b><span>${esc(t.brand)}</span></span></figcaption></figure>`).join('');
+    document.getElementById('avis').hidden=false;
+  }
+
+  // mot qui change dans le titre
+  (()=>{const r=document.getElementById('rot');if(!r||reduce)return;const w=[...r.children];let i=0;
+    setInterval(()=>{const cur=w[i];cur.classList.remove('on');cur.classList.add('out');i=(i+1)%w.length;w[i].classList.remove('out');w[i].classList.add('on');setTimeout(()=>cur.classList.remove('out'),650);},2600);})();
+
+  // compteurs du hero
+  (()=>{if(reduce)return;document.querySelectorAll('[data-count]').forEach(b=>{const n=+b.dataset.count,suf=b.dataset.suf;const t0=performance.now()+900,d=1400;
+    const step=t=>{const k=Math.min(1,Math.max(0,(t-t0)/d));b.textContent=Math.round(n*(1-Math.pow(1-k,3)))+suf;if(k<1)requestAnimationFrame(step);};requestAnimationFrame(step);});})();
+
+  // ---------- motion design : 4 scènes d'exemple, réutilisées dans le hero (en boucle) et dans la galerie ----------
+  (()=>{
+    const SCENES=[
+      {dur:4,name:'Typo cinétique',cls:'sc-cont',html:`<div class="stripes"></div><div class="big10">10</div><div class="sc-brand"><img src="assets/logos/continent.png" alt="">Le Continent Store</div><div class="kt"><span>Ton maillot.</span><span>Ton nom.</span><span>Ton numéro.</span></div><div class="kt-line"></div><div class="flash"></div><div class="sc-ex">Exemple · typo cinétique</div>`},
+      {dur:4.4,name:'Sous-titres animés',cls:'sc-tuto',html:`<div class="blob b1"></div><div class="blob b2"></div><div class="sc-brand"><img src="assets/logos/tutoria.png" alt="">Tutoria Cergy</div><div class="caps"></div><div class="l3"><b>Tutoria Cergy</b><span>Soutien scolaire · Cergy</span></div><div class="sc-ex">Exemple · sous-titres animés</div>`},
+      {dur:3.4,name:'Chiffres animés',html:`<div class="sc-brand"><img src="assets/logos/mf.png" alt="">Market Factory</div><div class="num">0</div><div class="num-l">vues sur une seule vidéo</div><div class="bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="sc-ex">Exemple · chiffres animés</div>`},
+      {dur:3.8,name:'Logo animé',cls:'sc-logo',html:`<div class="lg-rev"><i class="ring2"></i>${Array.from({length:10},(_,i)=>`<i class="pt" style="--a:${i*36}deg"></i>`).join('')}<img src="assets/logo-mark.png" alt=""></div><div class="lg-name">${[...'NGORA'].map((c,i)=>`<span style="--d:${(.75+i*.07).toFixed(2)}s">${c}</span>`).join('')}</div><div class="lg-sub">Studio</div><div class="sc-ex">Exemple · logo animé</div>`}
+    ];
+    const WORDS=[['4',1],['erreurs',1],['à',0],['éviter',0],['pour',0],['la',0],['rentrée',1]];
+    const H=[18,26,22,38,47,61,78,100];
+    const fmt=v=>v>=1e3?(v/1e3).toFixed(1).replace('.',',')+'K':String(Math.round(v));
+    const build=st=>{
+      const ids=st.dataset.loop.split(',').map(Number);
+      const bar=st.querySelector('.stage-bar');
+      ids.forEach(k=>{const d=document.createElement('div');d.className='scene '+(SCENES[k].cls||'');d.dataset.k=k;d.innerHTML=SCENES[k].html;
+        const c=d.querySelector('.caps');if(c)c.innerHTML=WORDS.map((w,i)=>`<span class="${w[1]?'k':''}" style="--d:${(i*.3).toFixed(2)}s">${w[0]}</span>`).join(' ');
+        bar?st.insertBefore(d,bar):st.appendChild(d);});
+      const scenes=[...st.querySelectorAll('.scene')],bars=bar?[...bar.children]:[];
+      let idx=0,timer=null,visible=false;
+      const runNum=sc=>{const num=sc.querySelector('.num'),bs=[...sc.querySelectorAll('.bars i')];if(!num)return;
+        if(reduce){num.textContent='84,8K';bs.forEach((b,i)=>b.style.height=H[i]+'%');return;}
+        bs.forEach(b=>b.style.height='6%');requestAnimationFrame(()=>bs.forEach((b,i)=>setTimeout(()=>b.style.height=H[i]+'%',i*110)));
+        const t0=performance.now(),d=1800;const step=t=>{const k=Math.min(1,(t-t0)/d);num.textContent=fmt(84800*(1-Math.pow(1-k,3)));if(k<1&&sc.classList.contains('on'))requestAnimationFrame(step);};requestAnimationFrame(step);};
+      const show=i=>{idx=i;scenes.forEach((s,j)=>{s.classList.remove('on');void s.offsetWidth;s.classList.toggle('on',j===i);});
+        const sc=SCENES[ids[i]];
+        bars.forEach((b,j)=>{b.classList.remove('on','done');void b.offsetWidth;if(j<i)b.classList.add('done');if(j===i){b.style.setProperty('--dur',sc.dur+'s');b.classList.add('on');}});
+        runNum(scenes[i]);
+        clearTimeout(timer);if(!reduce&&visible)timer=setTimeout(()=>show((idx+1)%scenes.length),(sc.dur+(scenes.length===1?1.6:0))*1000);};
+      st.addEventListener('click',()=>show((idx+(scenes.length>1?1:0))%scenes.length));
+      show(0);
+      new IntersectionObserver(e=>{visible=e[0].isIntersecting;if(visible)show(idx);else clearTimeout(timer);},{threshold:.3}).observe(st);
+    };
+    document.querySelectorAll('.stage[data-loop]').forEach(build);
+  })();
+
+  // motion : le hero enchaîne les 3 vidéos, la galerie joue quand elle est visible
+  (()=>{const v=document.getElementById('heroMo');if(v){const L=['continent','ngora-logo','tutoria'];let i=0;
+      v.addEventListener('ended',()=>{i=(i+1)%L.length;v.src='assets/motion/'+L[i]+'.mp4';v.poster='assets/motion/'+L[i]+'.jpg';v.play().catch(()=>{});});
+      if(reduce){v.removeAttribute('autoplay');v.pause();}}
+    const io=new IntersectionObserver(es=>es.forEach(e=>{const x=e.target;if(e.isIntersecting&&!reduce)x.play().catch(()=>{});else x.pause();}),{threshold:.4});
+    document.querySelectorAll('video[data-auto]').forEach(x=>io.observe(x));})();
+</script>
+
+
+</body></html>
