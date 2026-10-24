@@ -21,7 +21,7 @@ vignettes, branding et sites web pour les marques. Tout le site tient dans `inde
 - Accroche : « Votre produit est bon. Votre image le dira. »
 - Mission : aider les marques et les personnes qui ont un bon produit mais une image qui ne vend pas,
   sur tous les canaux (Instagram, TikTok, YouTube Shorts, LinkedIn, Facebook, site web), moins cher qu'une agence.
-- Signatures : écran d'entrée 0→100 avec/sans son, vidéo du hero qui passe en plein écran, travaux en
+- Signatures : écran d'entrée automatique sans son (NGORA + travaux empilés qui deviennent le showreel), showreel du hero qui passe en plein écran, travaux en
   défilement horizontal, badge rond « Audit gratuit », curseur qui devient « Play ».
 
 ## Contact affiché sur le site
