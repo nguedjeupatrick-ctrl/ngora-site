@@ -29,6 +29,7 @@
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{-webkit-text-size-adjust:100%}
+  .js-intro body{overflow:hidden}
   html.lenis,html.lenis body{height:auto}
   .lenis.lenis-smooth{scroll-behavior:auto!important}
   body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:400;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -45,16 +46,15 @@
   section{position:relative}
 
   /* ---------- écran d'entrée ---------- */
-  .loader{position:fixed;inset:0;z-index:500;background:var(--paper);display:flex;flex-direction:column;justify-content:space-between;padding:var(--pad)}
-  .loader-top{display:flex;justify-content:space-between;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2)}
-  .loader-mid{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap}
-  .loader-name{font-weight:800;font-size:clamp(3rem,11vw,10rem);line-height:.85;letter-spacing:-.05em}
-  .loader-count{font-family:var(--serif);font-size:clamp(3rem,10vw,9rem);line-height:.85;font-variant-numeric:tabular-nums}
-  .loader-bar{height:2px;background:var(--line);position:relative;overflow:hidden;margin-top:24px}
-  .loader-bar i{position:absolute;inset:0;background:var(--ink);transform-origin:left;transform:scaleX(0)}
-  .loader-enter{display:flex;gap:14px;flex-wrap:wrap;opacity:0;pointer-events:none;transition:opacity .5s}
-  .loader.ready .loader-enter{opacity:1;pointer-events:auto}
-  .loader.gone{transform:translateY(-100%);transition:transform 1s cubic-bezier(.76,0,.24,1)}
+  .loader{position:fixed;inset:0;z-index:500;background:var(--ink);color:var(--paper);overflow:hidden;display:none}
+  .js-intro .loader{display:block}
+  .ld-word{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);display:flex;justify-content:center;font-weight:800;font-size:clamp(5rem,24vw,22rem);letter-spacing:-.06em;line-height:.8;overflow:hidden;padding-bottom:.08em}
+  .ld-word span{display:inline-block;transform:translateY(105%)}
+  .ld-tiles{position:absolute;inset:0;pointer-events:none}
+  .lt{position:absolute;left:50%;top:50%;width:min(44vw,210px);aspect-ratio:9/16;margin:0;transform:translate(-50%,-50%) scale(.6);opacity:0;overflow:hidden;background:#000;box-shadow:0 30px 70px rgba(0,0,0,.55)}
+  .lt img{width:100%;height:100%;object-fit:cover}
+  .ld-foot{position:absolute;left:var(--pad);right:var(--pad);bottom:28px;display:flex;justify-content:space-between;align-items:flex-end;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:#B9B7B1}
+  .ld-count{font-family:var(--serif);font-size:clamp(2.4rem,6vw,4.4rem);letter-spacing:0;color:var(--paper);font-variant-numeric:tabular-nums;line-height:1}
   .btn{display:inline-flex;align-items:center;gap:10px;padding:18px 28px;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;background:var(--ink);color:var(--paper);transition:background .3s,color .3s,transform .3s;min-height:48px}
   .btn:hover{background:var(--cobalt)}
   .btn.line{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
@@ -187,6 +187,8 @@
   .proof{width:180px;height:116px;overflow:hidden;box-shadow:0 0 0 1px var(--line);cursor:zoom-in;position:relative}
   .proof img{width:100%;height:100%;object-fit:cover;object-position:top;filter:grayscale(1);transition:filter .4s}
   .proof:hover img{filter:none}
+  .proof.tall{width:220px;height:auto;aspect-ratio:1179/1182}
+  .proof.tall img{filter:none}
   .proof span{position:absolute;left:0;right:0;bottom:0;padding:16px 8px 6px;font-size:.66rem;background:linear-gradient(transparent,rgba(0,0,0,.75));color:#fff}
   .ba{position:relative;width:100%;max-width:300px;aspect-ratio:700/928;overflow:hidden;user-select:none;cursor:ew-resize;touch-action:pan-y}
   .ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
@@ -222,6 +224,21 @@
   .web .ulink{color:var(--paper)}
   @media (max-width:900px){.web-feats{grid-template-columns:repeat(2,minmax(0,1fr))}.browser .bar .live{display:none}}
   @media (max-width:520px){.web-feats{grid-template-columns:1fr}}
+
+  /* ---------- motion design ---------- */
+  .motion{padding:clamp(80px,10vw,150px) 0}
+  .motion-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:50px}
+  .mgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(12px,1.6vw,24px)}
+  .mv{margin:0;display:flex;flex-direction:column;gap:12px}
+  .mv video{width:100%;aspect-ratio:9/16;object-fit:cover;background:var(--ink)}
+  .mv figcaption b{display:block;font-weight:600}
+  .mv figcaption span{font-size:.88rem;color:var(--ink-2)}
+  .une{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(30px,5vw,80px);align-items:center;margin-top:clamp(60px,8vw,120px);padding-top:clamp(40px,5vw,70px);border-top:1px solid var(--ink)}
+  .une h3{font-weight:800;font-size:clamp(2rem,3.6vw,3.4rem);letter-spacing:-.04em;line-height:.95;margin:16px 0}
+  .une p{color:var(--ink-2);max-width:46ch}
+  .une-shot{display:block;width:100%;max-width:520px;justify-self:center;box-shadow:0 40px 90px rgba(17,17,17,.18);cursor:zoom-in}
+  .une-shot img{width:100%}
+  @media (max-width:900px){.mgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.une{grid-template-columns:1fr}}
 
   /* ---------- services (liste + image au survol) ---------- */
   .services{padding-block:clamp(80px,10vw,150px)}
@@ -323,19 +340,10 @@
 </head>
 <body class="no-js">
 
-<div class="loader" id="loader" role="dialog" aria-label="Chargement du site">
-  <div class="loader-top"><span>Ngora Studio</span><span>Portfolio 2026</span></div>
-  <div>
-    <div class="loader-mid">
-      <div class="loader-name">Ngora<span class="it" style="color:var(--cobalt)">.studio</span></div>
-      <div class="loader-count" id="lcount">0</div>
-    </div>
-    <div class="loader-bar"><i id="lbar"></i></div>
-  </div>
-  <div class="loader-enter">
-    <button class="btn" type="button" data-enter="sound">Entrer avec le son</button>
-    <button class="ulink" type="button" data-enter="mute">Entrer sans son</button>
-  </div>
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="ld-word" id="ldWord"><span>N</span><span>G</span><span>O</span><span>R</span><span>A</span></div>
+  <div class="ld-tiles" id="ldTiles"><div class="lt"><img src="assets/posters/showreel.jpg" alt=""></div><div class="lt"><img src="assets/posters/tutoria-motion-site.jpg" alt=""></div><div class="lt"><img src="assets/posters/lr-teaser.jpg" alt=""></div><div class="lt"><img src="assets/motion/continent.jpg" alt=""></div><div class="lt"><img src="assets/posters/tutoria-droits-dys.jpg" alt=""></div><div class="lt"><img src="assets/sites/continent-demo.jpg" alt=""></div><div class="lt"><img src="assets/posters/lr-soin.jpg" alt=""></div><div class="lt"><img src="assets/posters/tutoria-motion-appli.jpg" alt=""></div><div class="lt"><img src="assets/posters/continent-1.jpg" alt=""></div><div class="lt"><img src="assets/posters/showreel.jpg" alt=""></div></div>
+  <div class="ld-foot"><span>Montage · Motion · DA · Sites web</span><span class="ld-count" id="lcount">000</span></div>
 </div>
 
 <div class="cursor" id="cursor" aria-hidden="true"><span>Play</span></div>
@@ -346,6 +354,7 @@
   <a href="#top" class="logo" aria-label="Ngora Studio, retour en haut"><img src="assets/logo-mark.png" alt=""><span>Ngora<b>.</b>studio</span></a>
   <nav class="nav-links" aria-label="Navigation principale">
     <a href="#site-web">Sites web</a>
+    <a href="#motion">Motion</a>
     <a href="#travaux">Travaux</a>
     <a href="#services">Services</a>
     <a href="#tarifs">Tarifs</a>
@@ -354,8 +363,9 @@
   <button class="menu-btn" id="menuBtn" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mMenu"><i></i></button>
 </header>
 <div class="m-menu" id="mMenu">
-  <a href="#travaux">Travaux</a>
   <a href="#site-web">Sites web</a>
+  <a href="#motion">Motion</a>
+  <a href="#travaux">Travaux</a>
   <a href="#services">Services</a>
   <a href="#tarifs">Tarifs</a>
   <a href="#contact" class="it" style="color:var(--cobalt)">Audit gratuit</a>
@@ -375,12 +385,9 @@
       <h1>Votre<br>produit<br>est <span class="it">bon.</span></h1>
       <p class="lead">Identité visuelle, montage et sites web pour les marques qui méritent mieux que leur image actuelle.</p>
     </div>
-    <div class="hero-frame" id="heroFrame" data-cursor="Son">
-      <video id="heroVid" src="assets/videos/tutoria-droits-dys.mp4" poster="assets/posters/tutoria-droits-dys.jpg" autoplay muted loop playsinline></video>
-      <button class="hero-sound" id="heroSound" type="button" aria-label="Activer le son de la vidéo" aria-pressed="false">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path id="sndWave" d="M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12" opacity=".25"/></svg>
-      </button>
-      <div class="tag"><span>Tutoria Cergy</span><span>Montage pro</span></div>
+    <div class="hero-frame" id="heroFrame" data-cursor="Showreel">
+      <video id="heroVid" src="assets/videos/showreel.mp4" poster="assets/posters/showreel.jpg" autoplay muted loop playsinline aria-label="Showreel : les meilleurs moments de mes montages et motion designs"></video>
+      <div class="tag"><span>Showreel 2026</span><span id="reelLabel">Tutoria Cergy · Motion</span></div>
     </div>
     <div class="hero-side r">
       <p class="h1b" aria-hidden="false">Votre<br>image<br><span class="it">le dira.</span></p>
@@ -430,18 +437,42 @@
   </div>
 </section>
 
+<section class="motion" id="motion">
+  <div class="wrap">
+    <div class="motion-head">
+      <div><div class="kick">Motion design</div><h2 class="h2 rv" style="margin-top:18px">Votre marque<br><span class="it">en mouvement.</span></h2></div>
+      <p class="lead rv">Annonces animées, présentations d'appli et de site, logos, stories à la une : je conçois des animations aux couleurs de chaque marque, prêtes pour TikTok, Reels et Shorts.</p>
+    </div>
+    <div class="mgrid">
+      <figure class="mv" data-cursor="Play"><video data-hover src="assets/videos/tutoria-motion-site.mp4" poster="assets/posters/tutoria-motion-site.jpg" muted loop playsinline preload="none"></video><figcaption><b>Tutoria · lancement du site</b><span>Écrans animés, typo, prix qui apparaissent</span></figcaption></figure>
+      <figure class="mv" data-cursor="Play"><video data-hover src="assets/videos/tutoria-motion-appli.mp4" poster="assets/posters/tutoria-motion-appli.jpg" muted loop playsinline preload="none"></video><figcaption><b>Tutoria · l'appli en 30 secondes</b><span>Démo produit animée</span></figcaption></figure>
+      <figure class="mv" data-cursor="Play"><video data-hover src="assets/motion/continent.mp4" poster="assets/motion/continent.jpg" muted loop playsinline preload="none"></video><figcaption><b>Continent Store · teaser</b><span>Typo cinétique, cartes 3D</span></figcaption></figure>
+      <figure class="mv" data-cursor="Play"><video data-hover src="assets/motion/ngora-logo.mp4" poster="assets/motion/ngora-logo.jpg" muted loop playsinline preload="none"></video><figcaption><b>Ngora · logo animé</b><span>Signature de fin de vidéo</span></figcaption></figure>
+    </div>
+    <div class="une">
+      <div class="une-txt">
+        <div class="kick">Stories à la une</div>
+        <h3>Des « à la une » <span class="it">qui donnent envie d'ouvrir.</span></h3>
+        <p>Pour Le Continent Store et Tutoria Cergy, j'ai redessiné les stories à la une sur Instagram et TikTok : une couverture par pays ou par thème, et une story animée derrière chacune.</p>
+      </div>
+      <button class="une-shot" type="button" data-full="assets/insta/continent-tiktok-une.jpg" data-cursor="Zoom"><img src="assets/insta/continent-tiktok-une.jpg" alt="Profil TikTok du Continent Store : stories à la une par pays (Cameroun, Espagne, Maroc, Côte d'Ivoire) et nouveau feed" loading="lazy"></button>
+    </div>
+  </div>
+</section>
+
 <section class="works" id="travaux">
   <div class="wrap works-head">
     <h2 class="h2 rv">Travaux <span class="it">choisis</span></h2>
-    <p class="lead rv">Quatre marques, quatre point de départ différents. Faites défiler pour voir ce que j'ai construit pour chacune.</p>
+    <p class="lead rv">Cinq marques, cinq points de départ différents. Faites défiler pour voir ce que j'ai construit pour chacune.</p>
   </div>
   <div class="works-pin" id="worksPin">
     <div class="works-track" id="worksTrack">
-      <a class="wcard" href="#cas-tutoria"><div class="media" data-cursor="Voir"><span class="num">01 · Organisme</span><video data-hover src="assets/videos/tutoria-droits-dys.mp4" poster="assets/posters/tutoria-droits-dys.jpg" muted loop playsinline preload="none"></video></div><h3>Tutoria Cergy</h3><div class="meta"><span>Charte, séries vidéo, 5 réseaux</span><b>63 contenus</b></div></a>
+      <a class="wcard" href="#cas-tutoria"><div class="media" data-cursor="Voir"><span class="num">01 · Organisme</span><video data-hover src="assets/videos/tutoria-motion-site.mp4" poster="assets/posters/tutoria-motion-site.jpg" muted loop playsinline preload="none"></video></div><h3>Tutoria Cergy</h3><div class="meta"><span>Charte, motion, séries vidéo, appli</span><b>63 contenus</b></div></a>
       <a class="wcard" href="#cas-continent"><div class="media" data-cursor="Voir"><span class="num">02 · Boutique</span><video data-hover src="assets/videos/continent-1.mp4" poster="assets/posters/continent-1.jpg" muted loop playsinline preload="none"></video></div><h3>Le Continent Store</h3><div class="meta"><span>Logo, TikTok, Instagram, site 3D</span><b>4,6M vues</b></div></a>
-      <a class="wcard" href="#cas-market"><div class="media" data-cursor="Voir"><span class="num">03 · Atelier</span><video data-hover src="assets/videos/market-1.mp4" poster="assets/posters/market-1.jpg" muted loop playsinline preload="none"></video></div><h3>Market Factory</h3><div class="meta"><span>Logo, feed, lancement TikTok</span><b>95K vues</b></div></a>
-      <a class="wcard" href="#cas-ohmydtf"><div class="media" data-cursor="Voir"><span class="num">04 · E-commerce</span><video data-hover src="assets/videos/ohmydtf.mp4" poster="assets/posters/ohmydtf.jpg" muted loop playsinline preload="none"></video></div><h3>Oh My DTF</h3><div class="meta"><span>Vidéos produit DTF &amp; UV</span><b>Contenu produit</b></div></a>
-      <a class="wcard" href="#site-web"><div class="media" data-cursor="Voir"><span class="num">05 · Site web</span><img src="assets/sites/continent-accueil.jpg" alt="Site du Continent Store" loading="lazy" style="object-position:center"></div><h3>Site Continent Store</h3><div class="meta"><span>Globe 3D, maillot personnalisable</span><b>Site immersif</b></div></a>
+      <a class="wcard" href="#cas-lr"><div class="media" data-cursor="Voir"><span class="num">03 · Beauté</span><video data-hover src="assets/videos/lr-teaser.mp4" poster="assets/posters/lr-teaser.jpg" muted loop playsinline preload="none"></video></div><h3>LR Beauty</h3><div class="meta"><span>Home Meeting, teaser + 3 reels</span><b>4 vidéos</b></div></a>
+      <a class="wcard" href="#cas-market"><div class="media" data-cursor="Voir"><span class="num">04 · Atelier</span><video data-hover src="assets/videos/market-1.mp4" poster="assets/posters/market-1.jpg" muted loop playsinline preload="none"></video></div><h3>Market Factory</h3><div class="meta"><span>Logo, feed, lancement TikTok</span><b>95K vues</b></div></a>
+      <a class="wcard" href="#cas-ohmydtf"><div class="media" data-cursor="Voir"><span class="num">05 · E-commerce</span><video data-hover src="assets/videos/ohmydtf.mp4" poster="assets/posters/ohmydtf.jpg" muted loop playsinline preload="none"></video></div><h3>Oh My DTF</h3><div class="meta"><span>Vidéos produit DTF &amp; UV</span><b>Contenu produit</b></div></a>
+      <a class="wcard" href="#site-web"><div class="media" data-cursor="Voir"><span class="num">06 · Site web</span><img src="assets/sites/continent-accueil.jpg" alt="Site du Continent Store" loading="lazy" style="object-position:center"></div><h3>Site Continent Store</h3><div class="meta"><span>Globe 3D, maillot personnalisable</span><b>Site immersif</b></div></a>
     </div>
   </div>
 </section>
@@ -471,10 +502,11 @@
       <div class="kpi"><b>5</b><span>réseaux gérés</span></div>
       <div class="kpi"><b>100%</b><span>charte respectée</span></div>
     </div>
-    <div class="reel-l">Nouvelle série « Vos droits à l'école » · montage pro &amp; motion</div>
+    <div class="reel-l">Nouveaux contenus · motion design &amp; série « Vos droits à l'école »</div>
     <div class="reel">
+      <div data-cursor="Play"><span class="t">Motion</span><video data-hover src="assets/videos/tutoria-motion-site.mp4" poster="assets/posters/tutoria-motion-site.jpg" muted loop playsinline preload="none"></video></div>
+      <div data-cursor="Play"><span class="t">Motion</span><video data-hover src="assets/videos/tutoria-motion-appli.mp4" poster="assets/posters/tutoria-motion-appli.jpg" muted loop playsinline preload="none"></video></div>
       <div data-cursor="Play"><span class="t">Vos droits</span><video data-hover src="assets/videos/tutoria-droits-dys.mp4" poster="assets/posters/tutoria-droits-dys.jpg" muted loop playsinline preload="none"></video></div>
-      <a class="more" href="https://www.tiktok.com/@tutoriacergy" target="_blank" rel="noopener"><span class="n">+</span><span>Toute la série<br>sur TikTok</span></a>
     </div>
     <div class="reel-l">Vignettes &amp; stories</div>
     <div class="reel">
@@ -506,6 +538,7 @@
         <div class="ba-row">
           <div class="ba" data-ba><img src="assets/insta/continent-avant.jpg" alt="Feed Continent Store avant"><img class="after" src="assets/insta/continent-apres.jpg" alt="Feed Continent Store après"><span class="lb l">Avant</span><span class="lb r">Après</span><div class="hd"></div></div>
           <p>Le feed Instagram avant et après. Glissez pour comparer.</p>
+          <button class="proof tall" type="button" data-full="assets/insta/continent-tiktok-une.jpg"><img src="assets/insta/continent-tiktok-une.jpg" alt="TikTok : stories à la une par pays et nouveau feed"><span>TikTok · à la une par pays</span></button>
         </div>
       </div>
     </div>
@@ -533,12 +566,35 @@
   </div>
 </section>
 
+<section class="case" id="cas-lr">
+  <div class="wrap">
+    <div class="case-top">
+      <div class="case-id">
+        <div class="kick">03 · Beauté &amp; bien-être · Home Meeting</div>
+        <h2 class="h2">LR <span class="it">Beauty</span></h2>
+        <p class="role">Le showroom d'une conseillère LR Health &amp; Beauty, filmé sur place et monté en série de reels.</p>
+      </div>
+      <div class="case-story">
+        <div class="step"><span class="k">Le point de départ</span><p>Une démonstration de produits à domicile : beaucoup de gammes à présenter, et un moment à faire vivre aussi sur les réseaux.</p></div>
+        <div class="step"><span class="k">Ce que j'ai fait</span><p>Tournage pendant l'événement, puis un teaser et trois reels par thème (Détox Aloe Vera, les gammes, le soin visage) avec titres, étapes et noms de produits animés.</p></div>
+        <div class="step"><span class="k">Le résultat</span><p>Un événement d'une journée transformé en <b>4 vidéos</b> prêtes à publier, qui expliquent chaque produit comme en boutique.</p></div>
+      </div>
+    </div>
+    <div class="reel" style="margin-top:50px">
+      <div data-cursor="Play"><span class="t">Teaser</span><video data-hover src="assets/videos/lr-teaser.mp4" poster="assets/posters/lr-teaser.jpg" muted loop playsinline preload="none"></video></div>
+      <div data-cursor="Play"><span class="t">Détox</span><video data-hover src="assets/videos/lr-detox.mp4" poster="assets/posters/lr-detox.jpg" muted loop playsinline preload="none"></video></div>
+      <div data-cursor="Play"><span class="t">Gammes</span><video data-hover src="assets/videos/lr-gammes.mp4" poster="assets/posters/lr-gammes.jpg" muted loop playsinline preload="none"></video></div>
+      <div data-cursor="Play"><span class="t">Soin visage</span><video data-hover src="assets/videos/lr-soin.mp4" poster="assets/posters/lr-soin.jpg" muted loop playsinline preload="none"></video></div>
+    </div>
+  </div>
+</section>
+
 <section class="case" id="cas-market">
   <div class="wrap">
     <div class="case-top">
       <div class="case-id">
         <img class="case-logo" src="assets/logos/mf.png" alt="">
-        <div class="kick">03 · Flocage &amp; broderie · Val-d'Oise</div>
+        <div class="kick">04 · Flocage &amp; broderie · Val-d'Oise</div>
         <h2 class="h2">Market <span class="it">Factory</span></h2>
         <p class="role">Refonte complète des réseaux d'un atelier parti de zéro.</p>
       </div>
@@ -575,7 +631,7 @@
   <div class="wrap">
     <div class="case-top">
       <div class="case-id">
-        <div class="kick">04 · Impression DTF &amp; UV</div>
+        <div class="kick">05 · Impression DTF &amp; UV</div>
         <h2 class="h2">Oh My <span class="it">DTF</span></h2>
         <p class="role">Création de contenu produit pour des objets personnalisés.</p>
       </div>
@@ -599,7 +655,7 @@
   <h2 class="h2 rv" style="margin-top:18px">Tout votre marketing,<br><span class="it">simplifié.</span></h2>
   <ul class="svc-list">
     <li class="svc" data-img="assets/posters/tutoria-droits-dys.jpg"><span class="n">01</span><h3>Montage pro</h3><p>Accroche, rythme, sous-titres dynamiques, B-roll et habillage. Des vidéos qui retiennent le pouce.</p></li>
-    <li class="svc" data-img="assets/motion/continent.jpg"><span class="n">02</span><h3>Motion design</h3><p>Titres animés, chiffres et logos en mouvement : votre marque reconnaissable d'une vidéo à l'autre.</p></li>
+    <li class="svc" data-img="assets/posters/tutoria-motion-appli.jpg"><span class="n">02</span><h3>Motion design</h3><p>Titres animés, chiffres et logos en mouvement : votre marque reconnaissable d'une vidéo à l'autre.</p></li>
     <li class="svc" data-img="assets/insta/feed-apres-crop.jpg"><span class="n">03</span><h3>DA &amp; rebranding</h3><p>Logo, couleurs, typographies, templates : une charte claire et appliquée partout.</p></li>
     <li class="svc" data-img="assets/stories/story-faq-groupe.jpg"><span class="n">04</span><h3>Gestion des réseaux</h3><p>Calendrier, publications, stories, réponses et chiffres chaque mois. Vous gérez votre métier.</p></li>
     <li class="svc" data-img="assets/vignettes/vig-4erreurs.jpg"><span class="n">05</span><h3>Vignettes &amp; visuels</h3><p>Couvertures, carrousels et stories qui donnent envie de cliquer.</p></li>
@@ -733,30 +789,40 @@
     lenis?lenis.scrollTo(el,{offset:-70}):el.scrollIntoView({behavior:reduce?'auto':'smooth'});
   }));
 
-  // ---------- écran d'entrée ----------
-  const loader=document.getElementById('loader'),lc=document.getElementById('lcount'),lb=document.getElementById('lbar');
+  // ---------- écran d'entrée : les travaux défilent puis la dernière image devient le showreel du hero ----------
+  const loader=document.getElementById('loader');
   const heroVid=document.getElementById('heroVid');
-  let soundOn=false;
-  const setSound=on=>{soundOn=on;heroVid.muted=!on;if(on)heroVid.play().catch(()=>{});
-    const b=document.getElementById('heroSound');b.setAttribute('aria-pressed',String(on));b.setAttribute('aria-label',on?'Couper le son de la vidéo':'Activer le son de la vidéo');
-    document.getElementById('sndWave').setAttribute('opacity',on?'1':'.25');};
-  document.getElementById('heroSound').addEventListener('click',()=>setSound(!soundOn));
-  const enter=withSound=>{
-    loader.classList.add('gone');
-    setTimeout(()=>{loader.style.display='none';},1100);
-    if(withSound)setSound(true);
-    lenis&&lenis.start();
-    intro();
-  };
-  loader.querySelectorAll('[data-enter]').forEach(b=>b.addEventListener('click',()=>enter(b.dataset.enter==='sound')));
+  const intro=()=>{if(!hasGsap||reduce){words.forEach(w=>w.style.opacity=1);return;}
+    gsap.from('.hero-side.l > *',{y:60,opacity:0,duration:1.1,ease:'expo.out',stagger:.08});
+    gsap.from('.hero-side.r > *',{y:60,opacity:0,duration:1.1,ease:'expo.out',stagger:.08,delay:.1});};
   let seen=false;try{seen=sessionStorage.getItem('ngora-entered')==='1';sessionStorage.setItem('ngora-entered','1');}catch(e){}
-  if(reduce||seen){loader.style.display='none';lenis&&lenis.start();setTimeout(intro,50);}
-  else{
-    const t0=performance.now(),D=1800;
-    const tick=t=>{const k=Math.min(1,(t-t0)/D),e=1-Math.pow(1-k,3);lc.textContent=Math.round(e*100);lb.style.transform='scaleX('+e+')';
-      if(k<1)requestAnimationFrame(tick);else{loader.classList.add('ready');loader.querySelector('[data-enter="sound"]').focus({preventScroll:true});}};
-    requestAnimationFrame(tick);
-  }
+  const done=()=>{loader.style.display='none';doc.classList.remove('js-intro');lenis&&lenis.start();heroVid.play().catch(()=>{});intro();};
+  const startIntro=()=>{
+    if(reduce||seen||!hasGsap){done();return;}
+    doc.classList.add('js-intro');scrollTo(0,0);
+    const tiles=gsap.utils.toArray('#ldTiles .lt'),last=tiles[tiles.length-1],lc=document.getElementById('lcount');
+    const cnt={v:0};
+    const tl=gsap.timeline({onComplete:done});
+    tl.to('#ldWord span',{yPercent:-105,duration:.9,ease:'expo.out',stagger:.06},0)
+      .to(cnt,{v:100,duration:2.4,ease:'power2.inOut',onUpdate:()=>{lc.textContent=String(Math.round(cnt.v)).padStart(3,'0');}},0);
+    tiles.forEach((t,k)=>{
+      const isLast=k===tiles.length-1, r=(k%2?1:-1)*(4+k%3*3);
+      tl.to(t,{opacity:1,scale:1,rotate:isLast?0:r,x:isLast?0:gsap.utils.random(-60,60),y:isLast?0:gsap.utils.random(-30,30),duration:.45,ease:'back.out(1.6)'},.35+k*.2);
+    });
+    tl.to('#ldWord span',{yPercent:-210,duration:.7,ease:'expo.in',stagger:.04},'>-0.1');
+    tl.add(()=>{
+      const fr=document.getElementById('heroFrame').getBoundingClientRect();
+      gsap.to(tiles.slice(0,-1),{y:()=>Math.random()>.5?innerHeight:-innerHeight,x:()=>gsap.utils.random(-innerWidth/2,innerWidth/2),rotate:()=>gsap.utils.random(-40,40),opacity:0,duration:.9,ease:'expo.in',stagger:.03});
+      gsap.to(last,{left:fr.left+fr.width/2,top:fr.top+fr.height/2,width:fr.width,height:fr.height,duration:1.1,ease:'expo.inOut',delay:.25});
+      gsap.to('.ld-foot',{opacity:0,duration:.4});
+      gsap.to(loader,{backgroundColor:'rgba(17,17,17,0)',duration:.6,delay:.8});
+    },'<');
+    tl.to({},{duration:1.45});
+  };
+  // libellé du showreel selon le moment de la vidéo
+  const REEL=[[0,'Tutoria Cergy · Motion'],[7.5,'LR Beauty · Home Meeting'],[15,'Tutoria · Vos droits'],[22.5,'Continent Store · Motion'],[29.5,'LR Beauty · Soin visage'],[37,'Tutoria · Appli'],[44.5,'Continent Store · Unboxing'],[51,'LR Beauty · Détox']];
+  const rl=document.getElementById('reelLabel');
+  heroVid.addEventListener('timeupdate',()=>{const t=heroVid.currentTime;let lab=REEL[0][1];REEL.forEach(([a,b])=>{if(t>=a)lab=b;});if(rl.textContent!==lab)rl.textContent=lab;});
 
   // ---------- menu mobile ----------
   const menuBtn=document.getElementById('menuBtn');
@@ -844,14 +910,9 @@
   });};
   split(man);
   const words=[...man.querySelectorAll('.w')];
+  startIntro();
 
   // ---------- animations au scroll (GSAP) ----------
-  function intro(){
-    if(!hasGsap||reduce){words.forEach(w=>w.style.opacity=1);return;}
-    gsap.from('.hero-side.l > *',{y:60,opacity:0,duration:1.1,ease:'expo.out',stagger:.08});
-    gsap.from('.hero-side.r > *',{y:60,opacity:0,duration:1.1,ease:'expo.out',stagger:.08,delay:.1});
-    gsap.from('#heroFrame',{yPercent:20,opacity:0,duration:1.3,ease:'expo.out',delay:.15});
-  }
   if(hasGsap&&!reduce){
     gsap.registerPlugin(ScrollTrigger);
     const mm=gsap.matchMedia();
@@ -873,7 +934,7 @@
     gsap.to(words,{opacity:1,stagger:.05,ease:'none',scrollTrigger:{trigger:man,start:'top 80%',end:'bottom 45%',scrub:true}});
     // titres et blocs qui montent
     gsap.utils.toArray('.rv').forEach(el=>gsap.to(el,{opacity:1,y:0,duration:1.1,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 88%'}}));
-    gsap.utils.toArray('.case-top,.kpis,.reel,.plans,.units,.pack,.steps5 li,.svc,.web-feats li').forEach(el=>gsap.from(el,{y:50,opacity:0,duration:1,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 90%'}}));
+    gsap.utils.toArray('.case-top,.kpis,.reel,.plans,.units,.pack,.steps5 li,.svc,.web-feats li,.mv,.une').forEach(el=>gsap.from(el,{y:50,opacity:0,duration:1,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 90%'}}));
     // le titre du contact glisse au scroll
     gsap.from('.contact .big',{x:-120,opacity:.3,ease:'none',scrollTrigger:{trigger:'.contact',start:'top bottom',end:'top 25%',scrub:true}});
     addEventListener('load',()=>ScrollTrigger.refresh());
