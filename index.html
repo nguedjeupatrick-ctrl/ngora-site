@@ -73,15 +73,17 @@
   .nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:22px var(--pad);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;transition:transform .5s,background .3s}
   .nav.scrolled{background:rgba(239,237,232,.86);backdrop-filter:blur(12px)}
   .nav.hide{transform:translateY(-110%)}
-  .logo{font-weight:800;font-size:1.15rem;letter-spacing:-.01em;text-transform:none;display:flex;align-items:center;gap:10px}
-  .logo img{height:22px;filter:brightness(0)}
-  .logo b{color:var(--cobalt)}
+  .logo{font-weight:800;font-size:1.1rem;letter-spacing:-.01em;text-transform:none;display:flex;align-items:center;gap:10px;background:var(--cobalt);color:var(--paper);padding:10px 16px 10px 12px;transition:background .3s}
+  .logo:hover{background:var(--ink)}
+  .logo img{height:20px;filter:brightness(0) invert(1)}
+  .logo b{color:var(--paper);opacity:.7}
   .nav-links{display:flex;gap:32px}
-  .nav-links a{position:relative;padding:6px 0}
+  .nav-links a{position:relative;padding:6px 0;transition:color .25s}
+  .nav-links a:hover{color:var(--cobalt)}
   .nav-links a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:currentColor;transition:right .35s}
   .nav-links a:hover::after{right:0}
   .nav-cta{padding:12px 18px;box-shadow:inset 0 0 0 1px var(--ink);transition:background .3s,color .3s}
-  .nav-cta:hover{background:var(--ink);color:var(--paper)}
+  .nav-cta:hover{background:var(--cobalt);color:var(--paper);box-shadow:inset 0 0 0 1px var(--cobalt)}
   .menu-btn{display:none;width:48px;height:48px;align-items:center;justify-content:center}
   .menu-btn i,.menu-btn i::before,.menu-btn i::after{display:block;width:22px;height:1.5px;background:var(--ink);position:relative;transition:transform .3s,background .3s}
   .menu-btn i::before,.menu-btn i::after{content:"";position:absolute;left:0}
@@ -93,6 +95,7 @@
   .menu-open .m-menu{opacity:1;pointer-events:auto}
   .m-menu a{font-weight:800;font-size:clamp(2.4rem,11vw,4rem);letter-spacing:-.04em;line-height:1.05}
   .m-menu a.it{font-weight:400}
+  .m-menu a:hover{color:var(--cobalt)}
   @media (max-width:900px){.nav-links,.nav-cta{display:none}.menu-btn{display:inline-flex}}
 
   /* ---------- badge rond ---------- */
@@ -200,6 +203,19 @@
   .ba-row{display:flex;gap:24px;align-items:center;flex-wrap:wrap;margin-top:34px}
   .ba-row p{max-width:32ch;color:var(--ink-2)}
   @media (max-width:900px){.case-top{grid-template-columns:1fr}.case-id{position:relative;top:0}.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.step{grid-template-columns:1fr;gap:6px}}
+
+  /* ---------- blocs des cas clients ---------- */
+  .clients{padding-block:clamp(80px,10vw,140px) clamp(30px,4vw,60px)}
+  .block{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,2fr);gap:clamp(20px,4vw,60px);padding:clamp(28px,3vw,44px) 0;border-top:1px solid var(--line)}
+  .block-h span{font-size:.78rem;letter-spacing:.14em;color:var(--stone)}
+  .block-h h3{font-weight:800;font-size:clamp(1.6rem,2.6vw,2.4rem);letter-spacing:-.035em;line-height:1;margin:8px 0 10px}
+  .block-h p{color:var(--ink-2);font-size:.98rem;max-width:36ch}
+  .block .proofs{margin-top:20px;grid-column:2}
+  @media (max-width:900px){.block .proofs{grid-column:auto}}
+  .more-cases-btn{display:flex;justify-content:center;padding-block:10px clamp(60px,8vw,110px)}
+  .more-cases-btn .btn span{font-family:var(--serif);font-size:1.3rem;line-height:.5;transition:transform .3s}
+  .more-cases-btn .btn[aria-expanded="true"] span{transform:rotate(45deg)}
+  @media (max-width:900px){.block{grid-template-columns:1fr}}
 
   /* ---------- vitrine site web ---------- */
   .web{background:var(--ink);color:var(--paper);padding:clamp(80px,10vw,150px) 0 clamp(70px,9vw,130px);overflow:hidden}
@@ -359,7 +375,7 @@
     <a href="#services">Services</a>
     <a href="#tarifs">Tarifs</a>
   </nav>
-  <a href="#contact" class="nav-cta">Audit gratuit</a>
+  <a href="#contact" class="nav-cta" data-wa>Audit gratuit</a>
   <button class="menu-btn" id="menuBtn" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mMenu"><i></i></button>
 </header>
 <div class="m-menu" id="mMenu">
@@ -368,10 +384,10 @@
   <a href="#travaux">Travaux</a>
   <a href="#services">Services</a>
   <a href="#tarifs">Tarifs</a>
-  <a href="#contact" class="it" style="color:var(--cobalt)">Audit gratuit</a>
+  <a href="#contact" class="it" style="color:var(--cobalt)" data-wa>Audit gratuit</a>
 </div>
 
-<a class="badge" href="#contact" aria-label="Demander un audit gratuit">
+<a class="badge" href="#contact" aria-label="Demander un audit gratuit" data-wa>
   <svg viewBox="0 0 120 120" aria-hidden="true"><defs><path id="circ" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs><text font-size="10.5" letter-spacing="2.1" fill="currentColor" font-family="Inter Tight, sans-serif" font-weight="500"><textPath href="#circ">AUDIT GRATUIT ✦ RÉPONSE SOUS 48H ✦</textPath></text></svg>
   <span class="arr">↗</span>
 </a>
@@ -381,17 +397,17 @@
 <section class="hero" id="hero">
   <div class="hero-in">
     <div class="hero-side l">
-      <div class="kick">Studio de contenu · Cergy · Paris</div>
+      <div class="kick">Studio de contenu · Île-de-France</div>
       <h1>Votre<br>produit<br>est <span class="it">bon.</span></h1>
       <p class="lead">Identité visuelle, montage et sites web pour les marques qui méritent mieux que leur image actuelle.</p>
     </div>
     <div class="hero-frame" id="heroFrame" data-cursor="Showreel">
       <video id="heroVid" src="assets/videos/showreel.mp4" poster="assets/posters/showreel.jpg" autoplay muted loop playsinline aria-label="Showreel : les meilleurs moments de mes montages et motion designs"></video>
-      <div class="tag"><span>Showreel 2026</span><span id="reelLabel">Tutoria Cergy · Motion</span></div>
+      <div class="tag"><span>Showreel 2026</span><span id="reelLabel">Tutoria · Vos droits</span></div>
     </div>
     <div class="hero-side r">
       <p class="h1b" aria-hidden="false">Votre<br>image<br><span class="it">le dira.</span></p>
-      <a href="#contact" class="btn">Demander un audit gratuit</a>
+      <a href="#contact" class="btn" data-wa>Demander un audit gratuit</a>
     </div>
   </div>
   <div class="hero-scroll">Faites défiler</div>
@@ -433,7 +449,7 @@
       <li><span>03</span><b>Catalogue de 42 maillots</b>Recherche, filtres et réservation en boutique.</li>
       <li><span>04</span><b>Pensé mobile</b>Navigation flottante, rapide sur téléphone.</li>
     </ul>
-    <div class="web-cta"><a class="btn" href="https://lecontinentstore.github.io/" target="_blank" rel="noopener">Essayer le site en direct ↗</a><a class="ulink" href="#contact">Je veux un site comme ça</a></div>
+    <div class="web-cta"><a class="btn" href="https://lecontinentstore.github.io/" target="_blank" rel="noopener">Essayer le site en direct ↗</a><a class="ulink" href="#contact" data-wa="site">Je veux un site comme ça</a></div>
   </div>
 </section>
 
@@ -449,32 +465,15 @@
       <figure class="mv" data-cursor="Play"><video data-hover src="assets/motion/continent.mp4" poster="assets/motion/continent.jpg" muted loop playsinline preload="none"></video><figcaption><b>Continent Store · teaser</b><span>Typo cinétique, cartes 3D</span></figcaption></figure>
       <figure class="mv" data-cursor="Play"><video data-hover src="assets/motion/ngora-logo.mp4" poster="assets/motion/ngora-logo.jpg" muted loop playsinline preload="none"></video><figcaption><b>Ngora · logo animé</b><span>Signature de fin de vidéo</span></figcaption></figure>
     </div>
-    <div class="une">
-      <div class="une-txt">
-        <div class="kick">Stories à la une</div>
-        <h3>Des « à la une » <span class="it">qui donnent envie d'ouvrir.</span></h3>
-        <p>Pour Le Continent Store et Tutoria Cergy, j'ai redessiné les stories à la une sur Instagram et TikTok : une couverture par pays ou par thème, et une story animée derrière chacune.</p>
-      </div>
-      <button class="une-shot" type="button" data-full="assets/insta/continent-tiktok-une.jpg" data-cursor="Zoom"><img src="assets/insta/continent-tiktok-une.jpg" alt="Profil TikTok du Continent Store : stories à la une par pays (Cameroun, Espagne, Maroc, Côte d'Ivoire) et nouveau feed" loading="lazy"></button>
-    </div>
+
+
   </div>
 </section>
 
-<section class="works" id="travaux">
-  <div class="wrap works-head">
-    <h2 class="h2 rv">Travaux <span class="it">choisis</span></h2>
-    <p class="lead rv">Cinq marques, cinq points de départ différents. Faites défiler pour voir ce que j'ai construit pour chacune.</p>
-  </div>
-  <div class="works-pin" id="worksPin">
-    <div class="works-track" id="worksTrack">
-      <a class="wcard" href="#cas-tutoria"><div class="media" data-cursor="Voir"><span class="num">01 · Organisme</span><video data-hover src="assets/videos/tutoria-motion-site.mp4" poster="assets/posters/tutoria-motion-site.jpg" muted loop playsinline preload="none"></video></div><h3>Tutoria Cergy</h3><div class="meta"><span>Charte, motion, séries vidéo, appli</span><b>63 contenus</b></div></a>
-      <a class="wcard" href="#cas-continent"><div class="media" data-cursor="Voir"><span class="num">02 · Boutique</span><video data-hover src="assets/videos/continent-1.mp4" poster="assets/posters/continent-1.jpg" muted loop playsinline preload="none"></video></div><h3>Le Continent Store</h3><div class="meta"><span>Logo, TikTok, Instagram, site 3D</span><b>4,6M vues</b></div></a>
-      <a class="wcard" href="#cas-lr"><div class="media" data-cursor="Voir"><span class="num">03 · Beauté</span><video data-hover src="assets/videos/lr-teaser.mp4" poster="assets/posters/lr-teaser.jpg" muted loop playsinline preload="none"></video></div><h3>LR Beauty</h3><div class="meta"><span>Home Meeting, teaser + 3 reels</span><b>4 vidéos</b></div></a>
-      <a class="wcard" href="#cas-market"><div class="media" data-cursor="Voir"><span class="num">04 · Atelier</span><video data-hover src="assets/videos/market-1.mp4" poster="assets/posters/market-1.jpg" muted loop playsinline preload="none"></video></div><h3>Market Factory</h3><div class="meta"><span>Logo, feed, lancement TikTok</span><b>95K vues</b></div></a>
-      <a class="wcard" href="#cas-ohmydtf"><div class="media" data-cursor="Voir"><span class="num">05 · E-commerce</span><video data-hover src="assets/videos/ohmydtf.mp4" poster="assets/posters/ohmydtf.jpg" muted loop playsinline preload="none"></video></div><h3>Oh My DTF</h3><div class="meta"><span>Vidéos produit DTF &amp; UV</span><b>Contenu produit</b></div></a>
-      <a class="wcard" href="#site-web"><div class="media" data-cursor="Voir"><span class="num">06 · Site web</span><img src="assets/sites/continent-accueil.jpg" alt="Site du Continent Store" loading="lazy" style="object-position:center"></div><h3>Site Continent Store</h3><div class="meta"><span>Globe 3D, maillot personnalisable</span><b>Site immersif</b></div></a>
-    </div>
-  </div>
+
+<section class="clients wrap" id="travaux">
+  <div class="kick">Clients</div>
+  <h2 class="h2 rv" style="margin-top:18px">Trois marques,<br><span class="it">trois transformations.</span></h2>
 </section>
 
 <section class="case" id="cas-tutoria">
@@ -502,22 +501,30 @@
       <div class="kpi"><b>5</b><span>réseaux gérés</span></div>
       <div class="kpi"><b>100%</b><span>charte respectée</span></div>
     </div>
-    <div class="reel-l">Nouveaux contenus · motion design &amp; série « Vos droits à l'école »</div>
-    <div class="reel">
-      <div data-cursor="Play"><span class="t">Motion</span><video data-hover src="assets/videos/tutoria-motion-site.mp4" poster="assets/posters/tutoria-motion-site.jpg" muted loop playsinline preload="none"></video></div>
-      <div data-cursor="Play"><span class="t">Motion</span><video data-hover src="assets/videos/tutoria-motion-appli.mp4" poster="assets/posters/tutoria-motion-appli.jpg" muted loop playsinline preload="none"></video></div>
-      <div data-cursor="Play"><span class="t">Vos droits</span><video data-hover src="assets/videos/tutoria-droits-dys.mp4" poster="assets/posters/tutoria-droits-dys.jpg" muted loop playsinline preload="none"></video></div>
+    <div class="block">
+      <div class="block-h"><span>01</span><h3>Contenu</h3><p>La série « Vos droits à l'école », les conseils et les annonces de recrutement, tournés et montés avec titres animés et sous-titres.</p></div>
+      <div class="reel">
+        <div data-cursor="Play"><span class="t">Vos droits</span><video data-hover src="assets/videos/tutoria-droits-dys.mp4" poster="assets/posters/tutoria-droits-dys.jpg" muted loop playsinline preload="none"></video></div>
+      </div>
     </div>
-    <div class="reel-l">Vignettes &amp; stories</div>
-    <div class="reel">
-      <div data-zoom><span class="t">Vignette</span><img src="assets/vignettes/vig-dates-college.jpg" alt="Vignette : dates clés du collège" loading="lazy"></div>
-      <div data-zoom><span class="t">Vignette</span><img src="assets/vignettes/vig-faq-ep2.jpg" alt="Vignette : série FAQ" loading="lazy"></div>
-      <div data-zoom><span class="t">Vignette</span><img src="assets/vignettes/vig-urssaf.jpg" alt="Vignette : l'avance immédiate" loading="lazy"></div>
-      <div data-zoom><span class="t">Vignette</span><img src="assets/vignettes/vig-greves-blocus.jpg" alt="Vignette : grèves et blocus" loading="lazy"></div>
-      <div data-zoom><span class="t">Story</span><img src="assets/stories/story-sondage-impot.jpg" alt="Story : sondage" loading="lazy"></div>
-      <div data-zoom><span class="t">Story</span><img src="assets/stories/story-test-semaine.jpg" alt="Story : test de la semaine" loading="lazy"></div>
-      <div data-zoom><span class="t">Story</span><img src="assets/stories/story-faq-abonne.jpg" alt="Story : FAQ abonné" loading="lazy"></div>
-      <div data-zoom><span class="t">Profil</span><img src="assets/insta/tutoria-profil-apres.jpg" alt="Profil Instagram après refonte" loading="lazy"></div>
+    <div class="block">
+      <div class="block-h"><span>02</span><h3>Motion design</h3><p>Le lancement du nouveau site et la présentation de l'appli, animés écran par écran.</p></div>
+      <div class="reel">
+        <div data-cursor="Play"><span class="t">Site</span><video data-hover src="assets/videos/tutoria-motion-site.mp4" poster="assets/posters/tutoria-motion-site.jpg" muted loop playsinline preload="none"></video></div>
+        <div data-cursor="Play"><span class="t">Appli</span><video data-hover src="assets/videos/tutoria-motion-appli.mp4" poster="assets/posters/tutoria-motion-appli.jpg" muted loop playsinline preload="none"></video></div>
+      </div>
+    </div>
+    <div class="block">
+      <div class="block-h"><span>03</span><h3>Vignettes &amp; stories</h3><p>Des couvertures et des stories interactives à la charte, pour un feed lisible d'un coup d'œil.</p></div>
+      <div class="reel">
+        <div data-zoom><span class="t">Vignette</span><img src="assets/vignettes/vig-dates-college.jpg" alt="Vignette : dates clés du collège" loading="lazy"></div>
+        <div data-zoom><span class="t">Vignette</span><img src="assets/vignettes/vig-faq-ep2.jpg" alt="Vignette : série FAQ" loading="lazy"></div>
+        <div data-zoom><span class="t">Vignette</span><img src="assets/vignettes/vig-urssaf.jpg" alt="Vignette : l'avance immédiate" loading="lazy"></div>
+        <div data-zoom><span class="t">Vignette</span><img src="assets/vignettes/vig-greves-blocus.jpg" alt="Vignette : grèves et blocus" loading="lazy"></div>
+        <div data-zoom><span class="t">Story</span><img src="assets/stories/story-sondage-impot.jpg" alt="Story : sondage" loading="lazy"></div>
+        <div data-zoom><span class="t">Story</span><img src="assets/stories/story-test-semaine.jpg" alt="Story : test de la semaine" loading="lazy"></div>
+        <div data-zoom><span class="t">Story</span><img src="assets/stories/story-faq-abonne.jpg" alt="Story : FAQ abonné" loading="lazy"></div>
+      </div>
     </div>
   </div>
 </section>
@@ -535,11 +542,6 @@
         <div class="step"><span class="k">Le point de départ</span><p>Une boutique de maillots à Paris, sans logo ni présence sur les réseaux.</p></div>
         <div class="step"><span class="k">Ce que j'ai fait</span><p>Logo et identité, ouverture de TikTok et Instagram, vidéos unboxing régulières, nouveau feed, gestion au quotidien, puis un site immersif avec globe et maillot 3D.</p></div>
         <div class="step"><span class="k">Le résultat</span><p><b>13 200 abonnés</b> et <b>4,6 M de vues</b> en moins d'un an, avec des vidéos jusqu'à 279,9 K vues.</p></div>
-        <div class="ba-row">
-          <div class="ba" data-ba><img src="assets/insta/continent-avant.jpg" alt="Feed Continent Store avant"><img class="after" src="assets/insta/continent-apres.jpg" alt="Feed Continent Store après"><span class="lb l">Avant</span><span class="lb r">Après</span><div class="hd"></div></div>
-          <p>Le feed Instagram avant et après. Glissez pour comparer.</p>
-          <button class="proof tall" type="button" data-full="assets/insta/continent-tiktok-une.jpg"><img src="assets/insta/continent-tiktok-une.jpg" alt="TikTok : stories à la une par pays et nouveau feed"><span>TikTok · à la une par pays</span></button>
-        </div>
       </div>
     </div>
     <div class="kpis">
@@ -548,20 +550,33 @@
       <div class="kpi"><b>211K</b><span>j'aime cumulés</span></div>
       <div class="kpi"><b>30,4K</b><span>partages</span></div>
     </div>
-    <div class="reel">
-      <div data-cursor="Play"><span class="v">▶ 279,9K</span><video data-hover src="assets/videos/continent-1.mp4" poster="assets/posters/continent-1.jpg" muted loop playsinline preload="none"></video></div>
-      <div data-cursor="Play"><span class="v">▶ 84,5K</span><video data-hover src="assets/videos/continent-2.mp4" poster="assets/posters/continent-2.jpg" muted loop playsinline preload="none"></video></div>
-      <div data-cursor="Play"><span class="v">▶ 76,2K</span><video data-hover src="assets/videos/continent-3.mp4" poster="assets/posters/continent-3.jpg" muted loop playsinline preload="none"></video></div>
-      <div data-cursor="Play"><video data-hover src="assets/videos/continent-prez.mp4" poster="assets/posters/continent-prez.jpg" muted loop playsinline preload="none"></video></div>
-      <div data-cursor="Play"><span class="t">Motion</span><video data-hover src="assets/motion/continent.mp4" poster="assets/motion/continent.jpg" muted loop playsinline preload="none"></video></div>
-      <div data-cursor="Play"><video data-hover src="assets/videos/continent-4.mp4" poster="assets/posters/continent-4.jpg" muted loop playsinline preload="none"></video></div>
-      <div data-cursor="Play"><video data-hover src="assets/videos/continent-6.mp4" poster="assets/posters/continent-6.jpg" muted loop playsinline preload="none"></video></div>
-      <div data-cursor="Play"><video data-hover src="assets/videos/continent-8.mp4" poster="assets/posters/continent-8.jpg" muted loop playsinline preload="none"></video></div>
+    <div class="block">
+      <div class="block-h"><span>01</span><h3>Feed</h3><p>Un feed refait à neuf, cohérent avec le logo et les couleurs de la boutique.</p></div>
+      <div class="ba-row" style="margin-top:0">
+        <div class="ba" data-ba><img src="assets/insta/continent-avant.jpg" alt="Feed Continent Store avant"><img class="after" src="assets/insta/continent-apres.jpg" alt="Feed Continent Store après"><span class="lb l">Avant</span><span class="lb r">Après</span><div class="hd"></div></div>
+        <p>Le feed Instagram avant et après. Glissez pour comparer.</p>
+      </div>
     </div>
-    <div class="proofs">
-      <span class="pl">Statistiques vérifiées</span>
-      <button class="proof" type="button" data-full="assets/dashboards/continent-vues.jpg"><img src="assets/dashboards/continent-vues.jpg" alt="Statistiques TikTok : 4,6 M de vues sur 12 mois"><span>4,6 M vues · 12 mois</span></button>
-      <button class="proof" type="button" data-full="assets/dashboards/continent-followers.jpg"><img src="assets/dashboards/continent-followers.jpg" alt="Statistiques TikTok : 13 206 abonnés"><span>13 206 abonnés</span></button>
+    <div class="block">
+      <div class="block-h"><span>02</span><h3>Contenu &amp; statistiques</h3><p>Des vidéos unboxing régulières sur TikTok et Instagram, jusqu'à 279,9 K vues.</p></div>
+      <div class="reel">
+        <div data-cursor="Play"><span class="v">▶ 279,9K</span><video data-hover src="assets/videos/continent-1.mp4" poster="assets/posters/continent-1.jpg" muted loop playsinline preload="none"></video></div>
+        <div data-cursor="Play"><span class="v">▶ 84,5K</span><video data-hover src="assets/videos/continent-2.mp4" poster="assets/posters/continent-2.jpg" muted loop playsinline preload="none"></video></div>
+        <div data-cursor="Play"><span class="v">▶ 76,2K</span><video data-hover src="assets/videos/continent-3.mp4" poster="assets/posters/continent-3.jpg" muted loop playsinline preload="none"></video></div>
+        <div data-cursor="Play"><video data-hover src="assets/videos/continent-prez.mp4" poster="assets/posters/continent-prez.jpg" muted loop playsinline preload="none"></video></div>
+        <div data-cursor="Play"><video data-hover src="assets/videos/continent-4.mp4" poster="assets/posters/continent-4.jpg" muted loop playsinline preload="none"></video></div>
+      </div>
+      <div class="proofs">
+        <span class="pl">Statistiques vérifiées</span>
+        <button class="proof" type="button" data-full="assets/dashboards/continent-vues.jpg"><img src="assets/dashboards/continent-vues.jpg" alt="Statistiques TikTok : 4,6 M de vues sur 12 mois"><span>4,6 M vues · 12 mois</span></button>
+        <button class="proof" type="button" data-full="assets/dashboards/continent-followers.jpg"><img src="assets/dashboards/continent-followers.jpg" alt="Statistiques TikTok : 13 206 abonnés"><span>13 206 abonnés</span></button>
+      </div>
+    </div>
+    <div class="block">
+      <div class="block-h"><span>03</span><h3>Motion design</h3><p>Un teaser boutique en typo cinétique, avec les maillots en cartes 3D.</p></div>
+      <div class="reel">
+        <div data-cursor="Play"><span class="t">Motion</span><video data-hover src="assets/motion/continent.mp4" poster="assets/motion/continent.jpg" muted loop playsinline preload="none"></video></div>
+      </div>
     </div>
   </div>
 </section>
@@ -589,6 +604,8 @@
   </div>
 </section>
 
+<div class="more-cases-btn wrap"><button class="btn line" type="button" id="moreCasesBtn" aria-expanded="false" aria-controls="moreCases">Voir plus de projets <span aria-hidden="true">+</span></button></div>
+<div id="moreCases" hidden>
 <section class="case" id="cas-market">
   <div class="wrap">
     <div class="case-top">
@@ -648,6 +665,7 @@
     </div>
   </div>
 </section>
+</div>
 
 
 <section class="services wrap" id="services">
@@ -664,51 +682,17 @@
   <div class="channels"><span>Instagram</span><span>TikTok</span><span>YouTube Shorts</span><span>LinkedIn</span><span>Facebook</span><span>Site web</span></div>
 </section>
 
-<section class="formats wrap">
-  <div class="fmt">
-    <div><h3>Collabs restaurants</h3><p>Ambiance, plats, lieu : des vidéos qui donnent envie de réserver.</p></div>
-    <div class="reel">
-      <div data-cursor="Play"><video data-hover src="assets/videos/ugc-resto2.mp4" poster="assets/posters/ugc-resto2.jpg" muted loop playsinline preload="none"></video></div>
-      <div data-cursor="Play"><video data-hover src="assets/videos/resto-assinie.mp4" poster="assets/posters/resto-assinie.jpg" muted loop playsinline preload="none"></video></div>
-      <div data-cursor="Play"><video data-hover src="assets/videos/resto-africain.mp4" poster="assets/posters/resto-africain.jpg" muted loop playsinline preload="none"></video></div>
-    </div>
-  </div>
-  <div class="fmt">
-    <div><h3>Teasers &amp; vlogs</h3><p>Intros rythmées, effets lumière, montage cinéma.</p></div>
-    <div class="reel">
-      <div class="land" data-cursor="Play"><video data-hover src="assets/videos/teaser-barca.mp4" poster="assets/posters/teaser-barca.jpg" muted loop playsinline preload="none"></video></div>
-      <div class="land" data-cursor="Play"><video data-hover src="assets/videos/teaser-vlog.mp4" poster="assets/posters/teaser-vlog.jpg" muted loop playsinline preload="none"></video></div>
-      <div data-cursor="Play"><video data-hover src="assets/videos/dailyvlog-1.mp4" poster="assets/posters/dailyvlog-1.jpg" muted loop playsinline preload="none"></video></div>
-      <div data-cursor="Play"><video data-hover src="assets/videos/dailyvlog-3.mp4" poster="assets/posters/dailyvlog-3.jpg" muted loop playsinline preload="none"></video></div>
-    </div>
-  </div>
-</section>
 
 <section class="pricing" id="tarifs">
   <div class="wrap">
     <div class="kick">Tarifs</div>
-    <h2 class="h2 rv" style="margin-top:18px">La qualité agence,<br><span class="it">le prix d'un indépendant.</span></h2>
+    <h2 class="h2 rv" style="margin-top:18px">La qualité d'un studio,<br><span class="it">le prix d'un indépendant.</span></h2>
     <div class="plans">
-      <div class="plan"><span class="tag">Formule I</span><h3>Essentiel</h3><p class="for">Exister sur vos réseaux avec du contenu pro et régulier.</p><div class="price">490€<small> /mois</small></div><ul><li>8 contenus par mois, dont 4 vidéos montées</li><li>2 réseaux au choix</li><li>Vignettes assorties</li><li>Optimisation du profil</li></ul><a class="btn line" href="#contact">Choisir Essentiel</a></div>
-      <div class="plan hot"><span class="tag">Formule II · La plus choisie</span><h3>Croissance</h3><p class="for">Je gère vos réseaux de A à Z. Vous gérez votre métier.</p><div class="price">990€<small> /mois</small></div><ul><li>16 contenus par mois, dont 8 vidéos</li><li>3 à 4 réseaux</li><li>Stories et community management</li><li>Calendrier et bilan chiffré chaque mois</li></ul><a class="btn" href="#contact">Choisir Croissance</a></div>
-      <div class="plan"><span class="tag">Formule III</span><h3>Signature</h3><p class="for">Tout votre marketing, en continu et sur mesure.</p><div class="price"><small>dès </small>1 900€<small> /mois</small></div><ul><li>Tous vos réseaux</li><li>Vidéos publicitaires (ads)</li><li>Direction artistique continue</li><li>Site web suivi et mis à jour</li></ul><a class="btn line" href="#contact">Demander un devis</a></div>
+      <div class="plan"><span class="tag">Formule I</span><h3>Présence</h3><p class="for">Du contenu pro et régulier pour exister sur vos réseaux.</p><div class="price">290€<small> /mois</small></div><a class="btn line" href="#contact" data-wa>En parler</a></div>
+      <div class="plan hot"><span class="tag">Formule II · La plus choisie</span><h3>Croissance</h3><p class="for">Je gère vos réseaux de A à Z. Vous gérez votre métier.</p><div class="price">590€<small> /mois</small></div><a class="btn" href="#contact" data-wa>En parler</a></div>
+      <div class="plan"><span class="tag">Formule III</span><h3>Signature</h3><p class="for">Tout votre marketing : contenu, publicité, branding et site.</p><div class="price"><small>dès </small>1 290€<small> /mois</small></div><a class="btn line" href="#contact" data-wa>Demander un devis</a></div>
     </div>
-    <div class="units">
-      <div class="unit"><span>Montage pro d'une vidéo (vos rushs)</span><b>dès 120€</b></div>
-      <div class="unit"><span>Tournage et montage</span><b>dès 250€</b></div>
-      <div class="unit"><span>Pack 5 vignettes</span><b>dès 120€</b></div>
-      <div class="unit"><span>Logo et mini-charte</span><b>dès 490€</b></div>
-      <div class="unit"><span>Rebranding complet</span><b>dès 1 200€</b></div>
-      <div class="unit"><span>Site vitrine</span><b>dès 1 500€</b></div>
-      <div class="unit"><span>Site immersif 3D</span><b>dès 3 500€</b></div>
-      <div class="unit"><span>Teaser vlog</span><b>dès 250€</b></div>
-      <div class="unit"><span>Motion design (logo animé)</span><b>dès 150€</b></div>
-    </div>
-    <div class="pack">
-      <div><h3>Pack <span class="it">Lancement</span></h3><p>Pour les marques qui partent de zéro : logo, charte, site vitrine et un premier mois de contenus. Tout est prêt pour vendre.</p></div>
-      <div style="display:flex;flex-direction:column;gap:16px;align-items:flex-start"><div class="price">2 900€</div><a class="btn" href="#contact">En parler</a></div>
-    </div>
-    <p class="p-note">Engagement de 3 mois conseillé pour voir des résultats. Chaque devis est adapté à vos objectifs et à votre volume.</p>
+    <p class="p-note">Engagement de 3 mois conseillé pour voir des résultats. Le détail de chaque formule se fait ensemble, selon vos objectifs.</p>
   </div>
 </section>
 
@@ -732,7 +716,7 @@
       <details><summary>Je dois tourner les vidéos moi-même ?</summary><p>Non. Je viens tourner sur place, ou je monte vos propres rushs si vous préférez filmer vous-même.</p></details>
       <details><summary>Quels réseaux vous gérez ?</summary><p>Instagram, TikTok, YouTube Shorts, Facebook et LinkedIn. Et votre site web, pour avoir un maximum de canaux de vente.</p></details>
       <details><summary>Pourquoi moins cher qu'une agence ?</summary><p>Vous avez un seul interlocuteur qui fait tout lui-même : pas de chef de projet, pas de frais de structure. La qualité reste celle d'un studio.</p></details>
-      <details><summary>Vous travaillez où ?</summary><p>Je suis basé dans le Val-d'Oise et je me déplace en Île-de-France pour les tournages. Le montage, la DA et les sites se font à distance, partout en France.</p></details>
+      <details><summary>Vous travaillez où ?</summary><p>Je suis basé en Île-de-France et je me déplace partout dans la région pour les tournages. Le montage, la DA et les sites se font à distance, partout en France.</p></details>
       <details><summary>Comment se passe l'audit gratuit ?</summary><p>Un appel de 15 minutes pour comprendre votre activité, puis je vous envoie sous 48h ce qui bloque sur vos comptes et ce qu'on peut viser. Sans engagement.</p></details>
     </div>
   </div>
@@ -747,10 +731,10 @@
       <div><div class="k">Instagram</div><a href="https://www.instagram.com/rayaan.ng" target="_blank" rel="noopener">@rayaan.ng</a></div>
       <div id="waBox" hidden><div class="k">WhatsApp</div><a id="waLink" href="#" target="_blank" rel="noopener">Écrire sur WhatsApp</a></div>
     </div>
-    <a class="btn" href="mailto:nguedjeupatrick@gmail.com?subject=Audit%20gratuit%20-%20Ngora%20Studio">Demander mon audit gratuit</a>
+    <a class="btn" href="mailto:nguedjeupatrick@gmail.com?subject=Audit%20gratuit%20-%20Ngora%20Studio" data-wa id="ctMain">Demander mon audit gratuit</a>
     <div class="about">
       <img src="assets/logo-mark.png" alt="">
-      <p><b>Derrière Ngora Studio, il y a Rayan.</b> Créateur de contenu, monteur et développeur web dans le Val-d'Oise. Je tourne, je monte, je dessine et je code moi-même chaque projet : un seul interlocuteur, du premier appel à la mise en ligne.</p>
+      <p><b>Derrière Ngora Studio, il y a Rayan.</b> Créateur de contenu, monteur et développeur web en Île-de-France. Je tourne, je monte, je dessine et je code moi-même chaque projet : un seul interlocuteur, du premier appel à la mise en ligne.</p>
     </div>
     <footer><span>© 2026 Ngora Studio · Rayan Nguedjeu · Île-de-France</span><span>Instagram · TikTok · LinkedIn</span></footer>
   </div>
@@ -772,7 +756,13 @@
 
   // ---------- contact : renseigner ici le numéro WhatsApp (format international sans +, ex : '33612345678') ----------
   const WHATSAPP='';
-  if(WHATSAPP){const a=document.getElementById('waLink');a.href='https://wa.me/'+WHATSAPP.replace(/\D/g,'')+'?text='+encodeURIComponent("Bonjour Rayan, j'aimerais un audit gratuit de mes réseaux.");document.getElementById('waBox').hidden=false;}
+  const MSG={audit:"Bonjour Rayan, j'aimerais réserver mon audit gratuit.",site:"Bonjour Rayan, j'aimerais un site web comme celui du Continent Store."};
+  if(WHATSAPP){
+    const num=WHATSAPP.replace(/\D/g,'');
+    document.querySelectorAll('[data-wa]').forEach(a=>{a.href='https://wa.me/'+num+'?text='+encodeURIComponent(MSG[a.dataset.wa]||MSG.audit);a.target='_blank';a.rel='noopener';});
+    document.getElementById('ctMain').textContent='Prendre rendez-vous sur WhatsApp';
+    const w=document.getElementById('waLink');w.href='https://wa.me/'+num+'?text='+encodeURIComponent(MSG.audit);document.getElementById('waBox').hidden=false;
+  }
   const cm=document.getElementById('copyMail');
   cm.addEventListener('click',()=>{const t=document.getElementById('mailAddr').textContent;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>{cm.textContent='Adresse copiée';setTimeout(()=>cm.textContent="Copier l'adresse",2000);}).catch(()=>{});});
 
@@ -785,7 +775,7 @@
     lenis.stop();
   }
   document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
-    const id=a.getAttribute('href');const el=id.length>1&&document.querySelector(id);if(!el)return;e.preventDefault();closeMenu();
+    const id=a.getAttribute('href');if(!id.startsWith('#'))return;const el=id.length>1&&document.querySelector(id);if(!el)return;e.preventDefault();closeMenu();
     lenis?lenis.scrollTo(el,{offset:-70}):el.scrollIntoView({behavior:reduce?'auto':'smooth'});
   }));
 
@@ -820,7 +810,7 @@
     tl.to({},{duration:1.45});
   };
   // libellé du showreel selon le moment de la vidéo
-  const REEL=[[0,'Tutoria Cergy · Motion'],[7.5,'LR Beauty · Home Meeting'],[15,'Tutoria · Vos droits'],[22.5,'Continent Store · Motion'],[29.5,'LR Beauty · Soin visage'],[37,'Tutoria · Appli'],[44.5,'Continent Store · Unboxing'],[51,'LR Beauty · Détox']];
+  const REEL=[[0,'Tutoria · Vos droits'],[4.5,'Tutoria · Motion'],[9,'LR Beauty · Home Meeting'],[13.3,'Tutoria · Vos droits']];
   const rl=document.getElementById('reelLabel');
   heroVid.addEventListener('timeupdate',()=>{const t=heroVid.currentTime;let lab=REEL[0][1];REEL.forEach(([a,b])=>{if(t>=a)lab=b;});if(rl.textContent!==lab)rl.textContent=lab;});
 
@@ -860,6 +850,23 @@
   if(!fine&&!reduce){
     const auto=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.intersectionRatio>.75)play(v);else v.pause();}),{threshold:[0,.75,1]});
     document.querySelectorAll('.wcard video').forEach(v=>auto.observe(v));
+  }
+
+  // ---------- voir plus de projets ----------
+  const mcb=document.getElementById('moreCasesBtn'),mcs=document.getElementById('moreCases');
+  mcb.addEventListener('click',()=>{const o=mcs.hidden;mcs.hidden=!o;mcb.setAttribute('aria-expanded',String(o));mcb.firstChild.textContent=o?'Moins de projets ':'Voir plus de projets ';if(window.ScrollTrigger)ScrollTrigger.refresh();});
+
+  // ---------- boutons aimantés et vidéos qui s'inclinent vers la souris ----------
+  if(fine&&!reduce){
+    document.querySelectorAll('.btn,.nav-cta,.badge,.logo').forEach(el=>{
+      el.addEventListener('mousemove',e=>{const r=el.getBoundingClientRect();el.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.25}px,${(e.clientY-r.top-r.height/2)*.35}px)`;});
+      el.addEventListener('mouseleave',()=>{el.style.transform='';});
+    });
+    document.querySelectorAll('.reel>[data-cursor],.mv').forEach(el=>{
+      el.style.transition='transform .25s ease';
+      el.addEventListener('mousemove',e=>{const r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;el.style.transform=`perspective(700px) rotateY(${x*12}deg) rotateX(${-y*12}deg) scale(1.03)`;});
+      el.addEventListener('mouseleave',()=>{el.style.transform='';});
+    });
   }
 
   // ---------- avant / après ----------
@@ -925,16 +932,12 @@
         .to('#heroFrame',{width:'100vw',height:'100vh',yPercent:-50,y:0,ease:'power1.inOut'},0);
       // vitrine site : le navigateur se redresse et grandit en entrant
       gsap.fromTo('#webStage .browser',{rotateX:22,scale:.82,y:60},{rotateX:0,scale:1,y:0,ease:'none',scrollTrigger:{trigger:'#webStage',start:'top 95%',end:'top 20%',scrub:true}});
-      // travaux : défilement horizontal
-      const track=document.getElementById('worksTrack');
-      const dist=()=>Math.max(0,track.scrollWidth-innerWidth);
-      gsap.to(track,{x:()=>-dist(),ease:'none',scrollTrigger:{trigger:'#worksPin',start:'top 12%',end:()=>'+='+dist(),pin:true,scrub:.6,invalidateOnRefresh:true}});
     });
     // manifeste : les mots s'allument au fil du scroll
     gsap.to(words,{opacity:1,stagger:.05,ease:'none',scrollTrigger:{trigger:man,start:'top 80%',end:'bottom 45%',scrub:true}});
     // titres et blocs qui montent
     gsap.utils.toArray('.rv').forEach(el=>gsap.to(el,{opacity:1,y:0,duration:1.1,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 88%'}}));
-    gsap.utils.toArray('.case-top,.kpis,.reel,.plans,.units,.pack,.steps5 li,.svc,.web-feats li,.mv,.une').forEach(el=>gsap.from(el,{y:50,opacity:0,duration:1,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 90%'}}));
+    gsap.utils.toArray('.case-top,.kpis,.block,.plans,.steps5 li,.svc,.web-feats li,.mv').forEach(el=>gsap.from(el,{y:50,opacity:0,duration:1,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 90%'}}));
     // le titre du contact glisse au scroll
     gsap.from('.contact .big',{x:-120,opacity:.3,ease:'none',scrollTrigger:{trigger:'.contact',start:'top bottom',end:'top 25%',scrub:true}});
     addEventListener('load',()=>ScrollTrigger.refresh());
