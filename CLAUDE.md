@@ -8,15 +8,21 @@ vignettes, branding et sites web pour les marques. Tout le site tient dans `inde
 - Toujours répondre et écrire le contenu du site en français.
 
 ## Structure
-- `index.html` : 3 vues pilotées en JS (`data-view`) : `accueil`, `realisations`, `formats`.
+- `index.html` : nouveau site (rebranding 2026, DA « Studio éditorial »), une seule page avec scroll immersif.
+  GSAP + ScrollTrigger (cdnjs) et Lenis (unpkg) pour le défilement fluide. Doit rester lisible sans JS et avec « réduire les animations ».
+- `v1.html` : ancienne version (noir / chrome / orange), gardée pour référence.
 - `assets/videos/` + `assets/posters/` : chaque vidéo `x.mp4` a son image fixe `x.jpg` (même nom).
-- `assets/logos/` : logos clients ronds. `assets/insta/`, `assets/dashboards/` : preuves avant/après et stats.
-- `assets/vignettes/`, `assets/stories/`, `assets/motion/` : vignettes YouTube, stories, motion design.
+- `assets/logos/`, `assets/insta/` (avant/après), `assets/dashboards/` (stats vérifiées), `assets/vignettes/`, `assets/stories/`, `assets/motion/`.
+- `assets/sites/` : captures des sites web réalisés (Le Continent Store : https://lecontinentstore.github.io/).
 
-## Identité visuelle
-- Fond noir `#0E0F10`, crème `#EDEBE6`, gris Nardo (`#7C7F82`, `#B4B7BA`), accent orange `#FF6B2C`.
-- Polices : Anton (titres, majuscules) et Jost (texte), via Google Fonts.
-- Effets : dégradé « chrome » (`--metal`), texture animée dans les titres, cartes `--panel`.
+## Identité visuelle (DA « Studio éditorial »)
+- Papier `#EFEDE8` (fond), Encre `#111111` (texte), Cobalt `#2F3BFF` (accent unique), Pierre `#8B8A86` (texte discret).
+- Polices : Inter Tight 800 (titres serrés, très gras) + Instrument Serif italique (mots clés, chiffres).
+- Accroche : « Votre produit est bon. Votre image le dira. »
+- Mission : aider les marques et les personnes qui ont un bon produit mais une image qui ne vend pas,
+  sur tous les canaux (Instagram, TikTok, YouTube Shorts, LinkedIn, Facebook, site web), moins cher qu'une agence.
+- Signatures : écran d'entrée 0→100 avec/sans son, vidéo du hero qui passe en plein écran, travaux en
+  défilement horizontal, badge rond « Audit gratuit », curseur qui devient « Play ».
 
 ## Contact affiché sur le site
 - E-mail : nguedjeupatrick@gmail.com · Instagram : @rayaan.ng · WhatsApp (bouton).
