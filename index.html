@@ -139,6 +139,37 @@
   .stat span{font-size:.95rem;color:var(--ink-2)}
   @media (max-width:700px){.stats{grid-template-columns:1fr}.stat{border-bottom:1px solid var(--line)}}
 
+  /* ---------- logo 3D chrome ---------- */
+  .manifest{position:relative}
+  .logo3d{position:absolute;right:calc(var(--pad) - 30px);top:clamp(70px,10vw,170px);width:min(40vw,620px);aspect-ratio:1.35;pointer-events:none}
+  @media (min-width:901px){.manifest p{max-width:min(22ch,50vw)}}
+  .logo3d canvas{width:100%!important;height:100%!important;display:block}
+  @media (max-width:900px){.logo3d{position:relative;right:auto;top:auto;width:100%;max-width:520px;margin:0 auto 10px;aspect-ratio:1.5}}
+
+  /* ---------- galerie en arc ---------- */
+  .arc{position:relative;height:100vh;height:100svh;min-height:620px;overflow:hidden;background:var(--ink);color:var(--paper)}
+  .arc-head{position:absolute;left:var(--pad);right:var(--pad);top:clamp(80px,9vh,120px);display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;z-index:2;pointer-events:none}
+  .arc-head .kick{color:var(--cobalt-soft)}
+  .arc-head .h2{font-size:clamp(2.4rem,6vw,5.6rem)}
+  .arc-head .it{color:var(--cobalt-soft)}
+  .arc-head p{color:#B9B7B1;max-width:34ch}
+  .arc-wheel{position:absolute;left:50%;top:58%;width:0;height:0}
+  .arc-card{position:absolute;left:0;top:0;width:var(--cw);aspect-ratio:9/16;margin:calc(var(--cw) * -.889) 0 0 calc(var(--cw) * -.5);transform-origin:50% calc(50% + var(--R));background:#000;overflow:hidden;will-change:transform,opacity}
+  .arc-card video{width:100%;height:100%;object-fit:cover}
+  .arc-card figcaption{position:absolute;left:10px;right:10px;bottom:10px;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.6)}
+  .arc-line{position:absolute;left:50%;top:calc(58% + var(--R));width:calc(var(--R) * 2);height:calc(var(--R) * 2);margin:calc(var(--R) * -1) 0 0 calc(var(--R) * -1);border-radius:50%;border:1px solid rgba(239,237,232,.18);pointer-events:none}
+  .arc-hint{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:#8B8A86}
+  .arc{--R:max(110vw,1100px);--cw:clamp(170px,17vw,260px)}
+  @media (max-width:700px){.arc{--R:1250px;--cw:58vw}.arc-wheel{top:60%}.arc-line{top:calc(60% + var(--R))}}
+  .arc.static{height:auto;min-height:0;padding:100px 0 60px}
+  .arc.static .arc-head{position:relative;left:auto;right:auto;top:auto;padding:0 var(--pad);margin-bottom:40px}
+  .arc.static .arc-wheel{position:relative;left:auto;top:auto;width:auto;height:auto;display:flex;gap:14px;overflow-x:auto;padding:0 var(--pad)}
+  .arc.static .arc-card{position:relative;margin:0;flex:0 0 var(--cw);transform:none}
+  .arc.static .arc-line,.arc.static .arc-hint{display:none}
+
+  /* ---------- traînée du curseur ---------- */
+  .trail{position:fixed;inset:0;z-index:390;pointer-events:none}
+
   /* ---------- bandeau ---------- */
   .marquee{background:var(--ink);color:var(--paper);overflow:hidden;padding:22px 0;white-space:nowrap}
   .marquee-t{display:inline-flex;animation:mq 30s linear infinite}
@@ -363,6 +394,8 @@
 </div>
 
 <div class="cursor" id="cursor" aria-hidden="true"><span>Play</span></div>
+<canvas class="trail" id="trail" aria-hidden="true"></canvas>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><filter id="liquid" x="-10%" y="-20%" width="120%" height="140%"><feTurbulence id="liqT" type="fractalNoise" baseFrequency="0.008 0.022" numOctaves="2" seed="4" result="n"/><feDisplacementMap id="liqD" in="SourceGraphic" in2="n" scale="0" xChannelSelector="R" yChannelSelector="G"/></filter></svg>
 <div class="svc-float" id="svcFloat" aria-hidden="true"><img alt=""></div>
 <div class="lightbox" id="lb"><img alt=""></div>
 
@@ -414,6 +447,7 @@
 </section>
 
 <section class="manifest wrap">
+  <div class="logo3d" id="logo3d" aria-hidden="true"></div>
   <div class="kick" style="margin-bottom:28px">Le studio</div>
   <p id="manifest">Vous avez un bon produit, mais vos réseaux ne le montrent pas ? Je construis votre <span class="it">image</span> de A à Z : direction artistique, vidéos montées comme au cinéma et sites web qui marquent. Une seule personne, tous vos canaux, un prix <span class="it">juste.</span></p>
   <div class="stats">
@@ -470,6 +504,27 @@
   </div>
 </section>
 
+
+<section class="arc" id="arc" aria-label="Galerie des derniers montages">
+  <div class="arc-head">
+    <div><div class="kick">Les derniers montages</div><h2 class="h2" style="margin-top:14px">Faites tourner <span class="it">la roue.</span></h2></div>
+    <p>Faites défiler : les vidéos tournent, celle du haut se lance toute seule.</p>
+  </div>
+  <div class="arc-line" aria-hidden="true"></div>
+  <div class="arc-wheel" id="arcWheel">
+      <figure class="arc-card" data-cursor="Play"><video src="assets/videos/tutoria-droits-dys.mp4" poster="assets/posters/tutoria-droits-dys.jpg" muted loop playsinline preload="none"></video><figcaption>Tutoria · Vos droits</figcaption></figure>
+      <figure class="arc-card" data-cursor="Play"><video src="assets/videos/tutoria-motion-site.mp4" poster="assets/posters/tutoria-motion-site.jpg" muted loop playsinline preload="none"></video><figcaption>Tutoria · Motion site</figcaption></figure>
+      <figure class="arc-card" data-cursor="Play"><video src="assets/videos/lr-teaser.mp4" poster="assets/posters/lr-teaser.jpg" muted loop playsinline preload="none"></video><figcaption>LR Beauty · Teaser</figcaption></figure>
+      <figure class="arc-card" data-cursor="Play"><video src="assets/motion/continent.mp4" poster="assets/motion/continent.jpg" muted loop playsinline preload="none"></video><figcaption>Continent · Motion</figcaption></figure>
+      <figure class="arc-card" data-cursor="Play"><video src="assets/videos/tutoria-motion-appli.mp4" poster="assets/posters/tutoria-motion-appli.jpg" muted loop playsinline preload="none"></video><figcaption>Tutoria · Motion appli</figcaption></figure>
+      <figure class="arc-card" data-cursor="Play"><video src="assets/videos/lr-soin.mp4" poster="assets/posters/lr-soin.jpg" muted loop playsinline preload="none"></video><figcaption>LR Beauty · Soin</figcaption></figure>
+      <figure class="arc-card" data-cursor="Play"><video src="assets/videos/continent-1.mp4" poster="assets/posters/continent-1.jpg" muted loop playsinline preload="none"></video><figcaption>Continent · 279,9K vues</figcaption></figure>
+      <figure class="arc-card" data-cursor="Play"><video src="assets/videos/lr-detox.mp4" poster="assets/posters/lr-detox.jpg" muted loop playsinline preload="none"></video><figcaption>LR Beauty · Détox</figcaption></figure>
+      <figure class="arc-card" data-cursor="Play"><video src="assets/motion/ngora-logo.mp4" poster="assets/motion/ngora-logo.jpg" muted loop playsinline preload="none"></video><figcaption>Ngora · Logo animé</figcaption></figure>
+      <figure class="arc-card" data-cursor="Play"><video src="assets/videos/lr-gammes.mp4" poster="assets/posters/lr-gammes.jpg" muted loop playsinline preload="none"></video><figcaption>LR Beauty · Gammes</figcaption></figure>
+  </div>
+  <div class="arc-hint">Défiler pour faire tourner</div>
+</section>
 
 <section class="clients wrap" id="travaux">
   <div class="kick">Clients</div>
@@ -744,6 +799,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>
 (()=>{
@@ -944,6 +1000,103 @@
   } else {
     words.forEach(w=>w.style.opacity=1);
   }
+})();
+</script>
+<script>
+/* ---------- effets interactifs : logo 3D chrome, roue de vidéos, titres liquides, traînée ---------- */
+(()=>{
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
+  const hasGsap=!!window.gsap&&!!window.ScrollTrigger;
+  const mouse={x:0,y:0};
+  addEventListener('mousemove',e=>{mouse.x=e.clientX/innerWidth*2-1;mouse.y=e.clientY/innerHeight*2-1;},{passive:true});
+
+  // ===== 1. logo Ngora en chrome 3D =====
+  const MARK={"aspect":2.4299065420560746,"shapes":[{"o":[[-0.9938,-0.1308],[-0.9984,-0.1355],[-1.0125,-0.1355],[-1.0171,-0.1402],[-1.0265,-0.1402],[-1.0312,-0.1449],[-1.0639,-0.1589],[-1.0732,-0.1682],[-1.0779,-0.1682],[-1.1075,-0.1978],[-1.1075,-0.2025],[-1.1215,-0.2165],[-1.1215,-0.2212],[-1.1402,-0.2539],[-1.1402,-0.2632],[-1.1449,-0.2679],[-1.1449,-0.2913],[-1.1495,-0.296],[-1.1495,-0.338],[-1.1449,-0.3427],[-1.1449,-0.3614],[-1.1402,-0.366],[-1.1402,-0.3754],[-1.1355,-0.3801],[-1.1355,-0.3847],[-1.1308,-0.3894],[-1.1168,-0.4221],[-1.0732,-0.4657],[-1.0685,-0.4657],[-1.0592,-0.4751],[-1.0545,-0.4751],[-1.0312,-0.4891],[-1.0218,-0.4891],[-1.0171,-0.4938],[-0.9984,-0.4938],[-0.9953,-0.4984],[-0.9268,-0.4984],[-0.9237,-0.4938],[-0.9097,-0.4938],[-0.905,-0.4891],[-0.8816,-0.4844],[-0.8723,-0.4751],[-0.8676,-0.4751],[-0.8583,-0.4657],[-0.8536,-0.4657],[-0.81,-0.4221],[-0.81,-0.4174],[-0.8006,-0.4081],[-0.8006,-0.4034],[-0.7913,-0.3894],[-0.7913,-0.3801],[-0.7819,-0.366],[-0.7819,-0.3474],[-0.7773,-0.3427],[-0.7773,-0.2913],[-0.7819,-0.2866],[-0.7819,-0.2679],[-0.7866,-0.2632],[-0.7866,-0.2539],[-0.7913,-0.2492],[-0.8053,-0.2165],[-0.8146,-0.2072],[-0.8146,-0.2025],[-0.8489,-0.1682],[-0.8536,-0.1682],[-0.8676,-0.1542],[-0.8723,-0.1542],[-0.8863,-0.1449],[-0.9097,-0.1402],[-0.9143,-0.1355],[-0.9283,-0.1355],[-0.933,-0.1308]],"h":[]},{"o":[[-1.215,0.5],[-1.2103,0.4891],[-1.204,0.4875],[-1.2009,0.4798],[-1.19,0.4688],[-1.1822,0.4657],[-1.1822,0.4611],[-0.6963,-0.0249],[-0.6963,-0.0296],[-0.6854,-0.0405],[-0.6807,-0.0405],[-0.6776,-0.0483],[-0.6667,-0.0592],[-0.662,-0.0592],[-0.6402,-0.081],[-0.6402,-0.0857],[-0.2882,-0.4377],[-0.2835,-0.4377],[-0.2461,-0.4657],[-0.2414,-0.4657],[-0.2181,-0.4798],[-0.2087,-0.4798],[-0.204,-0.4844],[-0.1947,-0.4844],[-0.19,-0.4891],[-0.176,-0.4891],[-0.1713,-0.4938],[-0.1573,-0.4938],[-0.1542,-0.4984],[-0.067,-0.4984],[-0.0639,-0.4938],[-0.0405,-0.4938],[-0.0358,-0.4891],[-0.0218,-0.4891],[-0.0171,-0.4844],[-0.0078,-0.4844],[-0.0031,-0.4798],[0.0016,-0.4798],[0.0062,-0.4751],[0.0389,-0.4611],[0.0483,-0.4517],[0.053,-0.4517],[0.0623,-0.4424],[0.067,-0.4424],[0.1199,-0.3894],[0.1199,-0.3847],[0.134,-0.3707],[0.1386,-0.3567],[0.148,-0.3474],[0.148,-0.338],[0.162,-0.3146],[0.162,-0.3053],[0.1667,-0.3006],[0.1667,-0.2913],[0.1713,-0.2866],[0.1713,-0.2679],[0.176,-0.2632],[0.176,-0.2445],[0.1807,-0.2399],[0.1807,0.0421],[0.1854,0.0436],[0.1916,0.0358],[0.1869,0.0296],[0.1931,0.0343],[0.3411,-0.1137],[0.3411,-0.1184],[0.3474,-0.1199],[0.3738,-0.1464],[0.3738,-0.1511],[0.7196,-0.4984],[1.2134,-0.4984],[1.2134,-0.4907],[1.2072,-0.4907],[1.1854,-0.4688],[1.1854,-0.4642],[0.6573,0.0639],[0.6573,0.0685],[0.6433,0.0779],[0.6433,0.0826],[0.2819,0.4439],[0.2773,0.4439],[0.2679,0.4533],[0.2632,0.4533],[0.2539,0.4626],[0.2492,0.4626],[0.2352,0.472],[0.2259,0.472],[0.2118,0.4813],[0.2025,0.4813],[0.1978,0.486],[0.1885,0.486],[0.1838,0.4907],[0.1698,0.4907],[0.1651,0.4953],[0.1277,0.4953],[0.1246,0.5],[0.0888,0.5],[0.0857,0.4953],[0.0576,0.4953],[0.053,0.4907],[0.0389,0.4907],[0.0343,0.486],[0.0202,0.486],[0.0156,0.4813],[0.0109,0.4813],[0.0062,0.4766],[-0.0031,0.4766],[-0.0265,0.4626],[-0.0327,0.4626],[-0.0343,0.4673],[-0.0374,0.4673],[-0.0327,0.4611],[-0.0405,0.4533],[-0.0452,0.4533],[-0.0545,0.4439],[-0.0592,0.4439],[-0.1075,0.4003],[-0.1075,0.3956],[-0.1262,0.3769],[-0.1262,0.3723],[-0.1355,0.3629],[-0.1355,0.3583],[-0.1542,0.3255],[-0.1542,0.3162],[-0.1589,0.3115],[-0.1589,0.3022],[-0.1636,0.2975],[-0.1636,0.2882],[-0.1682,0.2835],[-0.1682,0.2695],[-0.1729,0.2648],[-0.1729,0.2461],[-0.1776,0.2414],[-0.1776,-0.0452],[-0.1822,-0.0467],[-0.4829,0.2555],[-0.4829,0.2601],[-0.7212,0.5]],"h":[]}]};
+  const host=document.getElementById('logo3d');
+  if(window.THREE&&host){
+    let renderer;
+    try{renderer=new THREE.WebGLRenderer({antialias:true,alpha:true});}catch(e){renderer=null;}
+    if(renderer){
+      renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+      host.appendChild(renderer.domElement);
+      const scene=new THREE.Scene(), cam=new THREE.PerspectiveCamera(32,1,.1,100); cam.position.set(0,0,6.2);
+      // texture « chrome » dessinée à la main (matcap) : reflets clairs, bande sombre, touche de bleu
+      const c=document.createElement('canvas');c.width=c.height=512;const g=c.getContext('2d');
+      const lg=g.createLinearGradient(0,0,0,512);
+      [[0,'#ffffff'],[.18,'#d9dce0'],[.4,'#6c7076'],[.5,'#1b1d22'],[.58,'#3a3f8f'],[.66,'#9ea3ad'],[.82,'#f4f5f7'],[1,'#b5b9c0']].forEach(([o,col])=>lg.addColorStop(o,col));
+      g.fillStyle=lg;g.fillRect(0,0,512,512);
+      const rg=g.createRadialGradient(170,150,10,170,150,220);rg.addColorStop(0,'rgba(255,255,255,.9)');rg.addColorStop(1,'rgba(255,255,255,0)');g.fillStyle=rg;g.fillRect(0,0,512,512);
+      const tex=new THREE.CanvasTexture(c);
+      const mat=new THREE.MeshMatcapMaterial({matcap:tex});
+      const group=new THREE.Group();
+      MARK.shapes.forEach(sh=>{
+        const shape=new THREE.Shape(sh.o.map(([x,y])=>new THREE.Vector2(x,y)));
+        sh.h.forEach(h=>shape.holes.push(new THREE.Path(h.map(([x,y])=>new THREE.Vector2(x,y)))));
+        const geo=new THREE.ExtrudeGeometry(shape,{depth:.22,bevelEnabled:true,bevelThickness:.05,bevelSize:.025,bevelSegments:5,curveSegments:24});
+        group.add(new THREE.Mesh(geo,mat));
+      });
+      new THREE.Box3().setFromObject(group).getCenter(group.position).multiplyScalar(-1);
+      const pivot=new THREE.Group();pivot.add(group);pivot.scale.setScalar(1.55);scene.add(pivot);
+      const size=()=>{const w=host.clientWidth,h=host.clientHeight;renderer.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix();};
+      size();addEventListener('resize',size);
+      let vis=true,rx=0,ry=0,t0=performance.now(),scrollK=0;
+      new IntersectionObserver(e=>{vis=e[0].isIntersecting;},{threshold:0}).observe(host);
+      addEventListener('scroll',()=>{const r=host.getBoundingClientRect();scrollK=(r.top+r.height/2)/innerHeight-.5;},{passive:true});
+      const draw=t=>{
+        if(vis){
+          const k=(t-t0)/1000;
+          const ty=mouse.x*.55+scrollK*-1.2+Math.sin(k*.6)*.12, tx=mouse.y*.35+Math.cos(k*.5)*.06;
+          ry+=(ty-ry)*.06;rx+=(tx-rx)*.06;
+          pivot.rotation.set(rx,ry,Math.sin(k*.4)*.03);pivot.position.y=Math.sin(k*.9)*.05;
+          renderer.render(scene,cam);
+        }
+        if(!reduce)requestAnimationFrame(draw);
+      };
+      requestAnimationFrame(draw);
+    }
+  }
+
+  // ===== 2. roue de vidéos =====
+  const arc=document.getElementById('arc'),wheel=document.getElementById('arcWheel');
+  const cardsEl=[...wheel.children], STEP=13;
+  let current=null;
+  const playOnly=v=>{if(current===v)return;cardsEl.forEach(c=>{const x=c.querySelector('video');if(x!==v)x.pause();});current=v;if(v){v.play().catch(()=>{});}};
+  if(!hasGsap||reduce){arc.classList.add('static');cardsEl.forEach(c=>{const v=c.querySelector('video');c.addEventListener('click',()=>v.paused?v.play():v.pause());});}
+  else{
+    let base=0;
+    const layout=()=>{cardsEl.forEach((c,i)=>{const a=base+i*STEP,ab=Math.abs(a);c.style.transform=`rotate(${a}deg) scale(${Math.max(.72,1-ab/80)})`;c.style.opacity=ab>70?0:Math.max(.25,1-ab/55);c.style.zIndex=String(100-Math.round(ab));});
+      const idx=Math.round(-base/STEP);const v=cardsEl[Math.max(0,Math.min(cardsEl.length-1,idx))].querySelector('video');playOnly(v);};
+    const span=(cardsEl.length-1)*STEP;
+    const st={p:0};
+    gsap.to(st,{p:1,ease:'none',scrollTrigger:{trigger:arc,start:'top top',end:()=>'+='+innerHeight*2.2,pin:true,scrub:.8,onLeave:()=>playOnly(null),onLeaveBack:()=>playOnly(null),onEnter:layout,onEnterBack:layout},onUpdate:()=>{base=-st.p*span;layout();}});
+    base=0;layout();playOnly(null);
+    cardsEl.forEach((c,i)=>c.addEventListener('click',()=>{const v=c.querySelector('video');v.paused?v.play():v.pause();}));
+  }
+
+  // ===== 5a. titres qui ondulent comme un liquide au survol =====
+  const liqD=document.getElementById('liqD'),liqT=document.getElementById('liqT');
+  if(fine&&!reduce&&hasGsap){
+    const o={s:0,f:0};
+    const upd=()=>{liqD.setAttribute('scale',o.s.toFixed(2));liqT.setAttribute('baseFrequency',(0.008+o.f*0.004).toFixed(4)+' '+(0.022+o.f*0.01).toFixed(4));};
+    document.querySelectorAll('.h2,.hero h1,.hero .h1b,.contact .big,.svc h3').forEach(el=>{
+      el.addEventListener('mouseenter',()=>{el.style.filter='url(#liquid)';gsap.killTweensOf(o);gsap.to(o,{s:14,f:1,duration:.5,ease:'power2.out',onUpdate:upd});});
+      el.addEventListener('mouseleave',()=>{gsap.killTweensOf(o);gsap.to(o,{s:0,f:0,duration:.8,ease:'power2.out',onUpdate:upd,onComplete:()=>{el.style.filter='';}});});
+    });
+  }
+
+  // ===== 5b. traînée bleue derrière le curseur =====
+  const cv=document.getElementById('trail');
+  if(fine&&!reduce){
+    const ctx=cv.getContext('2d');let pts=[],dpr=Math.min(devicePixelRatio,2);
+    const rs=()=>{cv.width=innerWidth*dpr;cv.height=innerHeight*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);};rs();addEventListener('resize',rs);
+    addEventListener('mousemove',e=>{pts.push({x:e.clientX,y:e.clientY,t:performance.now()});},{passive:true});
+    const LIFE=380;
+    const loop=()=>{const now=performance.now();pts=pts.filter(p=>now-p.t<LIFE);ctx.clearRect(0,0,innerWidth,innerHeight);
+      for(let i=1;i<pts.length;i++){const a=pts[i-1],b=pts[i],k=1-(now-b.t)/LIFE;ctx.strokeStyle=`rgba(47,59,255,${(k*.55).toFixed(3)})`;ctx.lineWidth=1+k*7;ctx.lineCap='round';ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}
+      requestAnimationFrame(loop);};
+    loop();
+  } else cv.remove();
 })();
 </script>
 </body>
