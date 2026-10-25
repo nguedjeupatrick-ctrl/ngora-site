@@ -32,6 +32,10 @@ vignettes, branding et sites web pour les marques. Tout le site tient dans `inde
 ## Contact affiché sur le site
 - E-mail : nguedjeupatrick@gmail.com · Instagram : @rayaan.ng · WhatsApp 06 49 28 83 90 (constante `WHATSAPP`, tous les liens `data-wa`).
 
+## Mise en ligne
+- Site public : https://nguedjeupatrick-ctrl.github.io/ngora-site/ (GitHub Pages, branche `main`, dossier racine).
+- Tout ce qui est poussé sur `main` est en ligne 1 à 2 minutes plus tard.
+
 ## Façon de travailler (plusieurs PC)
 - GitHub (`nguedjeupatrick-ctrl/ngora-site`) est la version de référence.
 - Début de séance : récupérer la dernière version (`git pull`).
