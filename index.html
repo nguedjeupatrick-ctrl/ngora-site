@@ -147,61 +147,100 @@
   .logo3d canvas{width:100%!important;height:100%!important;display:block}
   @media (max-width:900px){.logo3d{position:relative;right:auto;top:auto;width:100%;max-width:520px;margin:0 auto 10px;aspect-ratio:1.5}}
 
-  /* ---------- réalisations : roue de pages ---------- */
-  .real{position:relative;background:var(--ink);color:var(--paper);overflow:hidden;height:100vh;height:100svh;min-height:760px}
-  .real-head{position:absolute;left:0;right:0;top:clamp(78px,9vh,110px);display:flex;justify-content:space-between;align-items:flex-end;gap:20px;z-index:3;pointer-events:none}
-  .real-head .kick{color:var(--cobalt-soft)}
-  .real-head .h2{font-size:clamp(2rem,4.4vw,4rem)}
-  .real-head .it{color:var(--cobalt-soft)}
-  .real-count{display:flex;align-items:baseline;gap:8px;font-family:var(--serif)}
-  .real-count b{font-weight:400;font-size:clamp(2.6rem,4vw,3.8rem);line-height:1}
-  .real-count span{color:#8B8A86;font-size:1.2rem}
-  .real{--R:2600px;--pw:min(1240px,88vw);--ph:min(66vh,640px)}
-  .real-wheel{position:absolute;left:50%;top:calc(50% + 70px);width:0;height:0}
-  .real-line{position:absolute;left:50%;top:calc(50% + 70px + var(--R));width:calc(var(--R) * 2);height:calc(var(--R) * 2);margin:calc(var(--R) * -1) 0 0 calc(var(--R) * -1);border-radius:50%;border:1px solid rgba(239,237,232,.14);pointer-events:none}
-  .rp{position:absolute;left:0;top:0;width:var(--pw);height:var(--ph);margin:calc(var(--ph) / -2) 0 0 calc(var(--pw) / -2);transform-origin:50% calc(50% + var(--R));background:var(--paper);color:var(--ink);display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.4fr);gap:clamp(20px,3vw,44px);padding:clamp(22px,2.6vw,40px);box-shadow:0 60px 120px rgba(0,0,0,.45);will-change:transform,opacity}
-  .rp-l{display:flex;flex-direction:column;gap:14px;min-width:0}
-  .rp-top{display:flex;align-items:center;gap:12px}
-  .rp-logo{width:44px;height:44px;border-radius:50%;object-fit:cover;background:#000}
-  .rp-name{font-weight:800;font-size:clamp(2rem,3.6vw,3.6rem);letter-spacing:-.045em;line-height:.92}
-  .rp-steps{list-style:none;display:flex;flex-direction:column;border-top:1px solid var(--line);margin-top:4px}
-  .rp-steps li{display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:.9rem;line-height:1.4}
-  .rp-steps b{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--stone);font-weight:500;padding-top:2px}
-  .rp-steps span b{font-size:inherit;letter-spacing:0;text-transform:none;color:var(--ink);font-weight:600}
-  .rp-kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:auto}
-  .rp-kpis b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(1.8rem,2.6vw,2.6rem);line-height:1}
-  .rp-kpis span{font-size:.78rem;color:var(--ink-2)}
-  .rp-r{display:flex;flex-direction:column;gap:16px;min-width:0;min-height:0}
-  .rp-tabs{display:flex;gap:6px;flex-wrap:wrap}
-  .rp-tab{padding:10px 16px;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;box-shadow:inset 0 0 0 1px var(--line);transition:background .25s,color .25s,box-shadow .25s;min-height:40px}
-  .rp-tab:hover{box-shadow:inset 0 0 0 1px var(--cobalt);color:var(--cobalt)}
-  .rp-tab.on{background:var(--cobalt);color:var(--paper);box-shadow:none}
-  .rp-panes{position:relative;flex:1;min-height:0}
+  /* ---------- réalisations : showroom (inspiré de Mùn) ---------- */
+  .sw{position:relative;background:#0D0E14;color:var(--paper);overflow:hidden;padding:clamp(70px,7vw,100px) 0 clamp(60px,7vw,100px);--accent-c:#1E9E95;--R:860px;--cw:clamp(200px,min(17vw,28vh),270px)}
+  .sw-bg{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+  .bub{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;transition:background 1.2s ease}
+  .bub.b1{width:46vw;height:46vw;left:-12vw;top:8%;background:var(--accent-c);animation:bub1 16s ease-in-out infinite alternate}
+  .bub.b2{width:38vw;height:38vw;right:-10vw;top:28%;background:var(--cobalt);animation:bub2 19s ease-in-out infinite alternate}
+  .bub.b3{width:26vw;height:26vw;left:38%;bottom:-8vw;background:var(--accent-c);opacity:.35;animation:bub1 22s ease-in-out infinite alternate-reverse}
+  .bub.b4{width:14vw;height:14vw;left:22%;top:20%;background:#8F96FF;opacity:.3;animation:bub2 13s ease-in-out infinite alternate}
+  @keyframes bub1{to{transform:translate(8vw,6vh) scale(1.15)}}
+  @keyframes bub2{to{transform:translate(-7vw,-5vh) scale(.9)}}
+  .sw-head{position:relative;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;z-index:2}
+  .sw-head .kick{color:var(--cobalt-soft)}
+  .sw-head .h2{font-size:clamp(2.2rem,5vw,4.4rem)}
+  .sw-head .it{color:var(--cobalt-soft)}
+  .sw-count{display:flex;align-items:baseline;gap:8px;font-family:var(--serif);white-space:nowrap;flex:0 0 auto}
+  .sw-count b{font-weight:400;font-size:clamp(2.6rem,4vw,3.8rem);line-height:1}
+  .sw-count span{color:#8B8A86;font-size:1.2rem}
+  .sw-main{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:clamp(16px,3vw,48px);align-items:center;margin-top:clamp(24px,4vw,50px)}
+  .sw-stage{position:relative;width:calc(var(--cw) * 1.9);height:calc(var(--cw) * 16 / 9 + 120px)}
+  .sw-arc{position:absolute;left:50%;top:calc(var(--cw) * 8 / 9);width:calc(var(--R) * 2);height:calc(var(--R) * 2);margin-left:calc(var(--R) * -1);border-radius:50%;border:1px solid rgba(239,237,232,.22);pointer-events:none}
+  .sw-ring{position:absolute;left:50%;top:calc(var(--cw) * 8 / 9 + var(--R));width:0;height:0;transition:transform 1.1s cubic-bezier(.7,0,.2,1)}
+  .sw-card{position:absolute;left:0;top:0;width:var(--cw);aspect-ratio:9/16;margin:calc(var(--R) * -1 - var(--cw) * 8 / 9) 0 0 calc(var(--cw) / -2);transform-origin:50% calc(var(--cw) * 8 / 9 + var(--R));border-radius:28px;overflow:hidden;background:#000;padding:0;box-shadow:0 40px 80px rgba(0,0,0,.45);transition:filter .9s,opacity .9s,transform 1.1s cubic-bezier(.7,0,.2,1)}
+  .sw-card video{width:100%;height:100%;object-fit:cover;pointer-events:none}
+  .sw-card:not(.on){filter:blur(7px) saturate(.8);opacity:.55}
+  .sw-card.far{opacity:0}
+  .sw-card.on{cursor:default}
+  .sw-btn{position:absolute;top:calc(var(--cw) * 8 / 9 + 36px);width:46px;height:46px;border-radius:50%;background:var(--paper);color:var(--ink);display:flex;align-items:center;justify-content:center;z-index:5;transition:background .3s,color .3s,transform .3s}
+  .sw-btn svg{width:20px;height:20px}
+  .sw-btn:hover{background:var(--cobalt);color:var(--paper);transform:scale(1.08)}
+  .sw-btn.prev{left:calc(50% - var(--cw) * .5 - 84px)}
+  .sw-btn.next{left:calc(50% + var(--cw) * .5 + 38px)}
+  .sw-names{position:absolute;left:0;right:0;bottom:0;height:96px;text-align:center}
+  .sw-name{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:6px;opacity:0;transform:translateY(16px);transition:opacity .5s,transform .7s cubic-bezier(.2,.8,.2,1)}
+  .sw-name.on{opacity:1;transform:none;transition-delay:.35s}
+  .sw-name .kick{color:#B9B7B1;font-size:.7rem}
+  .sw-name h3{font-weight:800;font-size:clamp(1.8rem,2.8vw,2.6rem);letter-spacing:-.04em;line-height:1}
+  .sw-name .it{color:var(--accent-c);transition:color 1s}
+  .sw-side{position:relative;min-height:320px;z-index:3}
+  .sw-steps,.sw-kpis{position:absolute;inset:0;list-style:none;display:flex;flex-direction:column;justify-content:center;gap:18px;opacity:0;visibility:hidden;transition:opacity .45s,visibility .45s}
+  .sw-steps.on,.sw-kpis.on{opacity:1;visibility:visible;transition-delay:.3s}
+  .sw-steps li{display:flex;flex-direction:column;gap:4px;padding-left:16px;border-left:2px solid var(--accent-c);transform:translateX(-20px);opacity:0;transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .6s}
+  .sw-steps.on li{transform:none;opacity:1}
+  .sw-steps.on li:nth-child(2){transition-delay:.45s}.sw-steps.on li:nth-child(3){transition-delay:.55s}
+  .sw-steps b{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:#B9B7B1;font-weight:500}
+  .sw-steps span{font-size:.98rem;line-height:1.45}
+  .sw-steps span b{font-size:inherit;letter-spacing:0;text-transform:none;color:var(--paper);font-weight:600}
+  .sw-kpis{align-items:flex-end;text-align:right}
+  .sw-kpis div{transform:translateX(20px);opacity:0;transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .6s}
+  .sw-kpis.on div{transform:none;opacity:1}
+  .sw-kpis.on div:nth-child(2){transition-delay:.45s}.sw-kpis.on div:nth-child(3){transition-delay:.55s}
+  .sw-kpis b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(2.6rem,4vw,4rem);line-height:1}
+  .sw-kpis span{font-size:.85rem;color:#B9B7B1}
+  .sw-works{position:relative;z-index:2;margin-top:clamp(30px,4vw,60px)}
+  .sw-work{display:none}
+  .sw-work.on{display:block;animation:swIn .7s cubic-bezier(.2,.8,.2,1) both .2s}
+  @keyframes swIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+  .sw-work .rp-tabs{justify-content:center;margin-bottom:18px}
+  .sw .rp-tab{color:var(--paper);box-shadow:inset 0 0 0 1px rgba(239,237,232,.25);border-radius:999px}
+  .sw .rp-tab:hover{box-shadow:inset 0 0 0 1px var(--paper);color:var(--paper)}
+  .sw .rp-tab.on{background:var(--paper);color:var(--ink)}
+  .rp-tabs{display:flex;gap:8px;flex-wrap:wrap}
+  .rp-tab{padding:10px 18px;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;transition:background .25s,color .25s,box-shadow .25s;min-height:42px}
+  .rp-panes{position:relative;height:clamp(320px,34vw,440px)}
   .rp-pane{position:absolute;inset:0;opacity:0;visibility:hidden;transform:translateY(14px);transition:opacity .35s,transform .45s cubic-bezier(.2,.8,.2,1),visibility .35s}
   .rp-pane.on{opacity:1;visibility:visible;transform:none}
-  .rp-pane .row{display:flex;gap:12px;height:calc(100% - 34px);align-items:stretch;overflow-x:auto;scrollbar-width:thin}
-  .rp-pane .tile{flex:0 0 auto;height:100%;aspect-ratio:9/16;background:var(--ink);position:relative;overflow:hidden}
+  .rp-pane .row{display:flex;gap:14px;height:100%;justify-content:center;overflow-x:auto;scrollbar-width:none}
+  .rp-pane .row::-webkit-scrollbar{display:none}
+  .rp-pane .tile{flex:0 0 auto;height:100%;aspect-ratio:9/16;background:#000;position:relative;overflow:hidden;border-radius:20px}
   .rp-pane .tile video,.rp-pane .tile img{width:100%;height:100%;object-fit:cover}
-  .rp-pane .tile .t{position:absolute;left:8px;bottom:8px;background:var(--paper);color:var(--ink);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;padding:4px 8px;z-index:2}
-  .rp-pane .tile .v{position:absolute;right:8px;top:8px;background:rgba(17,17,17,.7);color:#fff;font-size:.66rem;font-weight:600;padding:4px 8px;z-index:2}
-  .rp-pane .ba{height:100%;width:auto;max-width:none;aspect-ratio:700/928;flex:0 0 auto}
-  .rp-pane .note{position:absolute;left:0;bottom:0;color:var(--ink-2);font-size:.88rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
-  .rp-pane .proofs-row{align-items:center}
-  .rp-pane .proof{width:auto;height:70%;aspect-ratio:1179/760}
+  .rp-pane .tile .t{position:absolute;left:10px;bottom:10px;background:var(--paper);color:var(--ink);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:99px;z-index:2}
+  .rp-pane .tile .v{position:absolute;right:10px;top:10px;background:rgba(17,17,17,.7);color:#fff;font-size:.66rem;font-weight:600;padding:4px 8px;border-radius:99px;z-index:2}
+  .rp-pane .ba{height:100%;width:auto;max-width:none;aspect-ratio:700/928;flex:0 0 auto;border-radius:20px}
+  .rp-pane .proof{width:auto;height:80%;align-self:center;aspect-ratio:1179/760;border-radius:16px}
   .rp-pane .proof img{filter:none}
-  .site-tile{display:block;height:100%;aspect-ratio:1120/700;flex:0 1 auto;max-width:100%;background:#05060a}
+  .site-tile{display:block;height:100%;aspect-ratio:1120/700;flex:0 1 auto;max-width:100%;background:#05060a;border-radius:16px;overflow:hidden}
   .site-tile video{width:100%;height:100%;object-fit:cover}
-  .real-dots{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);display:flex;gap:10px;z-index:3}
-  .real-dots i{width:8px;height:8px;border-radius:50%;background:rgba(239,237,232,.25);transition:background .3s,transform .3s}
-  .real-dots i.on{background:var(--cobalt-soft);transform:scale(1.4)}
-  /* téléphone, ou sans animation : pages empilées */
-  .real.static{height:auto;min-height:0;padding:100px 0 30px}
-  .real.static .real-head{position:relative;top:auto;margin-bottom:30px}
-  .real.static .real-wheel{position:relative;left:auto;top:auto;width:auto;height:auto;display:flex;flex-direction:column;gap:20px;padding:0 var(--pad)}
-  .real.static .rp{position:relative;margin:0;width:auto;height:auto;transform:none!important;opacity:1!important;grid-template-columns:1fr}
-  .real.static .rp-panes{height:min(62vh,520px);flex:none}
-  .real.static .real-line,.real.static .real-dots,.real.static .real-count{display:none}
-  @media (max-width:900px){.rp-steps li{grid-template-columns:1fr;gap:2px}.rp-pane .tile{height:100%}.real.static .rp-panes{height:440px}}
+  @media (max-width:900px){
+    .sw{--R:520px;--cw:52vw}
+    .sw-main{grid-template-columns:minmax(0,1fr);gap:22px}
+    .sw-stage{order:1;margin:0 auto;width:100%}
+    .sw-side.r{order:2;min-height:0}
+    .sw-side.l{order:3;min-height:0}
+    .sw-kpis{position:relative;inset:auto;flex-direction:row;justify-content:space-between;align-items:flex-start;text-align:left;gap:10px;display:none}
+    .sw-kpis.on{display:flex}
+    .sw-kpis b{font-size:2.2rem}
+    .sw-kpis span{font-size:.75rem}
+    .sw-steps{position:relative;inset:auto;display:none}
+    .sw-steps.on{display:flex}
+    .sw-btn.prev{left:8px}.sw-btn.next{left:auto;right:8px}
+    .rp-pane .row{justify-content:flex-start;padding:0 var(--pad)}
+    .sw-works.wrap{padding-inline:0}
+    .sw-work .rp-tabs{padding:0 var(--pad);justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+    .rp-panes{height:420px}
+  }
 
   /* ---------- traînée du curseur ---------- */
   .trail{position:fixed;inset:0;z-index:390;pointer-events:none}
@@ -323,20 +362,41 @@
   .une-shot img{width:100%}
   @media (max-width:900px){.mgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.une{grid-template-columns:1fr}}
 
-  /* ---------- services (liste + image au survol) ---------- */
+  /* ---------- services façon Mùn : grandes lignes, aperçu de la ligne active ---------- */
   .services{padding-block:clamp(80px,10vw,150px)}
-  .svc-list{list-style:none;margin-top:50px;border-top:1px solid var(--ink)}
-  .svc{display:grid;grid-template-columns:80px minmax(0,1.3fr) minmax(0,1fr);gap:24px;align-items:baseline;padding:28px 0;border-bottom:1px solid var(--ink);transition:padding .4s,color .3s}
-  .svc:hover{padding-left:18px;color:var(--cobalt)}
-  .svc .n{font-size:.8rem;letter-spacing:.14em;color:var(--stone)}
-  .svc h3{font-weight:800;font-size:clamp(1.8rem,4vw,3.6rem);letter-spacing:-.045em;line-height:1}
-  .svc p{color:var(--ink-2);font-size:1rem}
-  .svc-float{position:fixed;left:0;top:0;width:240px;aspect-ratio:9/16;z-index:80;pointer-events:none;opacity:0;transform:translate(-50%,-50%) scale(.85);transition:opacity .3s,transform .3s;overflow:hidden;background:var(--ink)}
-  .svc-float.on{opacity:1;transform:translate(-50%,-50%) scale(1)}
-  .svc-float img{width:100%;height:100%;object-fit:cover}
-  @media (max-width:800px){.svc{grid-template-columns:1fr;gap:8px}.svc-float{display:none}}
+  .sv{list-style:none;margin-top:50px;border-top:1px solid var(--ink);position:relative}
+  .sv-row{border-bottom:1px solid var(--ink);position:relative;cursor:pointer;outline:none;transition:background .45s,color .45s}
+  .sv-line{display:flex;align-items:baseline;gap:clamp(14px,2vw,28px);padding:clamp(14px,1.6vw,22px) var(--pad)}
+  .sv-n{font-size:.78rem;letter-spacing:.14em;color:var(--stone);transition:color .45s}
+  .sv-row h3{font-weight:300;font-size:clamp(2rem,6vw,5.4rem);letter-spacing:-.045em;line-height:.95;text-transform:uppercase;transition:font-weight .3s}
+  .sv-more{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--stone);transition:color .45s}
+  .sv-row.on{background:var(--cobalt);color:var(--paper)}
+  .sv-row.on .sv-n,.sv-row.on .sv-more{color:#C9CCFF}
+  .sv-row:focus-visible{box-shadow:inset 0 0 0 2px var(--ink)}
+  .sv-body{display:grid;grid-template-columns:minmax(0,1fr);max-height:0;overflow:hidden;transition:max-height .7s cubic-bezier(.2,.8,.2,1)}
+  .sv-body p{padding:0 var(--pad) 18px calc(var(--pad) + 3.2rem);max-width:60ch;font-size:1.02rem;opacity:.9}
+  .sv-media{background:#000;overflow:hidden;border-radius:22px;box-shadow:0 40px 90px rgba(17,17,17,.35)}
+  .sv-media video,.sv-media img{width:100%;height:100%;object-fit:cover;display:block}
+  /* ordinateur : l'aperçu flotte à droite de la ligne active, comme sur Mùn */
+  @media (min-width:901px){
+    .sv-row .sv-body{max-height:none;overflow:visible;display:block}
+    .sv-row .sv-body p{position:absolute;right:calc(var(--pad) + 270px);top:50%;transform:translateY(-50%);max-width:32ch;padding:0;text-align:right;opacity:0;transition:opacity .4s}
+    .sv-row.on .sv-body p{opacity:1}
+    .sv-row.on .sv-more{opacity:0}
+    .sv-media{position:absolute;right:var(--pad);top:50%;width:240px;aspect-ratio:9/16;transform:translateY(-50%) scale(.8) rotate(4deg);opacity:0;pointer-events:none;z-index:5;transition:opacity .45s,transform .6s cubic-bezier(.2,.8,.2,1)}
+    .sv-media.wide{width:400px;aspect-ratio:16/10}
+    .sv-row.on .sv-media{opacity:1;transform:translateY(-50%) scale(1) rotate(0)}
+  }
+  /* téléphone : la ligne active s'ouvre et montre l'aperçu en grand */
+  @media (max-width:900px){
+    .sv-row.on .sv-body{max-height:760px}
+    .sv-body p{padding:0 var(--pad) 16px}
+    .sv-media{margin:0 var(--pad) 22px;aspect-ratio:9/12}
+    .sv-media.wide{aspect-ratio:16/10}
+    .sv-row h3{font-size:clamp(1.9rem,9vw,3rem)}
+  }
   .channels{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
-  .channels span{padding:10px 16px;box-shadow:inset 0 0 0 1px var(--line);font-size:.88rem}
+  .channels span{padding:10px 16px;box-shadow:inset 0 0 0 1px var(--line);font-size:.88rem;border-radius:99px}
 
   /* ---------- formats ---------- */
   .formats{padding-block:0 clamp(80px,10vw,150px)}
@@ -432,7 +492,6 @@
 <div class="cursor" id="cursor" aria-hidden="true"><span>Play</span></div>
 <canvas class="trail" id="trail" aria-hidden="true"></canvas>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><filter id="liquid" x="-10%" y="-20%" width="120%" height="140%"><feTurbulence id="liqT" type="fractalNoise" baseFrequency="0.008 0.022" numOctaves="2" seed="4" result="n"/><feDisplacementMap id="liqD" in="SourceGraphic" in2="n" scale="0" xChannelSelector="R" yChannelSelector="G"/></filter></svg>
-<div class="svc-float" id="svcFloat" aria-hidden="true"><img alt=""></div>
 <div class="lightbox" id="lb"><img alt=""></div>
 
 <header class="nav" id="nav">
@@ -541,51 +600,24 @@
 </section>
 
 
-<section class="real" id="travaux" aria-label="Réalisations">
-  <div class="real-head wrap">
+<section class="sw" id="travaux" aria-label="Réalisations" style="--accent-c:#1E9E95">
+  <div class="sw-bg" aria-hidden="true"><i class="bub b1"></i><i class="bub b2"></i><i class="bub b3"></i><i class="bub b4"></i></div>
+  <div class="sw-head wrap">
     <div><div class="kick">Réalisations</div><h2 class="h2" style="margin-top:14px">Trois marques, <span class="it">trois transformations.</span></h2></div>
-    <div class="real-count" aria-hidden="true"><b id="realNum">01</b><span>/ 03</span></div>
+    <div class="sw-count" aria-live="polite"><b id="swNum">01</b><span>/ 03</span></div>
   </div>
-  <div class="real-line" aria-hidden="true"></div>
-  <div class="real-wheel" id="realWheel">
-    <article class="rp" id="cas-tutoria" data-cursor-off>
-      <div class="rp-l">
-        <div class="rp-top"><img class="rp-logo" src="assets/logos/tutoria.png" alt=""><span class="kick">01 · Soutien scolaire · Cergy</span></div>
-        <h3 class="rp-name">Tutoria <span class="it">Cergy</span></h3>
-        <ol class="rp-steps"><li><b>Le départ</b><span>Des visuels sans ligne directrice, des vidéos qui ne reflétaient pas le sérieux de l'organisme.</span></li><li><b>Ce que j'ai fait</b><span>Nouvelle charte, série « Vos droits à l'école », motion design, vignettes, stories et 5 réseaux gérés.</span></li><li><b>Le résultat</b><span>Un compte cohérent et actif sur YouTube, Instagram, TikTok, Facebook et LinkedIn.</span></li></ol>
-        <div class="rp-kpis"><div><b>902</b><span>abonnés Instagram</span></div><div><b>63</b><span>contenus produits</span></div><div><b>5</b><span>réseaux gérés</span></div></div>
-      </div>
-      <div class="rp-r">
-        <div class="rp-tabs" role="tablist" aria-label="Contenus réalisés"><button type="button" role="tab" class="rp-tab on" aria-selected="true" data-tab="0">Feed</button><button type="button" role="tab" class="rp-tab" aria-selected="false" data-tab="1">Contenu</button><button type="button" role="tab" class="rp-tab" aria-selected="false" data-tab="2">Motion</button><button type="button" role="tab" class="rp-tab" aria-selected="false" data-tab="3">Vignettes</button></div>
-        <div class="rp-panes"><div class="rp-pane on" role="tabpanel" data-pane="0"><div class="row"><div class="ba" data-ba><img src="assets/insta/tutoria-feed-avant.jpg" alt="Feed Tutoria avant"><img class="after" src="assets/insta/tutoria-feed-apres.jpg" alt="Feed Tutoria après"><span class="lb l">Avant</span><span class="lb r">Après</span><div class="hd"></div></div><div class="tile" data-zoom><span class="t">Profil</span><img src="assets/insta/tutoria-profil-apres.jpg" alt="Profil Instagram après refonte" loading="lazy"></div><p class="note">Le feed Instagram avant et après la nouvelle charte. Glissez pour comparer.</p></div></div><div class="rp-pane" role="tabpanel" data-pane="1"><div class="row"><div class="tile" data-cursor="Play"><span class="t">Vos droits</span><video data-hover src="assets/videos/tutoria-droits-dys.mp4" poster="assets/posters/tutoria-droits-dys.jpg" muted loop playsinline preload="none"></video></div><p class="note">La série « Vos droits à l'école » : tournage, montage, titres animés et sous-titres dynamiques.</p></div></div><div class="rp-pane" role="tabpanel" data-pane="2"><div class="row"><div class="tile" data-cursor="Play"><span class="t">Site</span><video data-hover src="assets/videos/tutoria-motion-site.mp4" poster="assets/posters/tutoria-motion-site.jpg" muted loop playsinline preload="none"></video></div><div class="tile" data-cursor="Play"><span class="t">Appli</span><video data-hover src="assets/videos/tutoria-motion-appli.mp4" poster="assets/posters/tutoria-motion-appli.jpg" muted loop playsinline preload="none"></video></div><p class="note">Le lancement du nouveau site et la présentation de l'appli, animés écran par écran.</p></div></div><div class="rp-pane" role="tabpanel" data-pane="3"><div class="row"><div class="tile" data-zoom><span class="t">Vignette</span><img src="assets/vignettes/vig-dates-college.jpg" alt="Vignette : dates clés du collège" loading="lazy"></div><div class="tile" data-zoom><span class="t">Vignette</span><img src="assets/vignettes/vig-faq-ep2.jpg" alt="Vignette : série FAQ" loading="lazy"></div><div class="tile" data-zoom><span class="t">Vignette</span><img src="assets/vignettes/vig-urssaf.jpg" alt="Vignette : l'avance immédiate" loading="lazy"></div><div class="tile" data-zoom><span class="t">Story</span><img src="assets/stories/story-sondage-impot.jpg" alt="Story : sondage" loading="lazy"></div><div class="tile" data-zoom><span class="t">Story</span><img src="assets/stories/story-test-semaine.jpg" alt="Story : test de la semaine" loading="lazy"></div></div></div></div>
-      </div>
-    </article>
-    <article class="rp" id="cas-continent" data-cursor-off>
-      <div class="rp-l">
-        <div class="rp-top"><img class="rp-logo" src="assets/logos/continent.png" alt=""><span class="kick">02 · Maillots &amp; flocage · Paris 10e</span></div>
-        <h3 class="rp-name">Le Continent <span class="it">Store</span></h3>
-        <ol class="rp-steps"><li><b>Le départ</b><span>Une boutique de maillots à Paris, sans logo ni présence sur les réseaux.</span></li><li><b>Ce que j'ai fait</b><span>Logo et identité, TikTok et Instagram, vidéos unboxing, nouveau feed, motion et un site 3D.</span></li><li><b>Le résultat</b><span><b>13 200 abonnés</b> et <b>4,6 M de vues</b> en moins d'un an, jusqu'à 279,9 K vues sur une vidéo.</span></li></ol>
-        <div class="rp-kpis"><div><b>13,2K</b><span>abonnés (parti de 32)</span></div><div><b>4,6M</b><span>vues en 12 mois</span></div><div><b>211K</b><span>j'aime cumulés</span></div></div>
-      </div>
-      <div class="rp-r">
-        <div class="rp-tabs" role="tablist" aria-label="Contenus réalisés"><button type="button" role="tab" class="rp-tab on" aria-selected="true" data-tab="0">Feed</button><button type="button" role="tab" class="rp-tab" aria-selected="false" data-tab="1">Contenu</button><button type="button" role="tab" class="rp-tab" aria-selected="false" data-tab="2">Résultats</button><button type="button" role="tab" class="rp-tab" aria-selected="false" data-tab="3">Motion</button><button type="button" role="tab" class="rp-tab" aria-selected="false" data-tab="4">Site web</button></div>
-        <div class="rp-panes"><div class="rp-pane on" role="tabpanel" data-pane="0"><div class="row"><div class="ba" data-ba><img src="assets/insta/continent-avant.jpg" alt="Feed Continent Store avant"><img class="after" src="assets/insta/continent-apres.jpg" alt="Feed Continent Store après"><span class="lb l">Avant</span><span class="lb r">Après</span><div class="hd"></div></div><p class="note">Le feed Instagram avant et après. Glissez pour comparer.</p></div></div><div class="rp-pane" role="tabpanel" data-pane="1"><div class="row"><div class="tile" data-cursor="Play"><span class="v">▶ 279,9K</span><video data-hover src="assets/videos/continent-1.mp4" poster="assets/posters/continent-1.jpg" muted loop playsinline preload="none"></video></div><div class="tile" data-cursor="Play"><span class="v">▶ 84,5K</span><video data-hover src="assets/videos/continent-2.mp4" poster="assets/posters/continent-2.jpg" muted loop playsinline preload="none"></video></div><div class="tile" data-cursor="Play"><span class="v">▶ 76,2K</span><video data-hover src="assets/videos/continent-3.mp4" poster="assets/posters/continent-3.jpg" muted loop playsinline preload="none"></video></div><div class="tile" data-cursor="Play"><video data-hover src="assets/videos/continent-prez.mp4" poster="assets/posters/continent-prez.jpg" muted loop playsinline preload="none"></video></div></div></div><div class="rp-pane" role="tabpanel" data-pane="2"><div class="row proofs-row"><button class="proof" type="button" data-full="assets/dashboards/continent-vues.jpg"><img src="assets/dashboards/continent-vues.jpg" alt="Statistiques TikTok : 4,6 M de vues sur 12 mois"><span>4,6 M vues · 12 mois</span></button><button class="proof" type="button" data-full="assets/dashboards/continent-followers.jpg"><img src="assets/dashboards/continent-followers.jpg" alt="Statistiques TikTok : 13 206 abonnés"><span>13 206 abonnés</span></button><p class="note">Statistiques TikTok vérifiées. Cliquez pour agrandir.</p></div></div><div class="rp-pane" role="tabpanel" data-pane="3"><div class="row"><div class="tile" data-cursor="Play"><span class="t">Motion</span><video data-hover src="assets/motion/continent.mp4" poster="assets/motion/continent.jpg" muted loop playsinline preload="none"></video></div><p class="note">Un teaser boutique en typo cinétique, avec les maillots en cartes 3D.</p></div></div><div class="rp-pane" role="tabpanel" data-pane="4"><div class="row"><a class="site-tile" href="#site-web" data-cursor="Voir"><video src="assets/sites/continent-demo.mp4" poster="assets/sites/continent-demo.jpg" muted loop playsinline preload="none" data-hover></video></a><p class="note">Un site immersif : globe 3D, maillot floqué en direct, réservation en boutique.</p></div></div></div>
-      </div>
-    </article>
-    <article class="rp" id="cas-lr" data-cursor-off>
-      <div class="rp-l">
-        <div class="rp-top"><span class="kick">03 · Beauté &amp; bien-être · Home Meeting</span></div>
-        <h3 class="rp-name">LR <span class="it">Beauty</span></h3>
-        <ol class="rp-steps"><li><b>Le départ</b><span>Une démonstration de produits à domicile : beaucoup de gammes à présenter, un moment à faire vivre en ligne.</span></li><li><b>Ce que j'ai fait</b><span>Tournage pendant l'événement, puis un teaser et trois reels par thème, avec étapes et produits animés.</span></li><li><b>Le résultat</b><span>Une journée transformée en <b>4 vidéos</b> prêtes à publier, qui expliquent chaque produit comme en boutique.</span></li></ol>
-        <div class="rp-kpis"><div><b>4</b><span>vidéos livrées</span></div><div><b>3</b><span>gammes présentées</span></div><div><b>1</b><span>journée de tournage</span></div></div>
-      </div>
-      <div class="rp-r">
-        <div class="rp-tabs" role="tablist" aria-label="Contenus réalisés"><button type="button" role="tab" class="rp-tab on" aria-selected="true" data-tab="0">Teaser</button><button type="button" role="tab" class="rp-tab" aria-selected="false" data-tab="1">Reels</button></div>
-        <div class="rp-panes"><div class="rp-pane on" role="tabpanel" data-pane="0"><div class="row"><div class="tile" data-cursor="Play"><span class="t">Teaser</span><video data-hover src="assets/videos/lr-teaser.mp4" poster="assets/posters/lr-teaser.jpg" muted loop playsinline preload="none"></video></div><p class="note">Le teaser du Home Meeting, en 14 secondes.</p></div></div><div class="rp-pane" role="tabpanel" data-pane="1"><div class="row"><div class="tile" data-cursor="Play"><span class="t">Détox</span><video data-hover src="assets/videos/lr-detox.mp4" poster="assets/posters/lr-detox.jpg" muted loop playsinline preload="none"></video></div><div class="tile" data-cursor="Play"><span class="t">Gammes</span><video data-hover src="assets/videos/lr-gammes.mp4" poster="assets/posters/lr-gammes.jpg" muted loop playsinline preload="none"></video></div><div class="tile" data-cursor="Play"><span class="t">Soin visage</span><video data-hover src="assets/videos/lr-soin.mp4" poster="assets/posters/lr-soin.jpg" muted loop playsinline preload="none"></video></div></div></div></div>
-      </div>
-    </article>
+  <div class="sw-main wrap">
+    <div class="sw-side l"><ol class="sw-steps on" data-c="0"><li><b>Le départ</b><span>Des visuels sans ligne directrice, des vidéos qui ne reflétaient pas le sérieux de l'organisme.</span></li><li><b>Ce que j'ai fait</b><span>Nouvelle charte, série « Vos droits à l'école », annonces, motion design, vignettes et 5 réseaux gérés.</span></li><li><b>Le résultat</b><span>Un compte cohérent et actif sur YouTube, Instagram, TikTok, Facebook et LinkedIn.</span></li></ol><ol class="sw-steps" data-c="1"><li><b>Le départ</b><span>Une boutique de maillots à Paris, sans logo ni présence sur les réseaux.</span></li><li><b>Ce que j'ai fait</b><span>Logo et identité, TikTok et Instagram, vidéos unboxing, nouveau feed, motion et un site 3D.</span></li><li><b>Le résultat</b><span><b>13 200 abonnés</b> et <b>4,6 M de vues</b> en moins d'un an.</span></li></ol><ol class="sw-steps" data-c="2"><li><b>Le départ</b><span>Une démonstration de produits à domicile : beaucoup de gammes à présenter, un moment à faire vivre en ligne.</span></li><li><b>Ce que j'ai fait</b><span>Tournage pendant l'événement, puis un teaser et trois reels par thème, avec étapes et produits animés.</span></li><li><b>Le résultat</b><span>Une journée transformée en <b>4 vidéos</b> prêtes à publier.</span></li></ol></div>
+    <div class="sw-stage">
+      <div class="sw-arc" aria-hidden="true"></div>
+      <div class="sw-ring" id="swRing"><button class="sw-card" type="button" data-k="0" data-c="0" aria-label="Voir Tutoria Cergy"><video src="assets/videos/tutoria-motion-site.mp4" poster="assets/posters/tutoria-motion-site.jpg" muted loop playsinline preload="none"></video></button><button class="sw-card" type="button" data-k="1" data-c="1" aria-label="Voir Le Continent Store"><video src="assets/motion/continent.mp4" poster="assets/motion/continent.jpg" muted loop playsinline preload="none"></video></button><button class="sw-card" type="button" data-k="2" data-c="2" aria-label="Voir LR Beauty"><video src="assets/videos/lr-teaser.mp4" poster="assets/posters/lr-teaser.jpg" muted loop playsinline preload="none"></video></button><button class="sw-card" type="button" data-k="3" data-c="0" aria-label="Voir Tutoria Cergy"><video src="assets/videos/tutoria-motion-site.mp4" poster="assets/posters/tutoria-motion-site.jpg" muted loop playsinline preload="none"></video></button><button class="sw-card" type="button" data-k="4" data-c="1" aria-label="Voir Le Continent Store"><video src="assets/motion/continent.mp4" poster="assets/motion/continent.jpg" muted loop playsinline preload="none"></video></button><button class="sw-card" type="button" data-k="5" data-c="2" aria-label="Voir LR Beauty"><video src="assets/videos/lr-teaser.mp4" poster="assets/posters/lr-teaser.jpg" muted loop playsinline preload="none"></video></button><button class="sw-card" type="button" data-k="6" data-c="0" aria-label="Voir Tutoria Cergy"><video src="assets/videos/tutoria-motion-site.mp4" poster="assets/posters/tutoria-motion-site.jpg" muted loop playsinline preload="none"></video></button><button class="sw-card" type="button" data-k="7" data-c="1" aria-label="Voir Le Continent Store"><video src="assets/motion/continent.mp4" poster="assets/motion/continent.jpg" muted loop playsinline preload="none"></video></button><button class="sw-card" type="button" data-k="8" data-c="2" aria-label="Voir LR Beauty"><video src="assets/videos/lr-teaser.mp4" poster="assets/posters/lr-teaser.jpg" muted loop playsinline preload="none"></video></button><button class="sw-card" type="button" data-k="9" data-c="0" aria-label="Voir Tutoria Cergy"><video src="assets/videos/tutoria-motion-site.mp4" poster="assets/posters/tutoria-motion-site.jpg" muted loop playsinline preload="none"></video></button><button class="sw-card" type="button" data-k="10" data-c="1" aria-label="Voir Le Continent Store"><video src="assets/motion/continent.mp4" poster="assets/motion/continent.jpg" muted loop playsinline preload="none"></video></button><button class="sw-card" type="button" data-k="11" data-c="2" aria-label="Voir LR Beauty"><video src="assets/videos/lr-teaser.mp4" poster="assets/posters/lr-teaser.jpg" muted loop playsinline preload="none"></video></button></div>
+      <button class="sw-btn prev" id="swPrev" type="button" aria-label="Marque précédente"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button class="sw-btn next" id="swNext" type="button" aria-label="Marque suivante"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="sw-names"><div class="sw-name on" data-c="0"><span class="kick">01 · Soutien scolaire · Cergy</span><h3>Tutoria <span class="it">Cergy</span></h3></div><div class="sw-name" data-c="1"><span class="kick">02 · Maillots &amp; flocage · Paris 10e</span><h3>Le Continent <span class="it">Store</span></h3></div><div class="sw-name" data-c="2"><span class="kick">03 · Beauté &amp; bien-être · Home Meeting</span><h3>LR <span class="it">Beauty</span></h3></div></div>
+    </div>
+    <div class="sw-side r"><div class="sw-kpis on" data-c="0"><div><b>902</b><span>abonnés Instagram</span></div><div><b>63</b><span>contenus produits</span></div><div><b>5</b><span>réseaux gérés</span></div></div><div class="sw-kpis" data-c="1"><div><b>13,2K</b><span>abonnés (parti de 32)</span></div><div><b>4,6M</b><span>vues en 12 mois</span></div><div><b>279,9K</b><span>vues sur une vidéo</span></div></div><div class="sw-kpis" data-c="2"><div><b>4</b><span>vidéos livrées</span></div><div><b>3</b><span>gammes présentées</span></div><div><b>1</b><span>journée de tournage</span></div></div></div>
   </div>
-  <div class="real-dots" id="realDots" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
+  <div class="sw-works wrap"><div class="sw-work on" data-c="0" id="cas-tutoria"><div class="rp-tabs" role="tablist" aria-label="Contenus réalisés"><button type="button" role="tab" class="rp-tab on" aria-selected="true" data-tab="0">Contenu</button><button type="button" role="tab" class="rp-tab" aria-selected="false" data-tab="1">Motion</button><button type="button" role="tab" class="rp-tab" aria-selected="false" data-tab="2">Feed</button><button type="button" role="tab" class="rp-tab" aria-selected="false" data-tab="3">Vignettes</button></div><div class="rp-panes"><div class="rp-pane on" role="tabpanel" data-pane="0"><div class="row"><div class="tile" data-cursor="Play"><span class="t">Vos droits</span><video data-hover src="assets/videos/tutoria-droits-dys.mp4" poster="assets/posters/tutoria-droits-dys.jpg" muted loop playsinline preload="none"></video></div><div class="tile" data-cursor="Play"><span class="t">Recrutement</span><video data-hover src="assets/videos/tutoria-rh.mp4" poster="assets/posters/tutoria-rh.jpg" muted loop playsinline preload="none"></video></div></div></div><div class="rp-pane" role="tabpanel" data-pane="1"><div class="row"><div class="tile" data-cursor="Play"><span class="t">Site</span><video data-hover src="assets/videos/tutoria-motion-site.mp4" poster="assets/posters/tutoria-motion-site.jpg" muted loop playsinline preload="none"></video></div><div class="tile" data-cursor="Play"><span class="t">Appli</span><video data-hover src="assets/videos/tutoria-motion-appli.mp4" poster="assets/posters/tutoria-motion-appli.jpg" muted loop playsinline preload="none"></video></div></div></div><div class="rp-pane" role="tabpanel" data-pane="2"><div class="row"><div class="ba" data-ba><img src="assets/insta/tutoria-feed-avant.jpg" alt="Feed Tutoria avant"><img class="after" src="assets/insta/tutoria-feed-apres.jpg" alt="Feed Tutoria après"><span class="lb l">Avant</span><span class="lb r">Après</span><div class="hd"></div></div><div class="tile" data-zoom><span class="t">Profil</span><img src="assets/insta/tutoria-profil-apres.jpg" alt="Profil Instagram après refonte" loading="lazy"></div></div></div><div class="rp-pane" role="tabpanel" data-pane="3"><div class="row"><div class="tile" data-zoom><span class="t">Vignette</span><img src="assets/vignettes/vig-dates-college.jpg" alt="Vignette : dates clés du collège" loading="lazy"></div><div class="tile" data-zoom><span class="t">Vignette</span><img src="assets/vignettes/vig-faq-ep2.jpg" alt="Vignette : série FAQ" loading="lazy"></div><div class="tile" data-zoom><span class="t">Vignette</span><img src="assets/vignettes/vig-urssaf.jpg" alt="Vignette : l'avance immédiate" loading="lazy"></div><div class="tile" data-zoom><span class="t">Story</span><img src="assets/stories/story-sondage-impot.jpg" alt="Story : sondage" loading="lazy"></div><div class="tile" data-zoom><span class="t">Story</span><img src="assets/stories/story-test-semaine.jpg" alt="Story : test de la semaine" loading="lazy"></div></div></div></div></div><div class="sw-work" data-c="1" id="cas-continent"><div class="rp-tabs" role="tablist" aria-label="Contenus réalisés"><button type="button" role="tab" class="rp-tab on" aria-selected="true" data-tab="0">Contenu</button><button type="button" role="tab" class="rp-tab" aria-selected="false" data-tab="1">Résultats</button><button type="button" role="tab" class="rp-tab" aria-selected="false" data-tab="2">Feed</button><button type="button" role="tab" class="rp-tab" aria-selected="false" data-tab="3">Motion</button><button type="button" role="tab" class="rp-tab" aria-selected="false" data-tab="4">Site web</button></div><div class="rp-panes"><div class="rp-pane on" role="tabpanel" data-pane="0"><div class="row"><div class="tile" data-cursor="Play"><span class="v">▶ 279,9K</span><video data-hover src="assets/videos/continent-1.mp4" poster="assets/posters/continent-1.jpg" muted loop playsinline preload="none"></video></div><div class="tile" data-cursor="Play"><span class="v">▶ 84,5K</span><video data-hover src="assets/videos/continent-2.mp4" poster="assets/posters/continent-2.jpg" muted loop playsinline preload="none"></video></div><div class="tile" data-cursor="Play"><span class="v">▶ 76,2K</span><video data-hover src="assets/videos/continent-3.mp4" poster="assets/posters/continent-3.jpg" muted loop playsinline preload="none"></video></div><div class="tile" data-cursor="Play"><video data-hover src="assets/videos/continent-prez.mp4" poster="assets/posters/continent-prez.jpg" muted loop playsinline preload="none"></video></div></div></div><div class="rp-pane" role="tabpanel" data-pane="1"><div class="row"><button class="proof" type="button" data-full="assets/dashboards/continent-vues.jpg"><img src="assets/dashboards/continent-vues.jpg" alt="Statistiques TikTok : 4,6 M de vues sur 12 mois"><span>4,6 M vues · 12 mois</span></button><button class="proof" type="button" data-full="assets/dashboards/continent-followers.jpg"><img src="assets/dashboards/continent-followers.jpg" alt="Statistiques TikTok : 13 206 abonnés"><span>13 206 abonnés</span></button></div></div><div class="rp-pane" role="tabpanel" data-pane="2"><div class="row"><div class="ba" data-ba><img src="assets/insta/continent-avant.jpg" alt="Feed Continent Store avant"><img class="after" src="assets/insta/continent-apres.jpg" alt="Feed Continent Store après"><span class="lb l">Avant</span><span class="lb r">Après</span><div class="hd"></div></div></div></div><div class="rp-pane" role="tabpanel" data-pane="3"><div class="row"><div class="tile" data-cursor="Play"><span class="t">Motion</span><video data-hover src="assets/motion/continent.mp4" poster="assets/motion/continent.jpg" muted loop playsinline preload="none"></video></div></div></div><div class="rp-pane" role="tabpanel" data-pane="4"><div class="row"><a class="site-tile" href="#site-web" data-cursor="Voir"><video src="assets/sites/continent-demo.mp4" poster="assets/sites/continent-demo.jpg" muted loop playsinline preload="none" data-hover></video></a></div></div></div></div><div class="sw-work" data-c="2" id="cas-lr"><div class="rp-tabs" role="tablist" aria-label="Contenus réalisés"><button type="button" role="tab" class="rp-tab on" aria-selected="true" data-tab="0">Reels</button><button type="button" role="tab" class="rp-tab" aria-selected="false" data-tab="1">Teaser</button></div><div class="rp-panes"><div class="rp-pane on" role="tabpanel" data-pane="0"><div class="row"><div class="tile" data-cursor="Play"><span class="t">Détox</span><video data-hover src="assets/videos/lr-detox.mp4" poster="assets/posters/lr-detox.jpg" muted loop playsinline preload="none"></video></div><div class="tile" data-cursor="Play"><span class="t">Gammes</span><video data-hover src="assets/videos/lr-gammes.mp4" poster="assets/posters/lr-gammes.jpg" muted loop playsinline preload="none"></video></div><div class="tile" data-cursor="Play"><span class="t">Soin visage</span><video data-hover src="assets/videos/lr-soin.mp4" poster="assets/posters/lr-soin.jpg" muted loop playsinline preload="none"></video></div></div></div><div class="rp-pane" role="tabpanel" data-pane="1"><div class="row"><div class="tile" data-cursor="Play"><span class="t">Teaser</span><video data-hover src="assets/videos/lr-teaser.mp4" poster="assets/posters/lr-teaser.jpg" muted loop playsinline preload="none"></video></div></div></div></div></div></div>
 </section>
 
 <div class="more-cases-btn wrap"><button class="btn line" type="button" id="moreCasesBtn" aria-expanded="false" aria-controls="moreCases">Voir plus de projets <span aria-hidden="true">+</span></button></div>
@@ -652,20 +684,14 @@
 </div>
 
 
-<section class="services wrap" id="services">
-  <div class="kick">Ce que je fais</div>
-  <h2 class="h2 rv" style="margin-top:18px">Tout votre marketing,<br><span class="it">simplifié.</span></h2>
-  <ul class="svc-list">
-    <li class="svc" data-img="assets/posters/tutoria-droits-dys.jpg"><span class="n">01</span><h3>Montage pro</h3><p>Accroche, rythme, sous-titres dynamiques, B-roll et habillage. Des vidéos qui retiennent le pouce.</p></li>
-    <li class="svc" data-img="assets/posters/tutoria-motion-appli.jpg"><span class="n">02</span><h3>Motion design</h3><p>Titres animés, chiffres et logos en mouvement : votre marque reconnaissable d'une vidéo à l'autre.</p></li>
-    <li class="svc" data-img="assets/insta/feed-apres-crop.jpg"><span class="n">03</span><h3>DA &amp; rebranding</h3><p>Logo, couleurs, typographies, templates : une charte claire et appliquée partout.</p></li>
-    <li class="svc" data-img="assets/stories/story-faq-groupe.jpg"><span class="n">04</span><h3>Gestion des réseaux</h3><p>Calendrier, publications, stories, réponses et chiffres chaque mois. Vous gérez votre métier.</p></li>
-    <li class="svc" data-img="assets/vignettes/vig-4erreurs.jpg"><span class="n">05</span><h3>Vignettes &amp; visuels</h3><p>Couvertures, carrousels et stories qui donnent envie de cliquer.</p></li>
-    <li class="svc" data-img="assets/sites/continent-flocage.jpg"><span class="n">06</span><h3>Sites web</h3><p>Du site vitrine rapide au site immersif en 3D, pensé pour convertir sur téléphone.</p></li>
-  </ul>
-  <div class="channels"><span>Instagram</span><span>TikTok</span><span>YouTube Shorts</span><span>LinkedIn</span><span>Facebook</span><span>Site web</span></div>
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="kick">Ce que je fais</div>
+    <h2 class="h2 rv" style="margin-top:18px">Tout votre marketing,<br><span class="it">simplifié.</span></h2>
+  </div>
+  <ul class="sv" id="svList"><li class="sv-row on" tabindex="0"><div class="sv-line"><span class="sv-n">01</span><h3>Montage pro</h3><span class="sv-more">Voir un exemple</span></div><div class="sv-body"><p>Accroche, rythme, sous-titres dynamiques, B-roll et habillage. Des vidéos qui retiennent le pouce.</p><div class="sv-media"><video src="assets/videos/tutoria-droits-dys.mp4" poster="assets/posters/tutoria-droits-dys.jpg" muted loop playsinline preload="none"></video></div></div></li><li class="sv-row" tabindex="0"><div class="sv-line"><span class="sv-n">02</span><h3>Motion design</h3><span class="sv-more">Voir un exemple</span></div><div class="sv-body"><p>Titres, chiffres, écrans et logos animés : votre marque reconnaissable d'une vidéo à l'autre.</p><div class="sv-media"><video src="assets/videos/tutoria-motion-appli.mp4" poster="assets/posters/tutoria-motion-appli.jpg" muted loop playsinline preload="none"></video></div></div></li><li class="sv-row" tabindex="0"><div class="sv-line"><span class="sv-n">03</span><h3>DA &amp; rebranding</h3><span class="sv-more">Voir un exemple</span></div><div class="sv-body"><p>Logo, couleurs, typographies, templates : une charte claire et appliquée partout.</p><div class="sv-media"><img src="assets/insta/feed-apres-crop.jpg" alt="" loading="lazy"></div></div></li><li class="sv-row" tabindex="0"><div class="sv-line"><span class="sv-n">04</span><h3>Gestion des réseaux</h3><span class="sv-more">Voir un exemple</span></div><div class="sv-body"><p>Calendrier, publications, stories, réponses et chiffres chaque mois. Vous gérez votre métier.</p><div class="sv-media"><video src="assets/videos/continent-1.mp4" poster="assets/posters/continent-1.jpg" muted loop playsinline preload="none"></video></div></div></li><li class="sv-row" tabindex="0"><div class="sv-line"><span class="sv-n">05</span><h3>Vignettes &amp; stories</h3><span class="sv-more">Voir un exemple</span></div><div class="sv-body"><p>Couvertures, carrousels et stories interactives qui donnent envie de cliquer.</p><div class="sv-media"><img src="assets/vignettes/vig-faq-ep2.jpg" alt="" loading="lazy"></div></div></li><li class="sv-row" tabindex="0"><div class="sv-line"><span class="sv-n">06</span><h3>Sites web</h3><span class="sv-more">Voir un exemple</span></div><div class="sv-body"><p>Du site vitrine rapide au site immersif en 3D, pensé pour convertir sur téléphone.</p><div class="sv-media wide"><video src="assets/sites/continent-demo.mp4" poster="assets/sites/continent-demo.jpg" muted loop playsinline preload="none"></video></div></div></li></ul>
+  <div class="wrap"><div class="channels"><span>Instagram</span><span>TikTok</span><span>YouTube Shorts</span><span>LinkedIn</span><span>Facebook</span><span>Site web</span></div></div>
 </section>
-
 
 <section class="pricing" id="tarifs">
   <div class="wrap">
@@ -875,16 +901,6 @@
   document.querySelectorAll('[data-zoom]').forEach(b=>{b.style.cursor='zoom-in';b.addEventListener('click',()=>{const i=b.querySelector('img');openLb(i.src,i.alt);});});
   lbx.addEventListener('click',closeLb);addEventListener('keydown',e=>{if(e.key==='Escape'){closeLb();closeMenu();}});
 
-  // ---------- services : image qui suit la souris ----------
-  const sf=document.getElementById('svcFloat'),sfi=sf.querySelector('img');
-  if(fine){
-    document.querySelectorAll('.svc').forEach(s=>{
-      s.addEventListener('mouseenter',e=>{sfi.src=s.dataset.img;sf.style.left=e.clientX+'px';sf.style.top=e.clientY+'px';sf.classList.add('on');});
-      s.addEventListener('mouseleave',()=>sf.classList.remove('on'));
-      s.addEventListener('mousemove',e=>{sf.style.left=e.clientX+'px';sf.style.top=e.clientY+'px';});
-    });
-  }
-
   // ---------- vitrine site : diaporama ----------
 
   // ---------- compteurs ----------
@@ -922,7 +938,7 @@
     gsap.to(words,{opacity:1,stagger:.05,ease:'none',scrollTrigger:{trigger:man,start:'top 80%',end:'bottom 45%',scrub:true}});
     // titres et blocs qui montent
     gsap.utils.toArray('.rv').forEach(el=>gsap.to(el,{opacity:1,y:0,duration:1.1,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 88%'}}));
-    gsap.utils.toArray('.case-top,.kpis,.block,.plans,.steps5 li,.svc,.web-feats li,.mv').forEach(el=>gsap.from(el,{y:50,opacity:0,duration:1,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 90%'}}));
+    gsap.utils.toArray('.case-top,.kpis,.block,.plans,.steps5 li,.web-feats li,.mv').forEach(el=>gsap.from(el,{y:50,opacity:0,duration:1,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 90%'}}));
     // le titre du contact glisse au scroll
     gsap.from('.contact .big',{x:-120,opacity:.3,ease:'none',scrollTrigger:{trigger:'.contact',start:'top bottom',end:'top 25%',scrub:true}});
     addEventListener('load',()=>ScrollTrigger.refresh());
@@ -986,34 +1002,54 @@
     }
   }
 
-  // ===== 2. réalisations : les pages tournent sur une grande roue =====
-  const real=document.getElementById('travaux'),wheel=document.getElementById('realWheel');
-  const pages=[...wheel.querySelectorAll('.rp')],STEP=30,num=document.getElementById('realNum'),dots=[...document.querySelectorAll('#realDots i')];
-  // onglets de chaque page
-  pages.forEach(pg=>{const tabs=[...pg.querySelectorAll('.rp-tab')],panes=[...pg.querySelectorAll('.rp-pane')];
+  // ===== 2. réalisations : showroom en roue (flèches, glisser, clavier) =====
+  const sw=document.getElementById('travaux'),ring=document.getElementById('swRing');
+  const cards=[...ring.children],N=3,TOT=cards.length,STEP=360/TOT,COLORS=['#1E9E95','#D9A441','#7FB069'];
+  let pos=0; // position cumulée : la roue tourne sans fin
+  const parts=sel=>[...sw.querySelectorAll(sel)];
+  cards.forEach((c,k)=>{c.style.transform=`rotate(${k*STEP}deg)`;});
+  const show=()=>{
+    const ci=((pos%N)+N)%N, kOn=((pos%TOT)+TOT)%TOT;
+    ring.style.transform=`rotate(${-pos*STEP}deg)`;
+    cards.forEach((c,k)=>{let d=Math.abs(k-kOn);d=Math.min(d,TOT-d);c.classList.toggle('on',d===0);c.classList.toggle('far',d>1);c.tabIndex=d===0?-1:0;
+      const v=c.querySelector('video');if(d===0){v.play().catch(()=>{});}else v.pause();});
+    ['.sw-name','.sw-steps','.sw-kpis','.sw-work'].forEach(sel=>parts(sel).forEach(el=>el.classList.toggle('on',+el.dataset.c===ci)));
+    parts('.sw-work:not(.on) video').forEach(v=>v.pause());
+    document.getElementById('swNum').textContent='0'+(ci+1);
+    sw.style.setProperty('--accent-c',COLORS[ci]);
+  };
+  const go=d=>{pos+=d;show();};
+  document.getElementById('swNext').addEventListener('click',()=>go(1));
+  document.getElementById('swPrev').addEventListener('click',()=>go(-1));
+  cards.forEach((c,k)=>c.addEventListener('click',()=>{const kOn=((pos%TOT)+TOT)%TOT;let d=k-kOn;if(d>TOT/2)d-=TOT;if(d<-TOT/2)d+=TOT;if(d)go(d);}));
+  sw.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){go(1);}if(e.key==='ArrowLeft'){go(-1);}});
+  // glisser au doigt
+  let sx=null;const stage=sw.querySelector('.sw-stage');
+  stage.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;},{passive:true});
+  stage.addEventListener('touchend',e=>{if(sx===null)return;const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40)go(dx<0?1:-1);sx=null;});
+  // onglets de chaque marque
+  parts('.sw-work').forEach(w=>{const tabs=[...w.querySelectorAll('.rp-tab')],panes=[...w.querySelectorAll('.rp-pane')];
     tabs.forEach(t=>t.addEventListener('click',()=>{const k=t.dataset.tab;tabs.forEach(x=>{const on=x===t;x.classList.toggle('on',on);x.setAttribute('aria-selected',String(on));});
       panes.forEach(p=>{const on=p.dataset.pane===k;p.classList.toggle('on',on);if(!on)p.querySelectorAll('video').forEach(v=>v.pause());});}));});
-  const mmR=window.gsap&&gsap.matchMedia();
-  const setStatic=()=>{real.classList.add('static');pages.forEach(p=>{p.style.transform='';p.style.opacity='';});};
-  if(!hasGsap||reduce){setStatic();}
-  else mmR.add({desk:'(min-width: 901px)',mob:'(max-width: 900px)'},ctx=>{
-    if(ctx.conditions.mob){setStatic();return()=>real.classList.remove('static');}
-    real.classList.remove('static');
-    let base=0;
-    const layout=()=>{pages.forEach((pg,i)=>{const a=base+i*STEP,ab=Math.abs(a);pg.style.transform=`rotate(${a}deg) scale(${Math.max(.86,1-ab/200)})`;pg.style.opacity=ab>45?0:Math.max(.35,1-ab/40);pg.style.zIndex=String(100-Math.round(ab));pg.inert=ab>8;});
-      const idx=Math.max(0,Math.min(pages.length-1,Math.round(-base/STEP)));num.textContent='0'+(idx+1);dots.forEach((d,k)=>d.classList.toggle('on',k===idx));};
-    const span=(pages.length-1)*STEP,st={p:0};
-    const tw=gsap.to(st,{p:1,ease:'none',scrollTrigger:{trigger:real,start:'top top',end:()=>'+='+innerHeight*(pages.length-1)*1.1,pin:true,scrub:.7,snap:{snapTo:1/(pages.length-1),duration:{min:.25,max:.6},ease:'power2.inOut'}},onUpdate:()=>{base=-st.p*span;layout();}});
-    base=0;layout();
-    return()=>{tw.scrollTrigger&&tw.scrollTrigger.kill();tw.kill();pages.forEach(p=>{p.style.transform='';p.style.opacity='';p.inert=false;});};
-  });
+  // la vidéo du centre ne joue que si la section est visible
+  new IntersectionObserver(e=>{const v=sw.querySelector('.sw-card.on video');if(!v)return;e[0].isIntersecting?v.play().catch(()=>{}):v.pause();},{threshold:.2}).observe(sw);
+  show();
+
+  // ===== services : ligne active (survol à la souris, centre de l'écran au doigt) =====
+  const svRows=[...document.querySelectorAll('.sv-row')];
+  const svOn=r=>{svRows.forEach(x=>{const on=x===r;x.classList.toggle('on',on);const v=x.querySelector('video');if(v){on?v.play().catch(()=>{}):v.pause();}});};
+  svRows.forEach(r=>{r.addEventListener('mouseenter',()=>{if(fine)svOn(r);});r.addEventListener('click',()=>svOn(r));r.addEventListener('focus',()=>svOn(r));});
+  if(!fine){
+    const svIO=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)svOn(e.target);});},{rootMargin:'-42% 0px -52% 0px'});
+    svRows.forEach(r=>svIO.observe(r));
+  }
 
   // ===== 5a. titres qui ondulent comme un liquide au survol =====
   const liqD=document.getElementById('liqD'),liqT=document.getElementById('liqT');
   if(fine&&!reduce&&hasGsap){
     const o={s:0,f:0};
     const upd=()=>{liqD.setAttribute('scale',o.s.toFixed(2));liqT.setAttribute('baseFrequency',(0.008+o.f*0.004).toFixed(4)+' '+(0.022+o.f*0.01).toFixed(4));};
-    document.querySelectorAll('.h2,.hero h1,.hero .h1b,.contact .big,.svc h3').forEach(el=>{
+    document.querySelectorAll('.h2,.hero h1,.hero .h1b,.contact .big,.sv-row h3').forEach(el=>{
       el.addEventListener('mouseenter',()=>{el.style.filter='url(#liquid)';gsap.killTweensOf(o);gsap.to(o,{s:14,f:1,duration:.5,ease:'power2.out',onUpdate:upd});});
       el.addEventListener('mouseleave',()=>{gsap.killTweensOf(o);gsap.to(o,{s:0,f:0,duration:.8,ease:'power2.out',onUpdate:upd,onComplete:()=>{el.style.filter='';}});});
     });

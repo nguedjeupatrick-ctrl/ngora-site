@@ -24,7 +24,9 @@ vignettes, branding et sites web pour les marques. Tout le site tient dans `inde
   sur tous les canaux (Instagram, TikTok, YouTube Shorts, LinkedIn, Facebook, site web), moins cher qu'une agence.
 - Signatures : écran d'entrée automatique sans son (NGORA + travaux empilés qui deviennent le showreel), showreel du hero qui passe en plein écran, travaux en
   défilement horizontal, badge rond « Audit gratuit », curseur qui devient « Play »,
-  logo Ngora en chrome 3D qui suit la souris, roue de vidéos qui tourne au scroll, titres liquides au survol, traînée bleue du curseur.
+  logo Ngora en chrome 3D qui suit la souris, titres liquides au survol, traînée bleue du curseur.
+- Réalisations « showroom » (inspiré de munrooftoprome.com) : carte vidéo au centre d'un arc, voisines floues, flèches,
+  infos autour, bulles de couleur par marque, onglets de contenus. Services en grandes lignes : ligne active en bleu + aperçu.
 
 ## Contact affiché sur le site
 - E-mail : nguedjeupatrick@gmail.com · Instagram : @rayaan.ng · WhatsApp 04 49 28 83 90 (constante `WHATSAPP`, tous les liens `data-wa`).
