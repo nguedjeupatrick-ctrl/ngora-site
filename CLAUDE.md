@@ -22,8 +22,9 @@ vignettes, branding et sites web pour les marques. Tout le site tient dans `inde
 - Accroche : « Votre produit est bon. Votre image le dira. »
 - Mission : aider les marques et les personnes qui ont un bon produit mais une image qui ne vend pas,
   sur tous les canaux (Instagram, TikTok, YouTube Shorts, LinkedIn, Facebook, site web), moins cher qu'une agence.
-- Signatures : écran d'entrée automatique sans son (NGORA + travaux empilés qui deviennent le showreel), showreel du hero qui passe en plein écran, travaux en
-  défilement horizontal, badge rond « Audit gratuit », curseur qui devient « Play »,
+- Haut de page sombre (bulles) : intro = logo chrome 3D qui grossit puis se pose, accroche courte, showreel 3 vidéos, chiffres.
+- Ordre : haut de page → Réalisations (showroom) → Ce que je fais → Sites web → Tarifs → Méthode → FAQ → Contact.
+- Signatures : badge rond « Audit gratuit », curseur qui devient « Play »,
   logo Ngora en chrome 3D qui suit la souris, titres liquides au survol, traînée bleue du curseur.
 - Réalisations « showroom » (inspiré de munrooftoprome.com) : carte vidéo au centre d'un arc, voisines floues, flèches,
   infos autour, bulles de couleur par marque, onglets de contenus. Services en grandes lignes : ligne active en bleu + aperçu.
