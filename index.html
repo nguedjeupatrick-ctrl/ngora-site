@@ -10,6 +10,7 @@
 <meta property="og:image" content="assets/og.jpg">
 <meta name="theme-color" content="#EFEDE8">
 <link rel="icon" href="assets/logo-mark.png">
+<script>try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add('js-intro');setTimeout(function(){document.documentElement.classList.remove('js-intro')},7000);}}catch(e){}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;800&display=swap" rel="stylesheet">
@@ -478,7 +479,7 @@
   .contact{background:var(--cobalt);color:var(--paper);padding:clamp(90px,12vw,180px) 0 40px;overflow:hidden}
   .contact .big{font-weight:800;font-size:clamp(3.2rem,11vw,11rem);line-height:.86;letter-spacing:-.055em}
   .contact .big .it{color:var(--paper)}
-  .ct-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px;margin-top:clamp(50px,7vw,100px);border-top:1px solid rgba(239,237,232,.4);padding-top:30px}
+  .ct-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px;margin-top:clamp(50px,7vw,100px);border-top:1px solid rgba(239,237,232,.4);padding-top:30px}
   .ct-row .k{font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;opacity:.75;margin-bottom:10px}
   .ct-row a,.ct-row b{font-size:clamp(1.1rem,1.6vw,1.4rem);font-weight:500;overflow-wrap:anywhere}
   .ct-row a:hover{text-decoration:underline;text-underline-offset:5px}
@@ -730,7 +731,6 @@
     <h2 class="big" style="margin-top:22px">Votre image,<br><span class="it">on s'en occupe ?</span></h2>
     <div class="ct-row">
       <div><div class="k">E-mail</div><b id="mailAddr">nguedjeupatrick@gmail.com</b><br><button class="ct-copy" id="copyMail" type="button">Copier l'adresse</button></div>
-      <div><div class="k">Instagram</div><a href="https://www.instagram.com/rayaan.ng" target="_blank" rel="noopener">@rayaan.ng</a></div>
       <div id="waBox" hidden><div class="k">WhatsApp</div><a id="waLink" href="#" target="_blank" rel="noopener">Écrire sur WhatsApp</a></div>
     </div>
     <a class="btn" href="mailto:nguedjeupatrick@gmail.com?subject=Audit%20gratuit%20-%20Ngora%20Studio" data-wa id="ctMain">Demander mon audit gratuit</a>
@@ -738,7 +738,7 @@
       <img src="assets/logo-mark.png" alt="">
       <p><b>Derrière Ngora Studio, il y a Rayan.</b> Créateur de contenu, monteur et développeur web en Île-de-France. Je tourne, je monte, je dessine et je code moi-même chaque projet : un seul interlocuteur, du premier appel à la mise en ligne.</p>
     </div>
-    <footer><span>© 2026 Ngora Studio · Rayan Nguedjeu · Île-de-France</span><span>Instagram · TikTok · LinkedIn</span></footer>
+    <footer><span>© 2026 Ngora Studio · Rayan Nguedjeu · Île-de-France</span><span>Montage · Motion · DA · Sites web</span></footer>
   </div>
 </section>
 
@@ -786,6 +786,7 @@
   let seen=false;try{seen=sessionStorage.getItem('ngora-entered')==='1';sessionStorage.setItem('ngora-entered','1');}catch(e){}
   const playIntro=!(reduce||!hasGsap);
   window.NGORA_INTRO={play:playIntro,fast:seen};
+  if(!playIntro)doc.classList.remove('js-intro');
   if(playIntro){
     doc.classList.add('js-intro');
     const delay=seen?.2:(innerWidth<=900?1.1:2.6);
@@ -941,7 +942,8 @@
       new THREE.Box3().setFromObject(group).getCenter(group.position).multiplyScalar(-1);
       const pivot=new THREE.Group();pivot.add(group);scene.add(pivot);
       const mobileL=()=>innerWidth<=900;
-      const restS=()=>mobileL()?1.05:1.55, restX=()=>mobileL()?0:.85, restY=()=>mobileL()?.95:.05;
+      const visW=()=>2*cam.position.z*Math.tan(cam.fov*Math.PI/360)*cam.aspect, visH=()=>2*cam.position.z*Math.tan(cam.fov*Math.PI/360);
+      const restS=()=>mobileL()?visW()*.95/MARK.aspect:1.55, restX=()=>mobileL()?0:.85, restY=()=>mobileL()?visH()*.06:.05;
       const size=()=>{const w=host.clientWidth,h=host.clientHeight;renderer.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix();};
       size();addEventListener('resize',size);
       let vis=true,rx=0,ry=0,t0=performance.now(),scrollK=0;
@@ -955,7 +957,7 @@
           ry+=(ty-ry)*.06;rx+=(tx-rx)*.06;
           // intro : part du centre, minuscule, grossit en tournant jusqu'à remplir l'écran, puis se pose à sa place
           const ip=iDur?Math.min(1,k/iDur):1, e=easeIO(ip);
-          const big=mobileL()?1.7:2.05, sc=ip<.55?.05+(big-.05)*easeIO(ip/.55):big+(restS()-big)*easeIO((ip-.55)/.45);
+          const big=mobileL()?visW()*1.05/MARK.aspect:1.6, sc=ip<.55?.05+(big-.05)*easeIO(ip/.55):big+(restS()-big)*easeIO((ip-.55)/.45);
           pivot.scale.setScalar(sc);
           pivot.position.x=restX()*e;pivot.position.y=restY()*e+Math.sin(k*.9)*.05*e;
           pivot.rotation.set(rx*e,ry*e+(1-e)*Math.PI*1.25,Math.sin(k*.4)*.03);
