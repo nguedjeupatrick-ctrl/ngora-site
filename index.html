@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Ngora Studio</title>
-<meta name="description" content="Ngora Studio : identité visuelle, montage vidéo pro et sites web immersifs pour les marques qui ont un bon produit. Instagram, TikTok, YouTube Shorts, LinkedIn.">
-<meta property="og:title" content="Ngora Studio · Votre produit est bon. Votre image le dira.">
+<meta name="description" content="Ngora Studio : montage vidéo pro, motion design, DA et sites web immersifs pour donner à votre marque une présence en ligne qui fait la différence. Instagram, TikTok, YouTube Shorts, LinkedIn.">
+<meta property="og:title" content="Ngora Studio · Une image qui fait la différence.">
 <meta property="og:description" content="Identité visuelle, contenus montés comme au cinéma et sites web immersifs. 5M+ vues générées pour mes clients.">
 <meta property="og:image" content="assets/og.jpg">
 <meta name="theme-color" content="#EFEDE8">
@@ -397,15 +397,23 @@
     .sv-media.wide{width:400px;aspect-ratio:16/10}
     .sv-row.on .sv-media{opacity:1;transform:translateY(-50%) scale(1) rotate(0)}
   }
-  /* téléphone : la ligne active s'ouvre et montre l'aperçu en grand */
+  /* téléphone : cartes à faire glisser, une par service */
+  .sv-dots{display:none}
   @media (max-width:900px){
-    .sv-row.on .sv-body{max-height:520px}
-    .sv-body p{padding:0 var(--pad) 12px;font-size:.92rem}
-    .sv-media{margin:0 auto 18px;width:min(58vw,240px);aspect-ratio:9/13}
-    .sv-media.wide{width:calc(100% - var(--pad) * 2);aspect-ratio:16/10}
-    .sv-line{padding:12px var(--pad)}
+    .sv{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;border-top:none;padding:0 var(--pad) 6px;scroll-padding:0 var(--pad);scrollbar-width:none;margin-top:34px}
+    .sv::-webkit-scrollbar{display:none}
+    .sv-row{flex:0 0 82%;scroll-snap-align:start;border:1px solid var(--line);border-radius:24px;overflow:hidden;background:var(--paper);display:flex;flex-direction:column}
+    .sv-row.on{background:var(--cobalt)}
+    .sv-line{padding:18px 18px 8px;flex-wrap:wrap;gap:6px 12px}
+    .sv-row h3{font-size:clamp(1.7rem,8vw,2.4rem);width:100%}
+    .sv-more{display:none}
+    .sv-body{max-height:none;overflow:visible;display:flex;flex-direction:column;flex:1}
+    .sv-body p{padding:0 18px 14px;font-size:.92rem}
+    .sv-media{margin:auto 18px 18px;width:auto;aspect-ratio:4/5;border-radius:18px;box-shadow:none}
     .sv-media.wide{aspect-ratio:16/10}
-    .sv-row h3{font-size:clamp(1.6rem,7.4vw,2.4rem)}
+    .sv-dots{display:flex;justify-content:center;gap:8px;margin-top:16px}
+    .sv-dots i{width:7px;height:7px;border-radius:50%;background:var(--line);transition:background .3s,transform .3s}
+    .sv-dots i.on{background:var(--cobalt);transform:scale(1.4)}
   }
   .channels{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
   .channels span{padding:10px 16px;box-shadow:inset 0 0 0 1px var(--line);font-size:.88rem;border-radius:99px}
@@ -533,8 +541,8 @@
   <div class="hero-in wrap">
     <div class="hero-txt">
       <div class="kick hx">Studio de contenu · Île-de-France</div>
-      <h1 class="hx">Votre produit<br>est bon.<br><span class="it">Votre image le dira.</span></h1>
-      <p class="lead hx">Montage pro, motion design, DA et sites web. Une seule personne pour tous vos réseaux, à prix juste.</p>
+      <h1 class="hx">Une image<br>qui fait <span class="it">la différence.</span></h1>
+      <p class="lead hx">Montage pro, motion design, DA et sites web : je donne à votre marque une présence en ligne qui attire et qui convertit. Une seule personne pour tous vos réseaux, à prix juste.</p>
       <div class="hero-ctas hx"><a href="#contact" class="btn" data-wa>Demander un audit gratuit</a><a href="#travaux" class="ulink">Voir les réalisations</a></div>
       <div class="hero-stats hx">
         <div><b data-count="5" data-suf="M+">5M+</b><span>vues générées</span></div>
@@ -554,10 +562,6 @@
   <p class="brands-t">Ils m'ont fait confiance · <b>30+ marques</b></p>
   <div class="brands-strip"><ul class="brands-track"><li><img src="assets/logos/continent.png" alt="Le Continent Store" loading="lazy"></li><li><img src="assets/logos/tutoria.png" alt="Tutoria Cergy" loading="lazy"></li><li><img src="assets/logos/mf.png" alt="Market Factory" loading="lazy"></li><li><img src="assets/logos/battlekart.png" alt="BattleKart" loading="lazy"></li><li><img src="assets/logos/bomaye.png" alt="Bomaye" loading="lazy"></li><li><img src="assets/logos/smile.png" alt="Smile World" loading="lazy"></li><li><img src="assets/logos/237store.png" alt="237 Store" loading="lazy"></li><li><img src="assets/logos/plugtoi.png" alt="Plug Toi" loading="lazy"></li><li><img src="assets/logos/therapy.png" alt="Therapy" loading="lazy"></li><li><img src="assets/logos/wonderland.png" alt="Wonderland Brunchy" loading="lazy"></li><li><img src="assets/logos/shoost.png" alt="23Shoost" loading="lazy"></li><li><img src="assets/logos/sonjys.png" alt="Sonjy's Shoot" loading="lazy"></li><li><img src="assets/logos/bangou.png" alt="Bangou Lunch" loading="lazy"></li><li aria-hidden="true"><img src="assets/logos/continent.png" alt="" loading="lazy"></li><li aria-hidden="true"><img src="assets/logos/tutoria.png" alt="" loading="lazy"></li><li aria-hidden="true"><img src="assets/logos/mf.png" alt="" loading="lazy"></li><li aria-hidden="true"><img src="assets/logos/battlekart.png" alt="" loading="lazy"></li><li aria-hidden="true"><img src="assets/logos/bomaye.png" alt="" loading="lazy"></li><li aria-hidden="true"><img src="assets/logos/smile.png" alt="" loading="lazy"></li><li aria-hidden="true"><img src="assets/logos/237store.png" alt="" loading="lazy"></li><li aria-hidden="true"><img src="assets/logos/plugtoi.png" alt="" loading="lazy"></li><li aria-hidden="true"><img src="assets/logos/therapy.png" alt="" loading="lazy"></li><li aria-hidden="true"><img src="assets/logos/wonderland.png" alt="" loading="lazy"></li><li aria-hidden="true"><img src="assets/logos/shoost.png" alt="" loading="lazy"></li><li aria-hidden="true"><img src="assets/logos/sonjys.png" alt="" loading="lazy"></li><li aria-hidden="true"><img src="assets/logos/bangou.png" alt="" loading="lazy"></li></ul></div>
 </section>
-<div class="marquee" aria-hidden="true"><div class="marquee-t">
-  <span>Instagram</span><span class="it">✦</span><span>TikTok</span><span class="it">✦</span><span>YouTube Shorts</span><span class="it">✦</span><span>LinkedIn</span><span class="it">✦</span><span>Facebook</span><span class="it">✦</span><span>Sites web</span><span class="it">✦</span>
-  <span>Instagram</span><span class="it">✦</span><span>TikTok</span><span class="it">✦</span><span>YouTube Shorts</span><span class="it">✦</span><span>LinkedIn</span><span class="it">✦</span><span>Facebook</span><span class="it">✦</span><span>Sites web</span><span class="it">✦</span>
-</div></div>
 
 
 
@@ -651,7 +655,8 @@
     <div class="kick">Ce que je fais</div>
     <h2 class="h2 rv" style="margin-top:18px">Tout votre marketing,<br><span class="it">simplifié.</span></h2>
   </div>
-  <ul class="sv" id="svList"><li class="sv-row on" tabindex="0"><div class="sv-line"><span class="sv-n">01</span><h3>Montage pro</h3><span class="sv-more">Voir un exemple</span></div><div class="sv-body"><p>Accroche, rythme, sous-titres dynamiques, B-roll et habillage. Des vidéos qui retiennent le pouce.</p><div class="sv-media"><video src="assets/videos/tutoria-droits-dys.mp4" poster="assets/posters/tutoria-droits-dys.jpg" muted loop playsinline preload="none"></video></div></div></li><li class="sv-row" tabindex="0"><div class="sv-line"><span class="sv-n">02</span><h3>Motion design</h3><span class="sv-more">Voir un exemple</span></div><div class="sv-body"><p>Titres, chiffres, écrans et logos animés : votre marque reconnaissable d'une vidéo à l'autre.</p><div class="sv-media"><video src="assets/videos/tutoria-motion-appli.mp4" poster="assets/posters/tutoria-motion-appli.jpg" muted loop playsinline preload="none"></video></div></div></li><li class="sv-row" tabindex="0"><div class="sv-line"><span class="sv-n">03</span><h3>DA &amp; rebranding</h3><span class="sv-more">Voir un exemple</span></div><div class="sv-body"><p>Logo, couleurs, typographies, templates : une charte claire et appliquée partout.</p><div class="sv-media"><img src="assets/insta/feed-apres-crop.jpg" alt="" loading="lazy"></div></div></li><li class="sv-row" tabindex="0"><div class="sv-line"><span class="sv-n">04</span><h3>Gestion des réseaux</h3><span class="sv-more">Voir un exemple</span></div><div class="sv-body"><p>Calendrier, publications, stories, réponses et chiffres chaque mois. Exemple : 202 K vues en 30 jours sur le compte Tutoria.</p><div class="sv-media shot"><img src="assets/insta/tutoria-profil-2026.jpg" alt="Profil Instagram géré : 202,1 K vues en 30 jours, stories à la une et feed" loading="lazy"></div></div></li><li class="sv-row" tabindex="0"><div class="sv-line"><span class="sv-n">05</span><h3>Vignettes &amp; stories</h3><span class="sv-more">Voir un exemple</span></div><div class="sv-body"><p>Couvertures, carrousels et stories interactives qui donnent envie de cliquer.</p><div class="sv-media"><img src="assets/vignettes/vig-faq-ep2.jpg" alt="" loading="lazy"></div></div></li><li class="sv-row" tabindex="0"><div class="sv-line"><span class="sv-n">06</span><h3>Sites web</h3><span class="sv-more">Voir un exemple</span></div><div class="sv-body"><p>Du site vitrine rapide au site immersif en 3D, pensé pour convertir sur téléphone.</p><div class="sv-media wide"><video src="assets/sites/continent-demo.mp4" poster="assets/sites/continent-demo.jpg" muted loop playsinline preload="none"></video></div></div></li></ul>
+  <ul class="sv" id="svList" aria-label="Services (faites glisser)"><li class="sv-row on" tabindex="0"><div class="sv-line"><span class="sv-n">01</span><h3>Montage pro</h3><span class="sv-more">Voir un exemple</span></div><div class="sv-body"><p>Accroche, rythme, sous-titres dynamiques, B-roll et habillage. Des vidéos qui retiennent le pouce.</p><div class="sv-media"><video src="assets/videos/tutoria-droits-dys.mp4" poster="assets/posters/tutoria-droits-dys.jpg" muted loop playsinline preload="none"></video></div></div></li><li class="sv-row" tabindex="0"><div class="sv-line"><span class="sv-n">02</span><h3>Motion design</h3><span class="sv-more">Voir un exemple</span></div><div class="sv-body"><p>Titres, chiffres, écrans et logos animés : votre marque reconnaissable d'une vidéo à l'autre.</p><div class="sv-media"><video src="assets/videos/tutoria-motion-appli.mp4" poster="assets/posters/tutoria-motion-appli.jpg" muted loop playsinline preload="none"></video></div></div></li><li class="sv-row" tabindex="0"><div class="sv-line"><span class="sv-n">03</span><h3>DA &amp; rebranding</h3><span class="sv-more">Voir un exemple</span></div><div class="sv-body"><p>Logo, couleurs, typographies, templates : une charte claire et appliquée partout.</p><div class="sv-media"><img src="assets/insta/feed-apres-crop.jpg" alt="" loading="lazy"></div></div></li><li class="sv-row" tabindex="0"><div class="sv-line"><span class="sv-n">04</span><h3>Gestion des réseaux</h3><span class="sv-more">Voir un exemple</span></div><div class="sv-body"><p>Calendrier, publications, stories, réponses et chiffres chaque mois. Exemple : 202 K vues en 30 jours sur le compte Tutoria.</p><div class="sv-media shot"><img src="assets/insta/tutoria-profil-2026.jpg" alt="Profil Instagram géré : 202,1 K vues en 30 jours, stories à la une et feed" loading="lazy"></div></div></li><li class="sv-row" tabindex="0"><div class="sv-line"><span class="sv-n">05</span><h3>Vignettes &amp; stories</h3><span class="sv-more">Voir un exemple</span></div><div class="sv-body"><p>Couvertures, carrousels et stories interactives qui donnent envie de cliquer.</p><div class="sv-media"><img src="assets/vignettes/vig-faq-ep2.jpg" alt="" loading="lazy"></div></div></li><li class="sv-row" tabindex="0"><div class="sv-line"><span class="sv-n">06</span><h3>Sites web</h3><span class="sv-more">Voir un exemple</span></div><div class="sv-body"><p>Du site vitrine rapide au site immersif en 3D, pensé pour convertir sur téléphone.</p><div class="sv-media wide"><video src="assets/sites/continent-demo.mp4" poster="assets/sites/continent-demo.jpg" muted loop playsinline preload="none"></video></div></div></li></ul>
+  <div class="sv-dots" id="svDots" aria-hidden="true"></div>
   <div class="wrap"><div class="channels"><span>Instagram</span><span>TikTok</span><span>YouTube Shorts</span><span>LinkedIn</span><span>Facebook</span><span>Site web</span></div></div>
 </section>
 
@@ -1000,18 +1005,14 @@
   const svOn=r=>{svRows.forEach(x=>{const on=x===r;x.classList.toggle('on',on);const v=x.querySelector('video');if(v){on?v.play().catch(()=>{}):v.pause();}});};
   svRows.forEach(r=>{r.addEventListener('mouseenter',()=>{if(fine)svOn(r);});r.addEventListener('click',()=>svOn(r));r.addEventListener('focus',()=>svOn(r));});
   if(!fine){
+    // au doigt : une carte par service, on glisse de gauche à droite ; la carte visible lance son aperçu
     const list=document.getElementById('svList');
-    if(hasGsap&&!reduce){
-      // la liste reste en place et chaque service s'affiche le temps d'un « segment » de défilement, avec un arrêt sur chacun
-      const n=svRows.length;let cur=-1;
-      ScrollTrigger.create({trigger:list,start:'top 76px',end:()=>'+='+innerHeight*.55*(n-1),pin:true,pinSpacing:true,
-        snap:{snapTo:1/(n-1),duration:{min:.3,max:.7},delay:.08,ease:'power2.inOut'},
-        onUpdate:st=>{const i=Math.round(st.progress*(n-1));if(i!==cur){cur=i;svOn(svRows[i]);}}});
-      svOn(svRows[0]);
-    } else {
-      const svIO=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)svOn(e.target);});},{rootMargin:'-42% 0px -52% 0px'});
-      svRows.forEach(r=>svIO.observe(r));
-    }
+    const svIO=new IntersectionObserver(es=>{es.forEach(e=>{if(e.intersectionRatio>.6)svOn(e.target);});},{root:list,threshold:[0,.6,1]});
+    svRows.forEach(r=>svIO.observe(r));
+    const dots=document.getElementById('svDots');
+    if(dots){dots.innerHTML=svRows.map(()=>'<i></i>').join('');const di=[...dots.children];
+      new MutationObserver(()=>{const k=svRows.findIndex(r=>r.classList.contains('on'));di.forEach((d,x)=>d.classList.toggle('on',x===k));}).observe(list,{subtree:true,attributes:true,attributeFilter:['class']});
+      di[0]&&di[0].classList.add('on');}
   }
 
   // ===== 5a. titres qui ondulent comme un liquide au survol =====
