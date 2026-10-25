@@ -27,7 +27,7 @@ vignettes, branding et sites web pour les marques. Tout le site tient dans `inde
   logo Ngora en chrome 3D qui suit la souris, roue de vidéos qui tourne au scroll, titres liquides au survol, traînée bleue du curseur.
 
 ## Contact affiché sur le site
-- E-mail : nguedjeupatrick@gmail.com · Instagram : @rayaan.ng · WhatsApp (bouton).
+- E-mail : nguedjeupatrick@gmail.com · Instagram : @rayaan.ng · WhatsApp 04 49 28 83 90 (constante `WHATSAPP`, tous les liens `data-wa`).
 
 ## Façon de travailler (plusieurs PC)
 - GitHub (`nguedjeupatrick-ctrl/ngora-site`) est la version de référence.
