@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Ngora Studio</title>
-<meta name="description" content="Ngora Studio : montage vidéo pro, motion design, DA et sites web immersifs pour donner à votre marque une présence en ligne qui fait la différence. Instagram, TikTok, YouTube Shorts, LinkedIn.">
+<meta name="description" content="Ngora Studio : des réseaux pros pour le moins cher, livrés en 24 h max. Montage vidéo, motion design, DA et sites web pour donner à votre marque une présence en ligne qui fait la différence. Instagram, TikTok, YouTube Shorts, LinkedIn.">
 <meta property="og:title" content="Ngora Studio · Une image qui fait la différence.">
 <meta property="og:description" content="Identité visuelle, contenus montés comme au cinéma et sites web immersifs. 5M+ vues générées pour mes clients.">
 <meta property="og:image" content="assets/og.jpg">
@@ -241,6 +241,19 @@
 
   /* ---------- traînée du curseur ---------- */
   .trail{position:fixed;inset:0;z-index:390;pointer-events:none}
+
+  /* ---------- pour qui / promesse ---------- */
+  .promise{padding-block:clamp(80px,10vw,140px)}
+  .promise-head{max-width:860px}
+  .promise-head .lead{margin-top:22px;max-width:56ch}
+  .promise-list{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,2vw,24px);margin-top:clamp(40px,5vw,70px)}
+  .promise-list li{border-top:2px solid var(--ink);padding-top:18px;display:flex;flex-direction:column;gap:8px}
+  .promise-list li:nth-child(-n+2){border-top-color:var(--cobalt)}
+  .promise-list .pn{font-family:var(--serif);font-weight:400;font-size:2.6rem;line-height:1;color:var(--cobalt)}
+  .promise-list h3{font-weight:800;font-size:clamp(1.4rem,2vw,1.9rem);letter-spacing:-.035em;line-height:1}
+  .promise-list p{color:var(--ink-2);font-size:.98rem}
+  @media (max-width:900px){.promise-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media (max-width:520px){.promise-list{grid-template-columns:1fr}}
 
   /* ---------- bande des marques ---------- */
   .brands{background:#0D0E14;color:var(--paper);padding:26px 0 30px;border-top:1px solid rgba(239,237,232,.08)}
@@ -529,7 +542,7 @@
 </div>
 
 <a class="badge" href="#contact" aria-label="Demander un audit gratuit" data-wa>
-  <svg viewBox="0 0 120 120" aria-hidden="true"><defs><path id="circ" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs><text font-size="10.5" letter-spacing="2.1" fill="currentColor" font-family="Inter Tight, sans-serif" font-weight="500"><textPath href="#circ">AUDIT GRATUIT ✦ RÉPONSE SOUS 48H ✦</textPath></text></svg>
+  <svg viewBox="0 0 120 120" aria-hidden="true"><defs><path id="circ" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs><text font-size="10.5" letter-spacing="2.1" fill="currentColor" font-family="Inter Tight, sans-serif" font-weight="500"><textPath href="#circ">AUDIT GRATUIT ✦ RÉPONSE SOUS 24H ✦</textPath></text></svg>
   <span class="arr">↗</span>
 </a>
 
@@ -543,7 +556,7 @@
     <div class="hero-txt">
       <div class="kick hx">Studio de contenu · Île-de-France</div>
       <h1 class="hx">Une image<br>qui fait <span class="it">la différence.</span></h1>
-      <p class="lead hx">Montage pro, motion design, DA et sites web : je donne à votre marque une présence en ligne qui attire et qui convertit. Une seule personne pour tous vos réseaux, à prix juste.</p>
+      <p class="lead hx">Vos réseaux font amateur ? Je les rends pro : montage, motion design, DA et sites web, à des prix qui défient toute concurrence et livrés en 24 h maximum.</p>
       <div class="hero-ctas hx"><a href="#contact" class="btn" data-wa>Demander un audit gratuit</a><a href="#travaux" class="ulink">Voir les réalisations</a></div>
       <div class="hero-stats hx">
         <div><b data-count="5" data-suf="M+">5M+</b><span>vues générées</span></div>
@@ -566,6 +579,22 @@
 
 
 
+
+<section class="promise" id="pourquoi" aria-label="Pour qui">
+  <div class="wrap">
+    <div class="promise-head">
+      <div class="kick">Pour qui ?</div>
+      <h2 class="h2 rv" style="margin-top:14px">Un bon produit,<br><span class="it">des réseaux qui font amateur ?</span></h2>
+      <p class="lead rv">Vous existez à peine en ligne, vos posts manquent de cohérence ou vos vidéos ne ressemblent pas à votre niveau de qualité. Je transforme vos réseaux en vitrine pro, sans budget d'agence.</p>
+    </div>
+    <ul class="promise-list">
+      <li><b class="pn">01</b><h3>Le moins cher</h3><p>Des prix qui défient toute concurrence : la qualité d'un studio, sans les frais d'une agence.</p></li>
+      <li><b class="pn">02</b><h3>Le plus rapide</h3><p>Livraison en 24 h maximum. Vous publiez pendant que le sujet est encore chaud.</p></li>
+      <li><b class="pn">03</b><h3>Un rendu pro</h3><p>Montage, motion design et DA au niveau des grandes marques, pour enfin être pris au sérieux.</p></li>
+      <li><b class="pn">04</b><h3>Tout au même endroit</h3><p>Instagram, TikTok, YouTube Shorts, LinkedIn, Facebook et site web : un seul interlocuteur.</p></li>
+    </ul>
+  </div>
+</section>
 
 <section class="sw" id="travaux" aria-label="Réalisations" style="--accent-c:#1E9E95">
   <div class="sw-bg" aria-hidden="true"><i class="bub b1"></i><i class="bub b2"></i><i class="bub b3"></i><i class="bub b4"></i></div>
@@ -718,16 +747,17 @@
       <details><summary>En combien de temps je vois des résultats ?</summary><p>Comptez 3 mois pour une vraie différence : le temps de trouver les formats qui marchent pour votre marque et de publier avec régularité.</p></details>
       <details><summary>Je dois tourner les vidéos moi-même ?</summary><p>Non. Je viens tourner sur place, ou je monte vos propres rushs si vous préférez filmer vous-même.</p></details>
       <details><summary>Quels réseaux vous gérez ?</summary><p>Instagram, TikTok, YouTube Shorts, Facebook et LinkedIn. Et votre site web, pour avoir un maximum de canaux de vente.</p></details>
+      <details><summary>En combien de temps je reçois mes contenus ?</summary><p>24 h maximum après le tournage ou la réception de vos rushs, pour chaque vidéo, vignette ou visuel. Pas de semaines d'attente comme en agence.</p></details>
       <details><summary>Pourquoi moins cher qu'une agence ?</summary><p>Vous avez un seul interlocuteur qui fait tout lui-même : pas de chef de projet, pas de frais de structure. La qualité reste celle d'un studio.</p></details>
       <details><summary>Vous travaillez où ?</summary><p>Je suis basé en Île-de-France et je me déplace partout dans la région pour les tournages. Le montage, la DA et les sites se font à distance, partout en France.</p></details>
-      <details><summary>Comment se passe l'audit gratuit ?</summary><p>Un appel de 15 minutes pour comprendre votre activité, puis je vous envoie sous 48h ce qui bloque sur vos comptes et ce qu'on peut viser. Sans engagement.</p></details>
+      <details><summary>Comment se passe l'audit gratuit ?</summary><p>Un appel de 15 minutes pour comprendre votre activité, puis je vous envoie sous 24 h ce qui bloque sur vos comptes et ce qu'on peut viser. Sans engagement.</p></details>
     </div>
   </div>
 </section>
 
 <section class="contact" id="contact">
   <div class="wrap">
-    <div class="kick" style="color:var(--paper);opacity:.75">Audit gratuit · réponse sous 48h</div>
+    <div class="kick" style="color:var(--paper);opacity:.75">Audit gratuit · réponse sous 24 h</div>
     <h2 class="big" style="margin-top:22px">Votre image,<br><span class="it">on s'en occupe ?</span></h2>
     <div class="ct-row">
       <div><div class="k">E-mail</div><b id="mailAddr">nguedjeupatrick@gmail.com</b><br><button class="ct-copy" id="copyMail" type="button">Copier l'adresse</button></div>
@@ -789,7 +819,7 @@
   if(!playIntro)doc.classList.remove('js-intro');
   if(playIntro){
     doc.classList.add('js-intro');
-    const delay=seen?.2:(innerWidth<=900?1.1:2.6);
+    const delay=seen?.2:(innerWidth<=900?2.3:3.6);
     gsap.fromTo('.hx',{y:40,opacity:0,filter:'blur(8px)'},{y:0,opacity:1,filter:'blur(0px)',duration:1.6,ease:'power3.out',stagger:.16,delay,clearProps:'filter',onStart:()=>doc.classList.remove('js-intro')});
     gsap.fromTo('#heroFrame',{scale:.82,y:60,rotate:-4},{scale:1,y:0,rotate:0,duration:2,ease:'power3.out',delay:delay+.35});
   }
@@ -898,7 +928,7 @@
     gsap.to('#heroFrame',{yPercent:-12,ease:'none',scrollTrigger:{trigger:'#hero',start:'top top',end:'bottom top',scrub:true}});
     // titres et blocs qui montent
     gsap.utils.toArray('.rv').forEach(el=>gsap.to(el,{opacity:1,y:0,duration:1.1,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 88%'}}));
-    gsap.utils.toArray('.case-top,.kpis,.block,.plans,.steps5 li,.web-feats li,.mv').forEach(el=>gsap.from(el,{y:50,opacity:0,duration:1,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 90%'}}));
+    gsap.utils.toArray('.case-top,.kpis,.block,.plans,.steps5 li,.web-feats li,.mv,.promise-list li').forEach(el=>gsap.from(el,{y:50,opacity:0,duration:1,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 90%'}}));
     // le titre du contact glisse au scroll
     gsap.from('.contact .big',{x:-120,opacity:.3,ease:'none',scrollTrigger:{trigger:'.contact',start:'top bottom',end:'top 25%',scrub:true}});
     addEventListener('load',()=>ScrollTrigger.refresh());
@@ -947,7 +977,7 @@
       const size=()=>{const w=host.clientWidth,h=host.clientHeight;renderer.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix();};
       size();addEventListener('resize',size);
       let vis=true,rx=0,ry=0,t0=performance.now(),scrollK=0;
-      const I=window.NGORA_INTRO||{play:false};const iDur=I.play?(I.fast?.8:(innerWidth<=900?2.6:3.8)):0;const easeIO=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+      const I=window.NGORA_INTRO||{play:false};const iDur=I.play?(I.fast?.8:(innerWidth<=900?4.6:6)):0;const easeIO=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
       new IntersectionObserver(e=>{vis=e[0].isIntersecting;},{threshold:0}).observe(host);
       addEventListener('scroll',()=>{const r=host.getBoundingClientRect();scrollK=(r.top+r.height/2)/innerHeight-.5;},{passive:true});
       const draw=t=>{
