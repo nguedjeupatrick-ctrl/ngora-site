@@ -42,6 +42,17 @@ vignettes, branding et sites web pour les marques. Tout le site tient dans `inde
   clic-menu, showroom-fleche, showroom-marque, showroom-onglet, voir-plus-projets, service-ouvert, video-lue, temps-sur-page.
 - Test local : `window.ngEvents` liste les événements même sans identifiant.
 
+## Revue de novembre 2026 (déjà appliqué)
+- Mobile : barre du haut 72 px (CTA masqué < 360 px), bouton audit au-dessus du showreel, badge masqué sur le contact,
+  glisser du showroom seulement horizontal, pictogramme Play sur tactile, safe-area iPhone, logo 3D limité au 1er écran.
+- Robustesse : intro calée sur le temps réel (NG_T0 / NG_LATE, jamais de clignotement si le CDN est lent), vidéos en pause hors
+  écran (showreel, démo, showroom, services), verrou de défilement `html.ng-lock` (menu, lightbox), ancres `scroll-margin-top`
+  + ouverture de la bonne marque / du bloc « Voir plus », flèches clavier sur les onglets, focus hors des cartes invisibles.
+- SEO : title long, canonical, OG/Twitter absolus (assets/og.jpg = capture du nouveau haut de page), icônes carrées, JSON-LD
+  ProfessionalService (adresse Presles), page `mentions-legales.html` liée en pied de page.
+- Reste à faire si besoin : supprimer le CSS mort (anciennes sections .marquee/.works/.motion/.fmt, ~4 Ko), témoignages
+  clients (bloc à prévoir quand il y aura de vrais avis), identifiant Umami à renseigner.
+
 ## Façon de travailler (plusieurs PC)
 - GitHub (`nguedjeupatrick-ctrl/ngora-site`) est la version de référence.
 - Début de séance : récupérer la dernière version (`git pull`).
