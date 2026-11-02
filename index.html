@@ -728,7 +728,7 @@
   </div>
 </section>
 
-<section class="method wrap">
+<section class="method wrap" id="methode">
   <div class="kick">La méthode</div>
   <h2 class="h2 rv" style="margin-top:18px">De l'audit<br><span class="it">aux résultats.</span></h2>
   <ol class="steps5">
@@ -740,7 +740,7 @@
   </ol>
 </section>
 
-<section class="faq wrap">
+<section class="faq wrap" id="faq">
   <div class="faq-grid">
     <div><div class="kick">Questions fréquentes</div><h2 class="h2" style="margin-top:18px">Avant de <span class="it">se lancer.</span></h2></div>
     <div>
@@ -1070,6 +1070,53 @@
       requestAnimationFrame(loop);};
     loop();
   } else cv.remove();
+})();
+</script>
+<script>
+/* ---------- statistiques de visite (Umami : sans cookie, conforme RGPD) ----------
+   Renseigner l'identifiant du site Umami ci-dessous (Settings → Websites → Website ID).
+   Tant qu'il est vide, rien n'est envoyé ; les événements restent visibles dans window.ngEvents pour tester. */
+(()=>{
+  const UMAMI_ID='';
+  const q=[];window.ngEvents=[];
+  const send=(name,data)=>{window.ngEvents.push({name,data,t:Date.now()});if(window.ngEvents.length>300)window.ngEvents.shift();
+    if(!UMAMI_ID)return;if(window.umami&&umami.track)umami.track(name,data);else q.push([name,data]);};
+  window.ngTrack=send;
+  if(UMAMI_ID){const sc=document.createElement('script');sc.defer=true;sc.src='https://cloud.umami.is/script.js';sc.dataset.websiteId=UMAMI_ID;
+    sc.onload=()=>{const fl=()=>{if(window.umami&&umami.track){q.splice(0).forEach(([n,d])=>umami.track(n,d));}else setTimeout(fl,300);};fl();};document.head.appendChild(sc);}
+  const where=el=>{const sec=el.closest('section[id],header,footer');return sec?(sec.id||sec.tagName.toLowerCase()):'page';};
+  const label=el=>(el.getAttribute('aria-label')||el.textContent||'').replace(/\s+/g,' ').trim().slice(0,40);
+  // clics : WhatsApp / audit, liens externes, e-mail, boutons
+  document.addEventListener('click',e=>{
+    const a=e.target.closest('a,button');if(!a)return;
+    if(a.hasAttribute('data-wa')){send('clic-whatsapp',{endroit:where(a),bouton:label(a)});return;}
+    const h=a.getAttribute('href')||'';
+    if(/^https?:/.test(h)){send('clic-lien-externe',{site:new URL(h).hostname,endroit:where(a)});return;}
+    if(h.startsWith('mailto:')){send('clic-email',{endroit:where(a)});return;}
+    if(a.id==='copyMail'){send('copie-email',{});return;}
+    if(h.startsWith('#')&&a.closest('.nav,.m-menu')){send('clic-menu',{vers:h.slice(1)});return;}
+    if(a.id==='swNext'||a.id==='swPrev'){send('showroom-fleche',{sens:a.id==='swNext'?'suivant':'precedent'});return;}
+    if(a.classList.contains('rp-tab')){const w=a.closest('.sw-work');send('showroom-onglet',{marque:(w&&w.id||'').replace('cas-',''),onglet:label(a)});return;}
+    if(a.id==='moreCasesBtn'){send('voir-plus-projets',{});return;}
+    if(a.id==='menuBtn'){send('menu-mobile',{});return;}
+  },{capture:true});
+  // sections vues (une fois par visite) et profondeur de défilement
+  const seen=new Set();
+  const io=new IntersectionObserver(es=>es.forEach(en=>{const id=en.target.id;if(en.isIntersecting&&!seen.has(id)){seen.add(id);send('section-vue',{section:id});}}),{threshold:.35});
+  document.querySelectorAll('section[id]').forEach(s=>io.observe(s));
+  const marks=[25,50,75,100],hit=new Set();
+  addEventListener('scroll',()=>{const h=document.documentElement,pc=Math.round((scrollY+innerHeight)/h.scrollHeight*100);marks.forEach(m=>{if(pc>=m&&!hit.has(m)){hit.add(m);send('defilement',{pourcentage:m});}});},{passive:true});
+  // vidéos regardées (une fois chacune), services ouverts, marque affichée dans le showroom
+  const vids=new Set();
+  document.addEventListener('play',e=>{const v=e.target;if(!(v instanceof HTMLVideoElement)||v.id==='heroVid')return;const f=(v.currentSrc||v.src||'').split('/').pop();if(f&&!vids.has(f)){vids.add(f);send('video-lue',{video:f,endroit:where(v)});}},true);
+  const svSeen=new Set(),obs=new MutationObserver(ms=>ms.forEach(m=>{const el=m.target;if(!el.classList.contains('on'))return;
+    if(el.classList.contains('sv-row')){const t=label(el.querySelector('h3'));if(!svSeen.has(t)){svSeen.add(t);send('service-ouvert',{service:t});}}
+    if(el.classList.contains('sw-name')){send('showroom-marque',{marque:label(el.querySelector('h3'))});}}));
+  document.querySelectorAll('.sv-row,.sw-name').forEach(el=>obs.observe(el,{attributes:true,attributeFilter:['class']}));
+  // temps passé sur la page (envoyé en quittant)
+  const t0=Date.now();let sent=false;
+  const bye=()=>{if(sent)return;sent=true;const s=Math.round((Date.now()-t0)/1000);send('temps-sur-page',{secondes:s,tranche:s<15?'<15s':s<60?'15-60s':s<180?'1-3min':'>3min'});};
+  addEventListener('pagehide',bye);document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')bye();});
 })();
 </script>
 </body>

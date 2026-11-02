@@ -36,6 +36,12 @@ vignettes, branding et sites web pour les marques. Tout le site tient dans `inde
 - Site public : https://nguedjeupatrick-ctrl.github.io/ngora-site/ (GitHub Pages, branche `main`, dossier racine).
 - Tout ce qui est poussé sur `main` est en ligne 1 à 2 minutes plus tard.
 
+## Statistiques de visite
+- Umami (cloud.umami.is, sans cookie) : constante `UMAMI_ID` dans le dernier `<script>` d'`index.html` (vide = rien n'est envoyé).
+- Événements : section-vue, defilement (25/50/75/100), clic-whatsapp (endroit, bouton), clic-lien-externe, clic-email, copie-email,
+  clic-menu, showroom-fleche, showroom-marque, showroom-onglet, voir-plus-projets, service-ouvert, video-lue, temps-sur-page.
+- Test local : `window.ngEvents` liste les événements même sans identifiant.
+
 ## Façon de travailler (plusieurs PC)
 - GitHub (`nguedjeupatrick-ctrl/ngora-site`) est la version de référence.
 - Début de séance : récupérer la dernière version (`git pull`).
