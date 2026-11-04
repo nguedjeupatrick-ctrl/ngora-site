@@ -50,6 +50,8 @@ vignettes, branding et sites web pour les marques. Tout le site tient dans `inde
   + ouverture de la bonne marque / du bloc « Voir plus », flèches clavier sur les onglets, focus hors des cartes invisibles.
 - SEO : title long, canonical, OG/Twitter absolus (assets/og.jpg = capture du nouveau haut de page), icônes carrées, JSON-LD
   ProfessionalService (adresse Presles), page `mentions-legales.html` liée en pied de page.
+- Safari/perf (nov. 2026) : -webkit-backdrop-filter, html overflow-x:clip (iPhone), images en lazy + decoding async,
+  logos PNG compressés (~1,1 Mo → 200 Ko), vidéos en faststart (index en début de fichier, à garder pour toute nouvelle vidéo).
 - Reste à faire si besoin : supprimer le CSS mort (anciennes sections .marquee/.works/.motion/.fmt, ~4 Ko), témoignages
   clients (bloc à prévoir quand il y aura de vrais avis), identifiant Umami à renseigner.
 
