@@ -19,11 +19,15 @@ vignettes, branding et sites web pour les marques. Tout le site tient dans `inde
 ## Identité visuelle (DA « Studio éditorial »)
 - Papier `#EFEDE8` (fond), Encre `#111111` (texte), Cobalt `#2F3BFF` (accent unique), Pierre `#8B8A86` (texte discret).
 - Polices : Inter Tight 800 (titres serrés, très gras) + Instrument Serif italique (mots clés, chiffres).
-- Accroche : « Une image qui fait la différence. » (présence en ligne qui attire et qui convertit)
+- Titre du haut de page : « Créez votre présence digitale pour moins cher. » Rayan, community manager indépendant à Presles.
+- Positionnement : plus de clients grâce à toute la présence digitale, en 3 étapes (être trouvé, être choisi, être suivi).
 - Mission : aider les marques et les personnes qui ont un bon produit mais une image qui ne vend pas,
   sur tous les canaux (Instagram, TikTok, YouTube Shorts, LinkedIn, Facebook, site web), moins cher qu'une agence.
 - Haut de page sombre (bulles) : intro = logo chrome 3D qui grossit puis se pose, accroche courte, showreel 3 vidéos, chiffres.
-- Ordre : haut de page → Réalisations (showroom) → Ce que je fais → Sites web → Tarifs → Méthode → FAQ → Contact.
+- Ordre : haut de page → « Plus de clients grâce à Internet » (#pourquoi, 3 étapes, 7 briques, pourquoi moi) → Réalisations (showroom) → Ce que je fais → Sites web → Tarifs → Méthode → FAQ → Contact.
+- Onglets : Tutoria = Contenu, Feed, Motion, Vignettes. Continent Store = Résultats, Feed, Contenu (cartes façon TikTok, vues par maillot), Site web, Motion.
+- Services : Gestion des réseaux, DA & rebranding, Montage pro, Motion design, Vignettes & stories, Sites web, Google & IA.
+- Tarifs sans engagement, tableau coche / croix : Visible 299 € (2 réseaux, 4 publications), Actif 499 € (4 réseaux, 12 publications, 8 vidéos), Complet 699 € (tous les réseaux, 20 publications, 16 vidéos, 2 articles, site d'une page). Pas d'URSSAF ni de factures sur le site.
 - Signatures : badge rond « Audit gratuit », curseur qui devient « Play »,
   logo Ngora en chrome 3D qui suit la souris, titres liquides au survol, traînée bleue du curseur.
 - Réalisations « showroom » (inspiré de munrooftoprome.com) : carte vidéo au centre d'un arc, voisines floues, flèches,
