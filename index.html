@@ -577,6 +577,32 @@
   .rv{opacity:0;transform:translateY(40px)}
   .no-js .rv,.reduce .rv{opacity:1;transform:none}
   @media (prefers-reduced-motion:reduce){.marquee-t,.badge svg{animation:none}}
+
+  /* Présence digitale */
+  .pd-steps{list-style:none;margin-top:clamp(40px,5vw,70px);display:grid;gap:clamp(36px,5vw,64px)}
+  .pd-steps>li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:clamp(20px,4vw,60px);border-top:2px solid var(--ink);padding-top:22px}
+  .pd-h .pn{font-family:var(--serif);font-weight:400;font-size:3rem;line-height:1;color:var(--cobalt)}
+  .pd-h h3{font-weight:800;font-size:clamp(1.8rem,3.4vw,2.8rem);letter-spacing:-.04em;line-height:1;margin:10px 0}
+  .pd-h p{color:var(--ink-2)}
+  .pd-bricks{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 28px}
+  .pd-bricks li{border-top:1px solid var(--line);padding-top:14px}
+  .pd-bricks h4{font-weight:800;font-size:1.25rem;letter-spacing:-.02em;margin-bottom:6px}
+  .pd-bricks p{font-size:.95rem;color:var(--ink-2);margin-top:4px}
+  .pd-bricks p b{color:var(--ink);font-weight:600}
+  .pd-why{margin-top:clamp(60px,8vw,110px)}
+  .pd-market{margin-top:34px;border-collapse:collapse;width:min(100%,560px);font-size:.98rem}
+  .pd-market caption{text-align:left;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);padding-bottom:10px}
+  .pd-market th,.pd-market td{border-top:1px solid var(--line);padding:10px 0;text-align:left;font-weight:400}
+  .pd-market td{text-align:right;font-family:var(--serif);font-size:1.2rem}
+  .p-sub{margin-top:50px;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-2);font-weight:600}
+  .p-sub+.plans{margin-top:16px}
+  .plans.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .plans.four{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .plans.four .plan{padding:34px 22px}.plans.four .plan:first-child{padding-left:0}
+  @media (min-width:901px){.plans.two .plan+.plan{padding-left:30px}}
+  .plans.four .plan h3{font-size:1.8rem}.plans.four .plan .price{font-size:3rem}
+  @media (max-width:1100px){.plans.four{grid-template-columns:repeat(2,minmax(0,1fr))}.plans.four .plan:nth-child(2){border-right:none}}
+  @media (max-width:900px){.pd-steps>li{grid-template-columns:1fr}.pd-bricks{grid-template-columns:1fr}.plans.two,.plans.four{grid-template-columns:1fr}.plans.four .plan{padding:30px 0}}
 </style>
 </head>
 <body class="no-js">
@@ -644,19 +670,53 @@
 
 
 
-<section class="promise" id="pourquoi" aria-label="Pour qui">
+<section class="promise pd" id="pourquoi" aria-label="Plus de clients grâce à Internet">
   <div class="wrap">
     <div class="promise-head">
-      <div class="kick">Pour qui ?</div>
-      <h2 class="h2 rv" style="margin-top:14px">Un bon produit,<br><span class="it">des réseaux qui font amateur ?</span></h2>
-      <p class="lead rv">Vous existez à peine en ligne, vos posts manquent de cohérence ou vos vidéos ne ressemblent pas à votre niveau de qualité. Je transforme vos réseaux en vitrine pro, sans budget d'agence.</p>
+      <div class="kick">Présence digitale · Presles et alentours</div>
+      <h2 class="h2 rv" style="margin-top:14px">Plus de clients grâce à Internet,<br><span class="it">pas seulement les réseaux.</span></h2>
+      <p class="lead rv">Je ne vends pas « des petites vidéos ». J'aide les commerces et les indépendants du coin à avoir plus de clients sérieux, grâce à toute leur présence en ligne : Google, avis, site, référencement, IA et vidéos. En 3 étapes.</p>
     </div>
-    <ul class="promise-list">
-      <li><b class="pn">01</b><h3>Le moins cher</h3><p>Des prix qui défient toute concurrence : la qualité d'un studio, sans les frais d'une agence.</p></li>
-      <li><b class="pn">02</b><h3>Le plus rapide</h3><p>Livraison en 24 h maximum. Vous publiez pendant que le sujet est encore chaud.</p></li>
-      <li><b class="pn">03</b><h3>Un rendu pro</h3><p>Montage, motion design et DA au niveau des grandes marques, pour enfin être pris au sérieux.</p></li>
-      <li><b class="pn">04</b><h3>Tout au même endroit</h3><p>Instagram, TikTok, YouTube Shorts, LinkedIn, Facebook et site web : un seul interlocuteur.</p></li>
-    </ul>
+    <ol class="pd-steps">
+      <li>
+        <div class="pd-h"><b class="pn">01</b><h3>Être trouvé</h3><p>Quand quelqu'un cherche votre métier près de chez lui, c'est vous qu'il voit.</p></div>
+        <ul class="pd-bricks">
+          <li><h4>Fiche Google</h4><p><b>Ce que je fais :</b> je crée ou je complète votre fiche Google (Maps), avec photos, horaires, services et publications.</p><p><b>Pourquoi :</b> c'est le premier endroit où vos clients vous cherchent, avant même votre site.</p></li>
+          <li><h4>Annuaires</h4><p><b>Ce que je fais :</b> je vous inscris sur les annuaires utiles (Pages Jaunes, Apple Plans, Bing, annuaires de votre métier) avec les mêmes informations partout.</p><p><b>Pourquoi :</b> Google fait davantage confiance aux commerces cités de façon cohérente.</p></li>
+          <li><h4>Site simple</h4><p><b>Ce que je fais :</b> un site clair et rapide sur téléphone, avec vos services, vos prix et un bouton pour vous appeler.</p><p><b>Pourquoi :</b> il rassure ceux qui hésitent, et il vous fait apparaître sur plus de recherches.</p></li>
+          <li><h4>Articles SEO</h4><p><b>Ce que je fais :</b> des articles qui répondent aux questions de vos clients, avec votre métier et votre ville.</p><p><b>Pourquoi :</b> chaque article est une porte d'entrée de plus depuis Google, qui travaille pour vous chaque mois.</p></li>
+          <li><h4>Référencement IA</h4><p><b>Ce que je fais :</b> je rends vos informations claires et cohérentes partout, pour que ChatGPT, Gemini et le résumé IA de Google puissent vous citer.</p><p><b>Pourquoi :</b> de plus en plus de gens demandent directement à une IA « un bon coiffeur près de L'Isle-Adam ».</p></li>
+        </ul>
+      </li>
+      <li>
+        <div class="pd-h"><b class="pn">02</b><h3>Être choisi</h3><p>Entre vous et le concurrent d'à côté, le client choisit celui qui inspire confiance.</p></div>
+        <ul class="pd-bricks">
+          <li><h4>Avis Google</h4><p><b>Ce que je fais :</b> un système simple pour demander des avis à vos clients contents, et des réponses soignées à chaque avis.</p><p><b>Pourquoi :</b> la note et le nombre d'avis décident souvent du choix, avant même le prix.</p></li>
+          <li><h4>Image pro</h4><p><b>Ce que je fais :</b> charte graphique, logo, stories à la une et profils cohérents sur tous vos comptes.</p><p><b>Pourquoi :</b> une image soignée fait passer un bon produit pour ce qu'il est vraiment : sérieux.</p></li>
+        </ul>
+      </li>
+      <li>
+        <div class="pd-h"><b class="pn">03</b><h3>Être suivi</h3><p>Ceux qui vous découvrent reviennent, et parlent de vous.</p></div>
+        <ul class="pd-bricks">
+          <li><h4>Vidéos et posts réguliers</h4><p><b>Ce que je fais :</b> reels, TikTok et Shorts montés comme au cinéma, et des publications régulières sans que vous y passiez vos soirées.</p><p><b>Pourquoi :</b> la vidéo fait connaître votre commerce bien au-delà de vos clients actuels, et les fait revenir.</p></li>
+        </ul>
+      </li>
+    </ol>
+    <div class="pd-why">
+      <div class="kick">Pourquoi moi</div>
+      <ul class="promise-list">
+        <li><b class="pn">A</b><h3>Je suis dans le coin</h3><p>J'habite à Presles. Je me déplace à L'Isle-Adam, Montsoult, Parmain, Beaumont-sur-Oise et Persan, et je réponds vite.</p></li>
+        <li><b class="pn">B</b><h3>Un seul interlocuteur</h3><p>Google, site, avis, réseaux et vidéos : une seule personne s'occupe de tout, sans intermédiaire.</p></li>
+        <li><b class="pn">C</b><h3>Moins cher qu'une agence</h3><p>Je travaille seul et l'IA accélère mon travail. Vous payez le résultat, pas les frais de structure.</p></li>
+        <li><b class="pn">D</b><h3>Un travail déjà prouvé</h3><p>Le Continent Store, 1001 Parfums, Martine-Aimée : des marques qui me font confiance pour leur image.</p></li>
+      </ul>
+      <table class="pd-market">
+        <caption>Ordres de grandeur du marché, pour comparer</caption>
+        <tr><th scope="row">Agence réseaux sociaux</th><td>500 à 1 500 € / mois</td></tr>
+        <tr><th scope="row">Référencement Google</th><td>300 à 1 000 € / mois</td></tr>
+        <tr><th scope="row">Site vitrine</th><td>1 500 à 5 000 €</td></tr>
+      </table>
+    </div>
   </div>
 </section>
 
@@ -783,10 +843,17 @@
   <div class="wrap">
     <div class="kick">Tarifs</div>
     <h2 class="h2 rv" style="margin-top:18px">La qualité d'un studio,<br><span class="it">le prix d'un indépendant.</span></h2>
-    <div class="plans">
-      <div class="plan"><span class="tag">Formule I</span><h3>Présence</h3><p class="for">Du contenu pro et régulier pour exister sur vos réseaux.</p><div class="price">290€<small> /mois</small></div><a class="btn line" href="#contact" data-wa>En parler</a></div>
-      <div class="plan hot"><span class="tag">Formule II · La plus choisie</span><h3>Croissance</h3><p class="for">Je gère vos réseaux de A à Z. Vous gérez votre métier.</p><div class="price">590€<small> /mois</small></div><a class="btn" href="#contact" data-wa>En parler</a></div>
-      <div class="plan"><span class="tag">Formule III</span><h3>Signature</h3><p class="for">Tout votre marketing : contenu, publicité, branding et site.</p><div class="price"><small>dès </small>1 290€<small> /mois</small></div><a class="btn line" href="#contact" data-wa>Demander un devis</a></div>
+    <h3 class="p-sub">Pour commencer</h3>
+    <div class="plans two">
+      <div class="plan"><span class="tag">Être trouvé</span><h3>Pack Google &amp; IA</h3><p class="for">Fiche Google complète, annuaires, informations prêtes pour ChatGPT et Gemini, puis suivi et publications chaque mois.</p><div class="price">290€<small> une fois, puis 49 € /mois</small></div><a class="btn line" href="#contact" data-wa>En parler</a></div>
+      <div class="plan"><span class="tag">Sans engagement</span><h3>Mois test vidéo</h3><p class="for">Un mois de vidéos montées pour vos réseaux, pour voir la différence avant de vous engager.</p><div class="price">290€<small> le mois</small></div><a class="btn line" href="#contact" data-wa>En parler</a></div>
+    </div>
+    <h3 class="p-sub">Les formules mensuelles</h3>
+    <div class="plans four">
+      <div class="plan"><span class="tag">Formule I</span><h3>Essentiel</h3><p class="for">Du contenu pro et régulier pour exister sur vos réseaux.</p><div class="price">350€<small> /mois</small></div><a class="btn line" href="#contact" data-wa>En parler</a></div>
+      <div class="plan"><span class="tag">Formule II</span><h3>Croissance</h3><p class="for">Je gère vos réseaux de A à Z. Vous gérez votre métier.</p><div class="price">650€<small> /mois</small></div><a class="btn line" href="#contact" data-wa>En parler</a></div>
+      <div class="plan hot"><span class="tag">Formule III · Le plus complet</span><h3>Présence digitale</h3><p class="for">Tout pour avoir plus de clients : Google, avis, site, articles, IA, vidéos et réseaux.</p><div class="price">790€<small> /mois</small></div><a class="btn" href="#contact" data-wa>En parler</a></div>
+      <div class="plan"><span class="tag">Formule IV</span><h3>Premium</h3><p class="for">Plus de tournages, plus de vidéos et une présence renforcée sur tous vos canaux.</p><div class="price">1 100€<small> /mois</small></div><a class="btn line" href="#contact" data-wa>Demander un devis</a></div>
     </div>
     <p class="p-note">Engagement de 3 mois conseillé pour voir des résultats. Le détail de chaque formule se fait ensemble, selon vos objectifs.</p>
   </div>
@@ -830,7 +897,7 @@
     <a class="btn" href="mailto:nguedjeupatrick@gmail.com?subject=Audit%20gratuit%20-%20Ngora%20Studio" data-wa id="ctMain">Demander mon audit gratuit</a>
     <div class="about">
       <img src="assets/logo-mark.png" alt="" loading="lazy" decoding="async">
-      <p><b>Derrière Ngora Studio, il y a Rayan.</b> Créateur de contenu, monteur et développeur web en Île-de-France. Je tourne, je monte, je dessine et je code moi-même chaque projet : un seul interlocuteur, du premier appel à la mise en ligne.</p>
+      <p><b>Derrière Ngora Studio, il y a Rayan</b>, community manager indépendant à Presles. Créateur de contenu, monteur et développeur web, je travaille pour les commerces du Val-d'Oise et d'Île-de-France. Je tourne, je monte, je dessine et je code moi-même chaque projet : un seul interlocuteur, du premier appel à la mise en ligne.</p>
     </div>
     <footer><span>© 2026 Ngora Studio · Rayan Nguedjeu · Île-de-France</span><span>Montage · Motion · DA · Sites web</span><a href="mentions-legales.html">Mentions légales &amp; confidentialité</a></footer>
   </div>
