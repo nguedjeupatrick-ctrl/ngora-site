@@ -10,14 +10,14 @@
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="Ngora Studio">
 <meta property="og:url" content="https://nguedjeupatrick-ctrl.github.io/ngora-site/">
-<meta property="og:title" content="Ngora Studio · Une présence digitale au moindre coût.">
+<meta property="og:title" content="Ngora Studio · Créez votre présence digitale pour moins cher.">
 <meta property="og:description" content="Montage vidéo pro, motion design, DA et sites web, livrés en 24 h max, pour le moins cher. 5M+ vues générées pour mes clients en Île-de-France.">
 <meta property="og:image" content="https://nguedjeupatrick-ctrl.github.io/ngora-site/assets/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Ngora Studio : une présence digitale au moindre coût. Montage, motion design, DA et sites web.">
+<meta property="og:image:alt" content="Ngora Studio : créez votre présence digitale pour moins cher. Montage, motion design, DA et sites web.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Ngora Studio · Une présence digitale au moindre coût.">
+<meta name="twitter:title" content="Ngora Studio · Créez votre présence digitale pour moins cher.">
 <meta name="twitter:description" content="Montage vidéo pro, motion design, DA et sites web, livrés en 24 h max, pour le moins cher.">
 <meta name="twitter:image" content="https://nguedjeupatrick-ctrl.github.io/ngora-site/assets/og.jpg">
 <meta name="theme-color" content="#EFEDE8">
@@ -620,6 +620,14 @@
   .tile.tk.playing::after{opacity:1}
   .tile.tk:hover .tk-play,.tile.tk.playing .tk-play{opacity:0;transform:scale(.6)}
   @media (hover:none){.tile.tk[data-cursor="Play"]::after{content:"";width:auto;height:auto;border-radius:0;transform:none;left:0;top:0;margin:0}}
+  /* tarifs : comparaison coche / croix */
+  .plan ul.cmp li{position:relative;padding-left:30px}
+  .plan ul.cmp li::before{position:absolute;left:0;top:9px;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:800;line-height:1}
+  .plan ul.cmp li.ok::before{content:"✓";background:var(--cobalt);color:var(--paper)}
+  .plan ul.cmp li.no{color:var(--stone)}
+  .plan ul.cmp li.no::before{content:"✕";box-shadow:inset 0 0 0 1px var(--stone);color:var(--stone)}
+  .plan ul.cmp b{font-weight:800}
+  .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
 </style>
 </head>
 <body class="no-js">
@@ -662,7 +670,7 @@
   <div class="hero-in wrap">
     <div class="hero-txt">
       <div class="kick hx">Studio de contenu · Île-de-France</div>
-      <h1 class="hx">Une présence digitale<br><span class="it">au moindre coût.</span></h1>
+      <h1 class="hx">Créez votre présence digitale<br><span class="it">pour moins cher.</span></h1>
       <p class="lead hx">Je crée ou j'améliore votre présence sur Internet et sur les réseaux, pour vous amener de nouveaux clients et renforcer votre crédibilité. Un seul interlocuteur, à prix juste.</p>
       <div class="hero-ctas hx"><a href="#contact" class="btn" data-wa>Demander un audit gratuit</a><a href="#travaux" class="ulink">Voir les réalisations</a></div>
       <div class="hero-stats hx">
@@ -861,9 +869,9 @@
     <div class="kick">Tarifs</div>
     <h2 class="h2 rv" style="margin-top:18px">La qualité d'un studio,<br><span class="it">le prix d'un indépendant.</span></h2>
     <div class="plans">
-      <div class="plan"><span class="tag">Formule I</span><h3>Visible</h3><p class="for">Des réseaux tenus à jour, et on vous trouve sur Google.</p><div class="price">299€<small> /mois</small></div><ul><li><b>Gestion de 2 réseaux</b> au choix (Instagram, TikTok, Facebook…)</li><li>4 publications par mois : posts, carrousels et stories, avec vos photos</li><li>Idées de contenu, textes et hashtags rédigés pour vous</li><li>Création des visuels à vos couleurs</li><li>Programmation et publication aux bonnes heures</li><li>Fiche Google, annuaires et IA : on vous trouve sur Google, sur Maps et quand on demande à une IA</li><li>Réponse à chaque avis Google et QR code « laissez un avis »</li></ul><a class="btn line" href="#contact" data-wa>En parler</a></div>
-      <div class="plan hot"><span class="tag">Formule II · Recommandée</span><h3>Actif</h3><p class="for">On vous trouve, on vous choisit, on vous suit.</p><div class="price">499€<small> /mois</small></div><ul><li><b>Gestion de 4 réseaux</b> (Instagram, TikTok, Facebook, YouTube Shorts)</li><li>12 publications par mois : posts, carrousels et stories</li><li>1 tournage sur place et 8 vidéos montées par mois (reels, TikTok, Shorts), avec sous-titres et habillage</li><li>Idées, scripts et textes rédigés pour vous</li><li>Création design et motion design</li><li>DA &amp; rebranding : couleurs, feed, stories à la une, couvertures</li><li>Publication, réponses aux commentaires et aux messages</li><li>Fiche Google, annuaires et IA : on vous trouve sur Google, sur Maps et quand on demande à une IA</li><li>Réponse à chaque avis Google et QR code « laissez un avis »</li><li>Un point sur vos chiffres chaque mois</li></ul><a class="btn" href="#contact" data-wa>En parler</a></div>
-      <div class="plan"><span class="tag">Formule III</span><h3>Complet</h3><p class="for">Je gère toute votre présence en ligne, site compris.</p><div class="price">699€<small> /mois</small></div><ul><li><b>Gestion de tous vos réseaux</b> (Instagram, TikTok, YouTube Shorts, Facebook, LinkedIn)</li><li>20 publications par mois : posts, carrousels et stories</li><li>Tournage sur place et 16 vidéos montées par mois, avec sous-titres et habillage</li><li>Idées, scripts et textes rédigés pour vous</li><li>Création design et motion design</li><li>DA &amp; rebranding complet : couleurs, feed, stories à la une, couvertures</li><li>Publication, réponses aux commentaires et aux messages</li><li>Fiche Google, annuaires et IA : on vous trouve sur Google, sur Maps et quand on demande à une IA</li><li>Réponse à chaque avis Google et QR code « laissez un avis »</li><li>2 articles par mois pour sortir sur Google</li><li>Un site simple d'une page, pensé pour le téléphone</li><li>Un point sur vos chiffres chaque mois</li></ul><a class="btn line" href="#contact" data-wa>En parler</a></div>
+      <div class="plan"><span class="tag">Formule I</span><h3>Visible</h3><p class="for">Des réseaux tenus à jour, et on vous trouve sur Google.</p><div class="price">299€<small> /mois</small></div><ul class="cmp"><li class="ok"><b>2 réseaux</b> au choix (Instagram, TikTok, Facebook…)</li><li class="ok"><b>4 publications</b> par mois : posts, carrousels, stories</li><li class="ok">Idées, scripts et textes rédigés pour vous</li><li class="ok"><b>DA &amp; rebranding</b> : couleurs, feed, stories à la une, couvertures</li><li class="ok"><b>Fiche Google, annuaires et IA</b> : on vous trouve partout</li><li class="ok">Réponse à chaque avis Google et QR code « laissez un avis »</li><li class="no"><span class="sr">Non inclus : </span>Vidéos montées</li><li class="no"><span class="sr">Non inclus : </span>Motion design</li><li class="no"><span class="sr">Non inclus : </span>Réponses aux commentaires et aux messages</li><li class="no"><span class="sr">Non inclus : </span>Un point sur vos chiffres chaque mois</li><li class="no"><span class="sr">Non inclus : </span>Articles pour sortir sur Google</li><li class="no"><span class="sr">Non inclus : </span>Un site d'une page, pensé pour le téléphone</li></ul><a class="btn line" href="#contact" data-wa>En parler</a></div>
+      <div class="plan hot"><span class="tag">Formule II · Recommandée</span><h3>Actif</h3><p class="for">On vous trouve, on vous choisit, on vous suit.</p><div class="price">499€<small> /mois</small></div><ul class="cmp"><li class="ok"><b>4 réseaux</b> (Instagram, TikTok, Facebook, YouTube Shorts)</li><li class="ok"><b>12 publications</b> par mois : posts, carrousels, stories</li><li class="ok">Idées, scripts et textes rédigés pour vous</li><li class="ok"><b>DA &amp; rebranding</b> : couleurs, feed, stories à la une, couvertures</li><li class="ok"><b>Fiche Google, annuaires et IA</b> : on vous trouve partout</li><li class="ok">Réponse à chaque avis Google et QR code « laissez un avis »</li><li class="ok"><b>8 vidéos</b> montées par mois, 1 tournage sur place</li><li class="ok">Motion design</li><li class="ok">Réponses aux commentaires et aux messages</li><li class="ok">Un point sur vos chiffres chaque mois</li><li class="no"><span class="sr">Non inclus : </span>Articles pour sortir sur Google</li><li class="no"><span class="sr">Non inclus : </span>Un site d'une page, pensé pour le téléphone</li></ul><a class="btn" href="#contact" data-wa>En parler</a></div>
+      <div class="plan"><span class="tag">Formule III</span><h3>Complet</h3><p class="for">Je gère toute votre présence en ligne, site compris.</p><div class="price">699€<small> /mois</small></div><ul class="cmp"><li class="ok"><b>Tous vos réseaux</b>, LinkedIn compris</li><li class="ok"><b>20 publications</b> par mois : posts, carrousels, stories</li><li class="ok">Idées, scripts et textes rédigés pour vous</li><li class="ok"><b>DA &amp; rebranding</b> : couleurs, feed, stories à la une, couvertures</li><li class="ok"><b>Fiche Google, annuaires et IA</b> : on vous trouve partout</li><li class="ok">Réponse à chaque avis Google et QR code « laissez un avis »</li><li class="ok"><b>16 vidéos</b> montées par mois, tournage sur place</li><li class="ok">Motion design</li><li class="ok">Réponses aux commentaires et aux messages</li><li class="ok">Un point sur vos chiffres chaque mois</li><li class="ok"><b>2 articles</b> par mois pour sortir sur Google</li><li class="ok">Un site d'une page, pensé pour le téléphone</li></ul><a class="btn line" href="#contact" data-wa>En parler</a></div>
     </div>
     <p class="p-note">Sans engagement : vous arrêtez quand vous voulez. Comptez tout de même 3 mois pour voir de vrais résultats.</p>
   </div>
