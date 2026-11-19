@@ -628,6 +628,22 @@
   .plan ul.cmp li.no::before{content:"✕";box-shadow:inset 0 0 0 1px var(--stone);color:var(--stone)}
   .plan ul.cmp b{font-weight:800}
   .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+  /* présence digitale : moins de texte, glisser sur téléphone */
+  .pd-swipe{display:none}
+  .pd-bricks p{margin-top:2px}
+  @media (max-width:900px){
+    .pd-steps{gap:34px}
+    .pd-steps>li{gap:14px}
+    .pd-h .pn{font-size:2.2rem}.pd-h h3{margin:6px 0}
+    .pd-bricks,.pd-why .promise-list{display:flex;grid-template-columns:none;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin-inline:calc(var(--pad) * -1);padding:2px var(--pad) 6px;scroll-padding:0 var(--pad)}
+    .pd-bricks::-webkit-scrollbar,.pd-why .promise-list::-webkit-scrollbar{display:none}
+    .pd-bricks li,.pd-why .promise-list li{flex:0 0 76%;scroll-snap-align:start;border:1px solid var(--line);border-radius:18px;padding:16px;background:var(--paper)}
+    .pd-bricks li:only-child{flex-basis:100%}
+    .pd-why .promise-list li{border-top:1px solid var(--line)}
+    .pd-why .promise-list li:nth-child(-n+2){border-top-color:var(--line)}
+    .pd-why{margin-top:50px}
+    .pd-swipe{display:block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);margin-top:8px}
+  }
 </style>
 </head>
 <body class="no-js">
@@ -700,40 +716,40 @@
     <div class="promise-head">
       <div class="kick">Présence digitale · Presles et alentours</div>
       <h2 class="h2 rv" style="margin-top:14px">Plus de clients grâce à Internet,<br><span class="it">pas seulement les réseaux.</span></h2>
-      <p class="lead rv">Je ne vends pas « des petites vidéos ». J'aide les commerces et les indépendants du coin à avoir plus de clients sérieux, grâce à toute leur présence en ligne : Google, avis, site, référencement, IA et vidéos. En 3 étapes.</p>
+      <p class="lead rv">Pas juste « des petites vidéos » : toute votre présence en ligne, pour plus de clients sérieux. En 3 étapes.</p>
     </div>
     <ol class="pd-steps">
       <li>
-        <div class="pd-h"><b class="pn">01</b><h3>Être trouvé</h3><p>Quand quelqu'un cherche votre métier près de chez lui, c'est vous qu'il voit.</p></div>
+        <div class="pd-h"><b class="pn">01</b><h3>Être trouvé</h3><p>Quand quelqu'un cherche votre métier près de chez lui, c'est vous qu'il voit.</p><span class="pd-swipe" aria-hidden="true">Faites glisser →</span></div>
         <ul class="pd-bricks">
-          <li><h4>Fiche Google</h4><p><b>Ce que je fais :</b> je crée ou je complète votre fiche Google (Maps), avec photos, horaires, services et publications.</p><p><b>Pourquoi :</b> c'est le premier endroit où vos clients vous cherchent, avant même votre site.</p></li>
-          <li><h4>Annuaires</h4><p><b>Ce que je fais :</b> je vous inscris sur les annuaires utiles (Pages Jaunes, Apple Plans, Bing, annuaires de votre métier) avec les mêmes informations partout.</p><p><b>Pourquoi :</b> Google fait davantage confiance aux commerces cités de façon cohérente.</p></li>
-          <li><h4>Site simple</h4><p><b>Ce que je fais :</b> un site clair et rapide sur téléphone, avec vos services, vos prix et un bouton pour vous appeler.</p><p><b>Pourquoi :</b> il rassure ceux qui hésitent, et il vous fait apparaître sur plus de recherches.</p></li>
-          <li><h4>Articles SEO</h4><p><b>Ce que je fais :</b> des articles qui répondent aux questions de vos clients, avec votre métier et votre ville.</p><p><b>Pourquoi :</b> chaque article est une porte d'entrée de plus depuis Google, qui travaille pour vous chaque mois.</p></li>
-          <li><h4>Référencement IA</h4><p><b>Ce que je fais :</b> je rends vos informations claires et cohérentes partout, pour que ChatGPT, Gemini et le résumé IA de Google puissent vous citer.</p><p><b>Pourquoi :</b> de plus en plus de gens demandent directement à une IA « un bon coiffeur près de L'Isle-Adam ».</p></li>
+          <li><h4>Fiche Google</h4><p>Fiche complète sur Google et Maps : c'est là qu'on vous cherche en premier.</p></li>
+          <li><h4>Annuaires</h4><p>Les mêmes infos partout (Pages Jaunes, Apple Plans…) pour que Google vous fasse confiance.</p></li>
+          <li><h4>Site simple</h4><p>Un site clair et rapide sur téléphone, avec un bouton pour vous appeler.</p></li>
+          <li><h4>Articles SEO</h4><p>Des articles « métier + ville » qui vous amènent des visites chaque mois.</p></li>
+          <li><h4>Référencement IA</h4><p>Être cité quand on demande à ChatGPT ou Gemini « un bon coiffeur près de chez moi ».</p></li>
         </ul>
       </li>
       <li>
-        <div class="pd-h"><b class="pn">02</b><h3>Être choisi</h3><p>Entre vous et le concurrent d'à côté, le client choisit celui qui inspire confiance.</p></div>
+        <div class="pd-h"><b class="pn">02</b><h3>Être choisi</h3><p>Entre vous et le concurrent d'à côté, le client choisit celui qui inspire confiance.</p><span class="pd-swipe" aria-hidden="true">Faites glisser →</span></div>
         <ul class="pd-bricks">
-          <li><h4>Avis Google</h4><p><b>Ce que je fais :</b> un système simple pour demander des avis à vos clients contents, et des réponses soignées à chaque avis.</p><p><b>Pourquoi :</b> la note et le nombre d'avis décident souvent du choix, avant même le prix.</p></li>
-          <li><h4>Image pro</h4><p><b>Ce que je fais :</b> charte graphique, logo, stories à la une et profils cohérents sur tous vos comptes.</p><p><b>Pourquoi :</b> une image soignée fait passer un bon produit pour ce qu'il est vraiment : sérieux.</p></li>
+          <li><h4>Avis Google</h4><p>Plus d'avis, et une réponse à chacun : la note fait souvent le choix.</p></li>
+          <li><h4>Image pro</h4><p>Charte, logo, stories à la une : une image qui inspire confiance.</p></li>
         </ul>
       </li>
       <li>
         <div class="pd-h"><b class="pn">03</b><h3>Être suivi</h3><p>Ceux qui vous découvrent reviennent, et parlent de vous.</p></div>
         <ul class="pd-bricks">
-          <li><h4>Vidéos et posts réguliers</h4><p><b>Ce que je fais :</b> reels, TikTok et Shorts montés comme au cinéma, et des publications régulières sans que vous y passiez vos soirées.</p><p><b>Pourquoi :</b> la vidéo fait connaître votre commerce bien au-delà de vos clients actuels, et les fait revenir.</p></li>
+          <li><h4>Vidéos et posts réguliers</h4><p>Reels, TikTok et posts réguliers pour qu'on parle de vous et qu'on revienne.</p></li>
         </ul>
       </li>
     </ol>
     <div class="pd-why">
       <div class="kick">Pourquoi moi</div>
       <ul class="promise-list">
-        <li><b class="pn">A</b><h3>Je suis dans le coin</h3><p>J'habite à Presles. Je me déplace à L'Isle-Adam, Montsoult, Parmain, Beaumont-sur-Oise et Persan, et je réponds vite.</p></li>
-        <li><b class="pn">B</b><h3>Un seul interlocuteur</h3><p>Google, site, avis, réseaux et vidéos : une seule personne s'occupe de tout, sans intermédiaire.</p></li>
-        <li><b class="pn">C</b><h3>Moins cher qu'une agence</h3><p>Je travaille seul et l'IA accélère mon travail. Vous payez le résultat, pas les frais de structure.</p></li>
-        <li><b class="pn">D</b><h3>Un travail déjà prouvé</h3><p>Le Continent Store, 1001 Parfums, Martine-Aimée : des marques qui me font confiance pour leur image.</p></li>
+        <li><b class="pn">A</b><h3>Je suis dans le coin</h3><p>Basé à Presles, je me déplace dans tout le Val-d'Oise et je réponds vite.</p></li>
+        <li><b class="pn">B</b><h3>Un seul interlocuteur</h3><p>Google, site, avis, réseaux, vidéos : une seule personne pour tout.</p></li>
+        <li><b class="pn">C</b><h3>Moins cher qu'une agence</h3><p>Seul et aidé par l'IA : vous payez le résultat, pas une structure.</p></li>
+        <li><b class="pn">D</b><h3>Un travail déjà prouvé</h3><p>Le Continent Store, 1001 Parfums, Martine-Aimée me font confiance.</p></li>
       </ul>
       <table class="pd-market">
         <caption>Ordres de grandeur du marché, pour comparer</caption>
